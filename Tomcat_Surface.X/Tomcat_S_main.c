@@ -7,6 +7,8 @@ char recv_flag = 0;
 
 //functions
 void tx_chars(char tx_buff[],char num_byte);
+unsigned int read_an(char); //love, suzyrhouser
+
 //interupts
 
 void interrupt isr(void) {
@@ -64,4 +66,14 @@ void tx_chars(char tx_buff[], char num_bytes)
             WriteUSART(tx_buff[k]);
     }
 
+}
+
+unsigned int read_an(char channel)
+{
+    unsigned int num = 0;
+    ADCON0bits.CHS = channel; //calling channel
+    ADCON0bits.GO=1;
+    while(ADCON0bits.GO); //wait til done processing
+    num = ADRES; //value that you want
+    return(num); //here ya go
 }
