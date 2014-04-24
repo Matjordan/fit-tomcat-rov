@@ -1,6 +1,6 @@
 #include "Tomcat_S_driver.h"
 
-
+//variables
 char n = 0;
 char recv_buff = 0;
 char recv_flag = 0;
