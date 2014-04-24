@@ -125,13 +125,12 @@ void Tomcat_Camera(int pan,int tilt)
 
 }
 //analog read function for vehicle
-char analogRead(char channel)
+unsigned int analogRead(char channel)
 {
-    char num = 0;
+    unsigned int num = 0;
     ADCON0bits.CHS = channel; //calling channel
     ADCON0bits.GO=1;
     while(ADCON0bits.GO==1); //wait til done processing
     num = ADRES; //10bit value
-    _delay(100);
     return(num);
 }
