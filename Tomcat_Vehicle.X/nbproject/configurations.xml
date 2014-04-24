@@ -6,7 +6,7 @@
                    projectFiles="true">
       <itemPath>LSM9DS0.h</itemPath>
       <itemPath>I2C_mat.h</itemPath>
-      <itemPath>Tomcat_driver.h</itemPath>
+      <itemPath>Tomcat_V_driver.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -17,9 +17,9 @@
                    projectFiles="true">
       <itemPath>LSM9DS0.c</itemPath>
       <itemPath>I2C_mat.c</itemPath>
-      <itemPath>Tomcat_driver.c</itemPath>
       <itemPath>Tom_V_Main.c</itemPath>
       <itemPath>Tom_V_configs.c</itemPath>
+      <itemPath>Tomcat_V_driver.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
