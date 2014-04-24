@@ -6,13 +6,13 @@ void Tomcat_S_Setup()
 {
 
     ADCON0=0b00000001;
-    ADCON1=0b00001011;
-    ADCON2=0b10100101;
+    ADCON1 = 0b00000110;
+    ADCON2 = 0b00100011;
 
     T0CON= 0b10000111;
 
     INTCON=0b11100000;
-    PIE1 = 0b01100000;
+    PIE1 = 0b00110000;
     OSD_init();
     OSD_disp(1);
     OpenUSART(USART_TX_INT_OFF &
