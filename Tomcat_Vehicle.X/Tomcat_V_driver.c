@@ -79,7 +79,13 @@ int Tomcat_Roll()
 }
 int Tomcat_Depth()
 {
-    int pressure=0;
+    float tempPress;
+    int depth;
+    tempPress = analogRead(/*Pressure Pin*/);
+    tempPress = tempPress-(1024.0/5.0);//subtract reference 1 volt
+    tempPress = tempPress*500.0/820.0;//convert volts to psi
+    depth = (int)(tempPress*14.5/.0);//convert pressure to depth
+    return depth;//returns depth in feet
 }
 int Tomcat_Temp()
 {
@@ -117,4 +123,15 @@ void Tomcat_TX_error(char code)
 void Tomcat_Camera(int pan,int tilt)
 {
 
+}
+//analog read function for vehicle
+char analogRead(char channel)
+{
+    char num = 0;
+    ADCON0bits.CHS = channel; //calling channel
+    ADCON0bits.GO=1;
+    while(ADCON0bits.GO==1); //wait til done processing
+    num = ADRES; //10bit value
+    _delay(100);
+    return(num);
 }
