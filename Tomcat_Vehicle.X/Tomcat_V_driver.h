@@ -105,12 +105,14 @@ int Tomcat_Heading();
 int Tomcat_Pitch();
 int Tomcat_Roll();
 int Tomcat_Depth();
+int Tomcat_Press_Int();
 int Tomcat_Temp();
 int Tomcat_Temp_Ex();
 void Tomcat_TX_data(char tx_buff[], char num_bytes);
 void Tomcat_TX_warn(char code);
 void Tomcat_TX_error(char code);
 void Tomcat_Camera(int pan,int tilt);
+unsigned int analogRead(char channel);
 
 #endif	/* TOMCAT_DRIVER_H */
 
