@@ -81,7 +81,7 @@ int Tomcat_Depth()
 {
     float tempPress;
     int depth;
-    tempPress = analogRead(/*Pressure Pin*/);
+    tempPress = analogRead(PRESSURE_EXT);
     tempPress = tempPress-(1024.0/5.0);//subtract reference 1 volt
     tempPress = tempPress*500.0/820.0;//convert volts to psi
     depth = (int)(tempPress*14.5/.0);//convert pressure to depth
