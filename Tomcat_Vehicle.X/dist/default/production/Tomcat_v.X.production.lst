@@ -1,0 +1,3256 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.21 build 54009 
+                                                                                               Mon Apr 14 17:14:21 2014
+
+Microchip Technology Omniscient Code Generator (Lite mode) build 54009
+     1                           	processor	18F46K22
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	bitbssCOMRAM,global,bit,class=COMRAM,space=1,delta=1
+     8                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1
+     9                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+    10                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text11,global,reloc=2,class=CODE,delta=1
+    21                           	psect	text12,global,reloc=2,class=CODE,delta=1
+    22                           	psect	text13,global,reloc=2,class=CODE,delta=1
+    23                           	psect	text14,global,reloc=2,class=CODE,delta=1
+    24                           	psect	text15,global,reloc=2,class=CODE,delta=1
+    25                           	psect	text16,global,reloc=2,class=CODE,delta=1
+    26                           	psect	text17,global,reloc=2,class=CODE,delta=1
+    27                           	psect	text18,global,reloc=2,class=CODE,delta=1
+    28                           	psect	intcode,global,reloc=2,class=CODE,delta=1
+    29                           	psect	text20,global,reloc=2,class=CODE,delta=1
+    30                           	psect	text21,global,reloc=2,class=CODE,delta=1
+    31                           	psect	text22,global,reloc=2,class=CODE,delta=1
+    32                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    33                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    34  0000                     _TMR0	set	4054
+    35  0000                     _TMR1	set	4046
+    36  0000                     _ANSELC	set	3898
+    37  0000                     _CCP1CON	set	4029
+    38  0000                     _CCP2CON	set	3942
+    39  0000                     _CCP3CON	set	3933
+    40  0000                     _CCP4CON	set	3927
+    41  0000                     _CCPR1L	set	4030
+    42  0000                     _CCPR2L	set	3943
+    43  0000                     _CCPR3L	set	3934
+    44  0000                     _CCPR4L	set	3928
+    45  0000                     _CCPTMRS0	set	3913
+    46  0000                     _CCPTMRS1	set	3912
+    47  0000                     _INTCON3bits	set	4080
+    48  0000                     _INTCONbits	set	4082
+    49  0000                     _LATCbits	set	3979
+    50  0000                     _PIE1bits	set	3997
+    51  0000                     _PIR1bits	set	3998
+    52  0000                     _PIR2bits	set	4001
+    53  0000                     _PIR3bits	set	4004
+    54  0000                     _PR2	set	4027
+    55  0000                     _PR4	set	3922
+    56  0000                     _PR6	set	3915
+    57  0000                     _RCSTA1	set	4011
+    58  0000                     _RCSTA1bits	set	4011
+    59  0000                     _SPBRG1	set	4015
+    60  0000                     _SPBRGH1	set	4016
+    61  0000                     _SSP1ADD	set	4040
+    62  0000                     _SSP1BUF	set	4041
+    63  0000                     _SSP1CON1	set	4038
+    64  0000                     _SSP1CON1bits	set	4038
+    65  0000                     _SSP1CON2	set	4037
+    66  0000                     _SSP1CON2bits	set	4037
+    67  0000                     _SSP1STAT	set	4039
+    68  0000                     _SSP1STATbits	set	4039
+    69  0000                     _T2CONbits	set	4026
+    70  0000                     _T4CONbits	set	3921
+    71  0000                     _T6CONbits	set	3914
+    72  0000                     _TMR2	set	4028
+    73  0000                     _TRISBbits	set	3987
+    74  0000                     _TXREG1	set	4013
+    75  0000                     _TXSTA1	set	4012
+    76  0000                     _TXSTA1bits	set	4012
+    77                           
+    78 ;;
+    79 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+    80 ;;
+    81 ;; *************** function _main *****************
+    82 ;; Defined at:
+    83 ;;		line 53 in file "Tom_V_Main.c"
+    84 ;; Parameters:    Size  Location     Type
+    85 ;;		None
+    86 ;; Auto vars:     Size  Location     Type
+    87 ;;  buff           30    0        unsigned char [30]
+    88 ;;  hdg             2   34[COMRAM] int 
+    89 ;;  a               2   32[COMRAM] int 
+    90 ;; Return value:  Size  Location     Type
+    91 ;;		None               void
+    92 ;; Registers used:
+    93 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, bt
+      +emp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+    94 ;; Tracked objects:
+    95 ;;		On entry : 0/0
+    96 ;;		On exit  : 0/0
+    97 ;;		Unchanged: 0/0
+    98 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+    99 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   100 ;;      Locals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   101 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   102 ;;      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   103 ;;Total ram usage:        4 bytes
+   104 ;; Hardware stack levels required when called:    8
+   105 ;; This function calls:
+   106 ;;		_Tomcat_Setup
+   107 ;; This function is called by:
+   108 ;;		Startup code after reset
+   109 ;; This function uses a non-reentrant model
+   110 ;;
+   111                           
+   112                           	psect	text0
+   113  0006D6                     __ptext0:
+   114                           	opt stack 0
+   115                           
+   116                           ; #config settings
+   117  0006D6                     _main:
+   118                           	opt stack 23
+   119                           
+   120                           ;Tom_V_Main.c: 55: int a=0;
+   121                           
+   122                           ;incstack = 0
+   123                           ;incstack = 0
+   124  0006D6  0E00               	movlw	0
+   125  0006D8  6E22               	movwf	main@a+1,c
+   126  0006DA  0E00               	movlw	0
+   127  0006DC  6E21               	movwf	main@a,c
+   128                           
+   129                           ;Tom_V_Main.c: 56: char buff[30];
+   130                           ;Tom_V_Main.c: 57: int hdg = 0;
+   131  0006DE  0E00               	movlw	0
+   132  0006E0  6E24               	movwf	main@hdg+1,c
+   133  0006E2  0E00               	movlw	0
+   134  0006E4  6E23               	movwf	main@hdg,c
+   135                           
+   136                           ;Tom_V_Main.c: 58: Tomcat_Setup();
+   137  0006E6  EC8E  F000         	call	_Tomcat_Setup	;wreg free
+   138  0006EA                     l339:
+   139                           
+   140                           ;Tom_V_Main.c: 60: {
+   141  0006EA  D7FF               	goto	l339
+   142  0006EC                     __end_of_main:
+   143                           	opt stack 0
+   144                           
+   145                           	psect	cinit
+   146  0006A6                     __pcinit:
+   147                           	opt stack 0
+   148  0006A6                     start_initialization:
+   149                           	opt stack 0
+   150  0006A6                     __initialization:
+   151                           	opt stack 0
+   152                           
+   153                           ; Clear objects allocated to BITCOMRAM (1 bytes)
+   154  0006A6  6A3B               	clrf	(__pbitbssCOMRAM/(0+8))& (0+255),c
+   155                           
+   156                           ; Clear objects allocated to COMRAM (22 bytes)
+   157  0006A8  EE00  F025         	lfsr	0,__pbssCOMRAM
+   158  0006AC  0E16               	movlw	22
+   159  0006AE                     clear_0:
+   160  0006AE  6AEE               	clrf	postinc0,c
+   161  0006B0  06E8               	decf	wreg,f,c
+   162  0006B2  E1FD               	bnz	clear_0
+   163  0006B4                     end_of_initialization:
+   164                           	opt stack 0
+   165  0006B4                     __end_of__initialization:
+   166                           	opt stack 0
+   167  0006B4  0E00               	movlw	low (__Lmediumconst shr (0+16))
+   168  0006B6  6EF8               	movwf	tblptru,c
+   169  0006B8  0100               	movlb	0
+   170  0006BA  EF6B  F003         	goto	_main	;jump to C main() function
+   171                           tblptru	equ	0xFF8
+   172                           postinc0	equ	0xFEE
+   173                           wreg	equ	0xFE8
+   174                           
+   175                           	psect	bitbssCOMRAM
+   176  0001D8                     __pbitbssCOMRAM:
+   177                           	opt stack 0
+   178  0001D8                     _Leak1_flag:
+   179                           	opt stack 0
+   180  0001D8                     	ds	1
+   181  0001D9                     _Leak2_flag:
+   182                           	opt stack 0
+   183  0001D9                     	ds	1
+   184  0001DA                     _rx1_flag:
+   185                           	opt stack 0
+   186  0001DA                     	ds	1
+   187  0001DB                     _rx2_flag:
+   188                           	opt stack 0
+   189  0001DB                     	ds	1
+   190  0001DC                     _tmr0_flag:
+   191                           	opt stack 0
+   192  0001DC                     	ds	1
+   193  0001DD                     _tmr1_flag:
+   194                           	opt stack 0
+   195  0001DD                     	ds	1
+   196  0001DE                     _tmr2_flag:
+   197                           	opt stack 0
+   198  0001DE                     	ds	1
+   199  0001DF                     _tmr3_flag:
+   200                           	opt stack 0
+   201  0001DF                     	ds	1
+   202                           tblptru	equ	0xFF8
+   203                           postinc0	equ	0xFEE
+   204                           wreg	equ	0xFE8
+   205                           
+   206                           	psect	bssCOMRAM
+   207  000025                     __pbssCOMRAM:
+   208                           	opt stack 0
+   209  000025                     _gyro:
+   210                           	opt stack 0
+   211  000025                     	ds	6
+   212  00002B                     _USART1_Status:
+   213                           	opt stack 0
+   214  00002B                     	ds	1
+   215  00002C                     __gaddress:
+   216                           	opt stack 0
+   217  00002C                     	ds	1
+   218  00002D                     __xmaddress:
+   219                           	opt stack 0
+   220  00002D                     	ds	1
+   221  00002E                     _time:
+   222                           	opt stack 0
+   223  00002E                     	ds	1
+   224  00002F                     _accel:
+   225                           	opt stack 0
+   226  00002F                     	ds	6
+   227  000035                     _mag:
+   228                           	opt stack 0
+   229  000035                     	ds	6
+   230                           tblptru	equ	0xFF8
+   231                           postinc0	equ	0xFEE
+   232                           wreg	equ	0xFE8
+   233                           
+   234                           	psect	cstackCOMRAM
+   235  000001                     __pcstackCOMRAM:
+   236                           	opt stack 0
+   237  000001                     ?_Write1USART:
+   238                           	opt stack 0
+   239  000001                     Write1USART@data:
+   240                           	opt stack 0
+   241                           
+   242                           ; 1 bytes @ 0x0
+   243  000001                     	ds	1
+   244  000002                     ?_Tomcat_TX_warn:
+   245                           	opt stack 0
+   246  000002                     ?_Tomcat_TX_error:
+   247                           	opt stack 0
+   248  000002                     Tomcat_TX_warn@code:
+   249                           	opt stack 0
+   250  000002                     Tomcat_TX_error@code:
+   251                           	opt stack 0
+   252                           
+   253                           ; 1 bytes @ 0x1
+   254  000002                     	ds	1
+   255  000003                     ??_Tomcat_TX_warn:
+   256  000003                     ??_Tomcat_TX_error:
+   257                           
+   258                           ; 0 bytes @ 0x2
+   259  000003                     	ds	1
+   260  000004                     ??_isr:
+   261                           
+   262                           ; 0 bytes @ 0x3
+   263  000004                     	ds	15
+   264  000013                     ?_OpenI2C1:
+   265                           	opt stack 0
+   266  000013                     ?_Open1USART:
+   267                           	opt stack 0
+   268  000013                     ?_OpenEPWM1:
+   269                           	opt stack 0
+   270  000013                     ?_OpenEPWM2:
+   271                           	opt stack 0
+   272  000013                     ?_OpenEPWM3:
+   273                           	opt stack 0
+   274  000013                     ?_OpenPWM4:
+   275                           	opt stack 0
+   276  000013                     ?_WriteI2C1:
+   277                           	opt stack 0
+   278  000013                     OpenEPWM1@period:
+   279                           	opt stack 0
+   280  000013                     OpenEPWM2@period:
+   281                           	opt stack 0
+   282  000013                     OpenEPWM3@period:
+   283                           	opt stack 0
+   284  000013                     OpenPWM4@period:
+   285                           	opt stack 0
+   286  000013                     Open1USART@config:
+   287                           	opt stack 0
+   288  000013                     OpenI2C1@sync_mode:
+   289                           	opt stack 0
+   290  000013                     WriteI2C1@data_out:
+   291                           	opt stack 0
+   292                           
+   293                           ; 1 bytes @ 0x12
+   294  000013                     	ds	1
+   295  000014                     ??_WriteI2C1:
+   296  000014                     OpenEPWM1@timer_source:
+   297                           	opt stack 0
+   298  000014                     OpenEPWM2@timer_source:
+   299                           	opt stack 0
+   300  000014                     OpenEPWM3@timer_source:
+   301                           	opt stack 0
+   302  000014                     OpenPWM4@timer_source:
+   303                           	opt stack 0
+   304  000014                     OpenI2C1@slew:
+   305                           	opt stack 0
+   306  000014                     Open1USART@spbrg:
+   307                           	opt stack 0
+   308                           
+   309                           ; 2 bytes @ 0x13
+   310  000014                     	ds	1
+   311  000015                     ?_xmWriteByte:
+   312                           	opt stack 0
+   313  000015                     ?_gWriteByte:
+   314                           	opt stack 0
+   315  000015                     ??_OpenEPWM1:
+   316  000015                     ??_OpenEPWM3:
+   317  000015                     ??_OpenPWM4:
+   318  000015                     ?_I2CReadByte:
+   319                           	opt stack 0
+   320  000015                     gWriteByte@subadd:
+   321                           	opt stack 0
+   322  000015                     xmWriteByte@subadd:
+   323                           	opt stack 0
+   324  000015                     I2CReadByte@add:
+   325                           	opt stack 0
+   326                           
+   327                           ; 1 bytes @ 0x14
+   328  000015                     	ds	1
+   329  000016                     gWriteByte@data:
+   330                           	opt stack 0
+   331  000016                     xmWriteByte@data:
+   332                           	opt stack 0
+   333  000016                     I2CReadByte@subadd:
+   334                           	opt stack 0
+   335                           
+   336                           ; 1 bytes @ 0x15
+   337  000016                     	ds	1
+   338  000017                     ??_openLSM9_accel:
+   339  000017                     ??_openLSM9_gyro:
+   340  000017                     ??_openLSM9_mag:
+   341  000017                     ??_I2CReadByte:
+   342                           
+   343                           ; 0 bytes @ 0x16
+   344  000017                     	ds	1
+   345  000018                     I2CReadByte@_temp:
+   346                           	opt stack 0
+   347                           
+   348                           ; 1 bytes @ 0x17
+   349  000018                     	ds	1
+   350  000019                     ?_xmReadByte:
+   351                           	opt stack 0
+   352  000019                     ?_gReadByte:
+   353                           	opt stack 0
+   354  000019                     gReadByte@subadd:
+   355                           	opt stack 0
+   356  000019                     xmReadByte@subadd:
+   357                           	opt stack 0
+   358                           
+   359                           ; 1 bytes @ 0x18
+   360  000019                     	ds	1
+   361  00001A                     ?_openLSM9:
+   362                           	opt stack 0
+   363  00001A                     openLSM9@_xmadd:
+   364                           	opt stack 0
+   365                           
+   366                           ; 1 bytes @ 0x19
+   367  00001A                     	ds	1
+   368  00001B                     openLSM9@_gadd:
+   369                           	opt stack 0
+   370                           
+   371                           ; 1 bytes @ 0x1A
+   372  00001B                     	ds	1
+   373  00001C                     ??_openLSM9:
+   374                           
+   375                           ; 0 bytes @ 0x1B
+   376  00001C                     	ds	1
+   377  00001D                     openLSM9@gtest:
+   378                           	opt stack 0
+   379                           
+   380                           ; 1 bytes @ 0x1C
+   381  00001D                     	ds	1
+   382  00001E                     openLSM9@xmtest:
+   383                           	opt stack 0
+   384                           
+   385                           ; 1 bytes @ 0x1D
+   386  00001E                     	ds	1
+   387  00001F                     ??_Tomcat_Setup:
+   388                           
+   389                           ; 0 bytes @ 0x1E
+   390  00001F                     	ds	2
+   391  000021                     main@a:
+   392                           	opt stack 0
+   393                           
+   394                           ; 2 bytes @ 0x20
+   395  000021                     	ds	2
+   396  000023                     main@hdg:
+   397                           	opt stack 0
+   398                           
+   399                           ; 2 bytes @ 0x22
+   400  000023                     	ds	2
+   401                           tblptru	equ	0xFF8
+   402                           postinc0	equ	0xFEE
+   403                           wreg	equ	0xFE8
+   404                           
+   405 ;; *************** function _Tomcat_Setup *****************
+   406 ;; Defined at:
+   407 ;;		line 8 in file "Tomcat_driver.c"
+   408 ;; Parameters:    Size  Location     Type
+   409 ;;		None
+   410 ;; Auto vars:     Size  Location     Type
+   411 ;;		None
+   412 ;; Return value:  Size  Location     Type
+   413 ;;		None               void
+   414 ;; Registers used:
+   415 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, bt
+      +emp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+   416 ;; Tracked objects:
+   417 ;;		On entry : 0/0
+   418 ;;		On exit  : 0/0
+   419 ;;		Unchanged: 0/0
+   420 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   421 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   422 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   423 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   424 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   425 ;;Total ram usage:        2 bytes
+   426 ;; Hardware stack levels used:    1
+   427 ;; Hardware stack levels required when called:    7
+   428 ;; This function calls:
+   429 ;;		_openLSM9
+   430 ;;		_OpenI2C1
+   431 ;;		_Open1USART
+   432 ;;		_OpenEPWM1
+   433 ;;		_OpenEPWM2
+   434 ;;		_OpenEPWM3
+   435 ;;		_OpenPWM4
+   436 ;; This function is called by:
+   437 ;;		_main
+   438 ;; This function uses a non-reentrant model
+   439 ;;
+   440                           
+   441                           	psect	text1
+   442  00011C                     __ptext1:
+   443                           	opt stack 0
+   444  00011C                     _Tomcat_Setup:
+   445                           	opt stack 23
+   446                           
+   447                           ;Tomcat_driver.c: 10: ANSELC = 0;
+   448                           
+   449                           ;incstack = 0
+   450                           ;incstack = 0
+   451  00011C  0E00               	movlw	0
+   452  00011E  010F               	movlb	15	; () banked
+   453  000120  010F               	movlb	15	; () banked
+   454  000122  6F3A               	movwf	58,b	;volatile
+   455                           
+   456                           ; BSR set to: 15
+   457                           ;Tomcat_driver.c: 11: SSP1CON1 &=0xDF;
+   458  000124  9AC6               	bcf	4038,5,c	;volatile
+   459                           
+   460                           ; BSR set to: 15
+   461                           ;Tomcat_driver.c: 12: OpenI2C1(0b00001000,0b10000000);
+   462  000126  6E1F               	movwf	??_Tomcat_Setup& (0+255),c
+   463  000128  0E08               	movlw	8
+   464  00012A  6E13               	movwf	?_OpenI2C1,c
+   465  00012C  501F               	movf	??_Tomcat_Setup& (0+255),w,c
+   466  00012E  6E20               	movwf	(??_Tomcat_Setup+1)& (0+255),c
+   467  000130  0E80               	movlw	128
+   468  000132  6E14               	movwf	?_OpenI2C1+1,c
+   469  000134  5020               	movf	(??_Tomcat_Setup+1)& (0+255),w,c
+   470  000136  EC5F  F003         	call	_OpenI2C1	;wreg free
+   471                           
+   472                           ;Tomcat_driver.c: 13: SSP1ADD=49;
+   473  00013A  0E31               	movlw	49
+   474  00013C  6EC8               	movwf	4040,c	;volatile
+   475                           
+   476                           ;Tomcat_driver.c: 14: Open1USART(0b01111111 &
+   477                           ;Tomcat_driver.c: 15: 0b11111111 &
+   478                           ;Tomcat_driver.c: 16: 0b11111110 &
+   479                           ;Tomcat_driver.c: 17: 0b11111101 &
+   480                           ;Tomcat_driver.c: 18: 0b11111111 &
+   481                           ;Tomcat_driver.c: 19: 0b11111111, (20000000/(16*9600))+1);
+   482  00013E  6E1F               	movwf	??_Tomcat_Setup& (0+255),c
+   483  000140  0E7C               	movlw	124
+   484  000142  6E13               	movwf	?_Open1USART,c
+   485  000144  501F               	movf	??_Tomcat_Setup& (0+255),w,c
+   486  000146  0E03               	movlw	3
+   487  000148  6E15               	movwf	?_Open1USART+2,c
+   488  00014A  0E78               	movlw	120
+   489  00014C  6E14               	movwf	?_Open1USART+1,c
+   490  00014E  ECB4  F002         	call	_Open1USART	;wreg free
+   491                           
+   492                           ;Tomcat_driver.c: 20: openLSM9(0x1D,0x6B);
+   493  000152  6E1F               	movwf	??_Tomcat_Setup& (0+255),c
+   494  000154  0E1D               	movlw	29
+   495  000156  6E1A               	movwf	?_openLSM9,c
+   496  000158  501F               	movf	??_Tomcat_Setup& (0+255),w,c
+   497  00015A  6E20               	movwf	(??_Tomcat_Setup+1)& (0+255),c
+   498  00015C  0E6B               	movlw	107
+   499  00015E  6E1B               	movwf	?_openLSM9+1,c
+   500  000160  5020               	movf	(??_Tomcat_Setup+1)& (0+255),w,c
+   501  000162  ECDA  F002         	call	_openLSM9	;wreg free
+   502                           
+   503                           ;Tomcat_driver.c: 21: OpenEPWM1(255,0b11011111);
+   504  000166  6E1F               	movwf	??_Tomcat_Setup& (0+255),c
+   505  000168  0EFF               	movlw	255
+   506  00016A  6E13               	movwf	?_OpenEPWM1,c
+   507  00016C  501F               	movf	??_Tomcat_Setup& (0+255),w,c
+   508  00016E  6E20               	movwf	(??_Tomcat_Setup+1)& (0+255),c
+   509  000170  0EDF               	movlw	223
+   510  000172  6E14               	movwf	?_OpenEPWM1+1,c
+   511  000174  5020               	movf	(??_Tomcat_Setup+1)& (0+255),w,c
+   512  000176  EC8B  F001         	call	_OpenEPWM1	;wreg free
+   513                           
+   514                           ;Tomcat_driver.c: 22: OpenEPWM2(255,0b11011111);
+   515  00017A  6E1F               	movwf	??_Tomcat_Setup& (0+255),c
+   516  00017C  0EFF               	movlw	255
+   517  00017E  6E13               	movwf	?_OpenEPWM2,c
+   518  000180  501F               	movf	??_Tomcat_Setup& (0+255),w,c
+   519  000182  6E20               	movwf	(??_Tomcat_Setup+1)& (0+255),c
+   520  000184  0EDF               	movlw	223
+   521  000186  6E14               	movwf	?_OpenEPWM2+1,c
+   522  000188  5020               	movf	(??_Tomcat_Setup+1)& (0+255),w,c
+   523  00018A  EC54  F001         	call	_OpenEPWM2	;wreg free
+   524                           
+   525                           ;Tomcat_driver.c: 23: OpenEPWM3(255,0b11011111);
+   526  00018E  6E1F               	movwf	??_Tomcat_Setup& (0+255),c
+   527  000190  0EFF               	movlw	255
+   528  000192  6E13               	movwf	?_OpenEPWM3,c
+   529  000194  501F               	movf	??_Tomcat_Setup& (0+255),w,c
+   530  000196  6E20               	movwf	(??_Tomcat_Setup+1)& (0+255),c
+   531  000198  0EDF               	movlw	223
+   532  00019A  6E14               	movwf	?_OpenEPWM3+1,c
+   533  00019C  5020               	movf	(??_Tomcat_Setup+1)& (0+255),w,c
+   534  00019E  ECDC  F000         	call	_OpenEPWM3	;wreg free
+   535                           
+   536                           ;Tomcat_driver.c: 24: OpenPWM4(255,0b11011111);
+   537  0001A2  6E1F               	movwf	??_Tomcat_Setup& (0+255),c
+   538  0001A4  0EFF               	movlw	255
+   539  0001A6  6E13               	movwf	?_OpenPWM4,c
+   540  0001A8  501F               	movf	??_Tomcat_Setup& (0+255),w,c
+   541  0001AA  6E20               	movwf	(??_Tomcat_Setup+1)& (0+255),c
+   542  0001AC  0EDF               	movlw	223
+   543  0001AE  6E14               	movwf	?_OpenPWM4+1,c
+   544  0001B0  5020               	movf	(??_Tomcat_Setup+1)& (0+255),w,c
+   545  0001B2  EC1A  F001         	call	_OpenPWM4	;wreg free
+   546  0001B6  0012               	return	
+   547  0001B8                     __end_of_Tomcat_Setup:
+   548                           	opt stack 0
+   549                           tblptru	equ	0xFF8
+   550                           postinc0	equ	0xFEE
+   551                           wreg	equ	0xFE8
+   552                           
+   553 ;; *************** function _OpenPWM4 *****************
+   554 ;; Defined at:
+   555 ;;		line 100 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\PWM\pw4open.c"
+   556 ;; Parameters:    Size  Location     Type
+   557 ;;  period          1   18[COMRAM] unsigned char 
+   558 ;;  timer_source    1   19[COMRAM] unsigned char 
+   559 ;; Auto vars:     Size  Location     Type
+   560 ;;		None
+   561 ;; Return value:  Size  Location     Type
+   562 ;;		None               void
+   563 ;; Registers used:
+   564 ;;		wreg, status,2, status,0
+   565 ;; Tracked objects:
+   566 ;;		On entry : 0/0
+   567 ;;		On exit  : 0/0
+   568 ;;		Unchanged: 0/0
+   569 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   570 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   571 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   572 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   573 ;;      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   574 ;;Total ram usage:        3 bytes
+   575 ;; Hardware stack levels used:    1
+   576 ;; Hardware stack levels required when called:    3
+   577 ;; This function calls:
+   578 ;;		Nothing
+   579 ;; This function is called by:
+   580 ;;		_Tomcat_Setup
+   581 ;; This function uses a non-reentrant model
+   582 ;;
+   583                           
+   584                           	psect	text2
+   585  000234                     __ptext2:
+   586                           	opt stack 0
+   587  000234                     _OpenPWM4:
+   588                           	opt stack 26
+   589                           
+   590                           ;incstack = 0
+   591                           ;incstack = 0
+   592  000234  0E0C               	movlw	12
+   593  000236  010F               	movlb	15	; () banked
+   594  000238  010F               	movlb	15	; () banked
+   595  00023A  6F57               	movwf	87,b	;volatile
+   596                           
+   597                           ; BSR set to: 15
+   598  00023C  0EFC               	movlw	252
+   599  00023E  010F               	movlb	15	; () banked
+   600  000240  010F               	movlb	15	; () banked
+   601  000242  1748               	andwf	72,f,b	;volatile
+   602                           
+   603                           ; BSR set to: 15
+   604  000244  3814               	swapf	OpenPWM4@timer_source,w,c
+   605  000246  0B0F               	andlw	15
+   606  000248  0B03               	andlw	3
+   607  00024A  010F               	movlb	15	; () banked
+   608  00024C  010F               	movlb	15	; () banked
+   609  00024E  1348               	iorwf	72,f,b	;volatile
+   610                           
+   611                           ; BSR set to: 15
+   612  000250  9093               	bcf	3987,0,c	;volatile
+   613                           
+   614                           ; BSR set to: 15
+   615  000252  010F               	movlb	15	; () banked
+   616  000254  010F               	movlb	15	; () banked
+   617  000256  5148               	movf	72,w,b	;volatile
+   618  000258  0B03               	andlw	3
+   619  00025A  A4D8               	btfss	status,2,c
+   620  00025C  D005               	goto	l1511
+   621                           
+   622                           ; BSR set to: 15
+   623  00025E  94BA               	bcf	4026,2,c	;volatile
+   624  000260  C013  FFBB         	movff	OpenPWM4@period,4027	;volatile
+   625  000264  84BA               	bsf	4026,2,c	;volatile
+   626  000266  0012               	return	
+   627  000268                     l1511:
+   628                           
+   629                           ; BSR set to: 15
+   630  000268  CF48 F015          	movff	3912,??_OpenPWM4	;volatile
+   631  00026C  0E03               	movlw	3
+   632  00026E  1615               	andwf	??_OpenPWM4,f,c
+   633  000270  0415               	decf	??_OpenPWM4,w,c
+   634  000272  A4D8               	btfss	status,2,c
+   635  000274  D009               	goto	l1515
+   636                           
+   637                           ; BSR set to: 15
+   638  000276  010F               	movlb	15	; () banked
+   639  000278  010F               	movlb	15	; () banked
+   640  00027A  9551               	bcf	81,2,b	;volatile
+   641  00027C  C013  FF52         	movff	OpenPWM4@period,3922	;volatile
+   642  000280  010F               	movlb	15	; () banked
+   643  000282  010F               	movlb	15	; () banked
+   644  000284  8551               	bsf	81,2,b	;volatile
+   645  000286  0012               	return	
+   646  000288                     l1515:
+   647                           
+   648                           ; BSR set to: 15
+   649  000288  010F               	movlb	15	; () banked
+   650  00028A  010F               	movlb	15	; () banked
+   651  00028C  5148               	movf	72,w,b	;volatile
+   652  00028E  0B03               	andlw	3
+   653  000290  0A02               	xorlw	2
+   654  000292  A4D8               	btfss	status,2,c
+   655  000294  0012               	return	
+   656                           
+   657                           ; BSR set to: 15
+   658  000296  010F               	movlb	15	; () banked
+   659  000298  010F               	movlb	15	; () banked
+   660  00029A  954A               	bcf	74,2,b	;volatile
+   661  00029C  C013  FF4B         	movff	OpenPWM4@period,3915	;volatile
+   662  0002A0  010F               	movlb	15	; () banked
+   663  0002A2  010F               	movlb	15	; () banked
+   664  0002A4  854A               	bsf	74,2,b	;volatile
+   665  0002A6  0012               	return	
+   666  0002A8                     __end_of_OpenPWM4:
+   667                           	opt stack 0
+   668                           tblptru	equ	0xFF8
+   669                           postinc0	equ	0xFEE
+   670                           wreg	equ	0xFE8
+   671                           status	equ	0xFD8
+   672                           
+   673 ;; *************** function _OpenEPWM3 *****************
+   674 ;; Defined at:
+   675 ;;		line 55 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\PWM\ew3open.c"
+   676 ;; Parameters:    Size  Location     Type
+   677 ;;  period          1   18[COMRAM] unsigned char 
+   678 ;;  timer_source    1   19[COMRAM] unsigned char 
+   679 ;; Auto vars:     Size  Location     Type
+   680 ;;		None
+   681 ;; Return value:  Size  Location     Type
+   682 ;;		None               void
+   683 ;; Registers used:
+   684 ;;		wreg, status,2, status,0
+   685 ;; Tracked objects:
+   686 ;;		On entry : 0/0
+   687 ;;		On exit  : 0/0
+   688 ;;		Unchanged: 0/0
+   689 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   690 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   691 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   692 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   693 ;;      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   694 ;;Total ram usage:        3 bytes
+   695 ;; Hardware stack levels used:    1
+   696 ;; Hardware stack levels required when called:    3
+   697 ;; This function calls:
+   698 ;;		Nothing
+   699 ;; This function is called by:
+   700 ;;		_Tomcat_Setup
+   701 ;; This function uses a non-reentrant model
+   702 ;;
+   703                           
+   704                           	psect	text3
+   705  0001B8                     __ptext3:
+   706                           	opt stack 0
+   707  0001B8                     _OpenEPWM3:
+   708                           	opt stack 26
+   709                           
+   710                           ; BSR set to: 15
+   711                           ;incstack = 0
+   712                           ;incstack = 0
+   713  0001B8  0E0C               	movlw	12
+   714  0001BA  010F               	movlb	15	; () banked
+   715  0001BC  010F               	movlb	15	; () banked
+   716  0001BE  6F5D               	movwf	93,b	;volatile
+   717                           
+   718                           ; BSR set to: 15
+   719  0001C0  0E3F               	movlw	63
+   720  0001C2  010F               	movlb	15	; () banked
+   721  0001C4  010F               	movlb	15	; () banked
+   722  0001C6  1749               	andwf	73,f,b	;volatile
+   723                           
+   724                           ; BSR set to: 15
+   725  0001C8  C014  F015         	movff	OpenEPWM3@timer_source,??_OpenEPWM3
+   726  0001CC  0E30               	movlw	48
+   727  0001CE  1615               	andwf	??_OpenEPWM3,f,c
+   728  0001D0  90D8               	bcf	status,0,c
+   729  0001D2  3615               	rlcf	??_OpenEPWM3,f,c
+   730  0001D4  90D8               	bcf	status,0,c
+   731  0001D6  3415               	rlcf	??_OpenEPWM3,w,c
+   732  0001D8  010F               	movlb	15	; () banked
+   733  0001DA  010F               	movlb	15	; () banked
+   734  0001DC  1349               	iorwf	73,f,b	;volatile
+   735                           
+   736                           ; BSR set to: 15
+   737  0001DE  010F               	movlb	15	; () banked
+   738  0001E0  010F               	movlb	15	; () banked
+   739  0001E2  5149               	movf	73,w,b	;volatile
+   740  0001E4  0BC0               	andlw	192
+   741  0001E6  A4D8               	btfss	status,2,c
+   742  0001E8  D005               	goto	l1491
+   743                           
+   744                           ; BSR set to: 15
+   745  0001EA  94BA               	bcf	4026,2,c	;volatile
+   746  0001EC  C013  FFBB         	movff	OpenEPWM3@period,4027	;volatile
+   747  0001F0  84BA               	bsf	4026,2,c	;volatile
+   748  0001F2  0012               	return	
+   749  0001F4                     l1491:
+   750                           
+   751                           ; BSR set to: 15
+   752  0001F4  010F               	movlb	15	; () banked
+   753  0001F6  010F               	movlb	15	; () banked
+   754  0001F8  5149               	movf	73,w,b	;volatile
+   755  0001FA  0BC0               	andlw	192
+   756  0001FC  0A40               	xorlw	64
+   757  0001FE  A4D8               	btfss	status,2,c
+   758  000200  D009               	goto	l1495
+   759                           
+   760                           ; BSR set to: 15
+   761  000202  010F               	movlb	15	; () banked
+   762  000204  010F               	movlb	15	; () banked
+   763  000206  9551               	bcf	81,2,b	;volatile
+   764  000208  C013  FF52         	movff	OpenEPWM3@period,3922	;volatile
+   765  00020C  010F               	movlb	15	; () banked
+   766  00020E  010F               	movlb	15	; () banked
+   767  000210  8551               	bsf	81,2,b	;volatile
+   768  000212  0012               	return	
+   769  000214                     l1495:
+   770                           
+   771                           ; BSR set to: 15
+   772  000214  010F               	movlb	15	; () banked
+   773  000216  010F               	movlb	15	; () banked
+   774  000218  5149               	movf	73,w,b	;volatile
+   775  00021A  0BC0               	andlw	192
+   776  00021C  0A80               	xorlw	128
+   777  00021E  A4D8               	btfss	status,2,c
+   778  000220  0012               	return	
+   779                           
+   780                           ; BSR set to: 15
+   781  000222  010F               	movlb	15	; () banked
+   782  000224  010F               	movlb	15	; () banked
+   783  000226  954A               	bcf	74,2,b	;volatile
+   784  000228  C013  FF4B         	movff	OpenEPWM3@period,3915	;volatile
+   785  00022C  010F               	movlb	15	; () banked
+   786  00022E  010F               	movlb	15	; () banked
+   787  000230  854A               	bsf	74,2,b	;volatile
+   788  000232  0012               	return	
+   789  000234                     __end_of_OpenEPWM3:
+   790                           	opt stack 0
+   791                           tblptru	equ	0xFF8
+   792                           postinc0	equ	0xFEE
+   793                           wreg	equ	0xFE8
+   794                           status	equ	0xFD8
+   795                           
+   796 ;; *************** function _OpenEPWM2 *****************
+   797 ;; Defined at:
+   798 ;;		line 70 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\PWM\ew2open.c"
+   799 ;; Parameters:    Size  Location     Type
+   800 ;;  period          1   18[COMRAM] unsigned char 
+   801 ;;  timer_source    1   19[COMRAM] unsigned char 
+   802 ;; Auto vars:     Size  Location     Type
+   803 ;;		None
+   804 ;; Return value:  Size  Location     Type
+   805 ;;		None               void
+   806 ;; Registers used:
+   807 ;;		wreg, status,2, status,0
+   808 ;; Tracked objects:
+   809 ;;		On entry : 0/0
+   810 ;;		On exit  : 0/0
+   811 ;;		Unchanged: 0/0
+   812 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   813 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   814 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   815 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   816 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   817 ;;Total ram usage:        2 bytes
+   818 ;; Hardware stack levels used:    1
+   819 ;; Hardware stack levels required when called:    3
+   820 ;; This function calls:
+   821 ;;		Nothing
+   822 ;; This function is called by:
+   823 ;;		_Tomcat_Setup
+   824 ;; This function uses a non-reentrant model
+   825 ;;
+   826                           
+   827                           	psect	text4
+   828  0002A8                     __ptext4:
+   829                           	opt stack 0
+   830  0002A8                     _OpenEPWM2:
+   831                           	opt stack 26
+   832                           
+   833                           ; BSR set to: 15
+   834                           ;incstack = 0
+   835                           ;incstack = 0
+   836  0002A8  0E0C               	movlw	12
+   837  0002AA  6E66               	movwf	3942,c	;volatile
+   838  0002AC  0EE7               	movlw	231
+   839  0002AE  010F               	movlb	15	; () banked
+   840  0002B0  010F               	movlb	15	; () banked
+   841  0002B2  1749               	andwf	73,f,b	;volatile
+   842                           
+   843                           ; BSR set to: 15
+   844  0002B4  90D8               	bcf	status,0,c
+   845  0002B6  3014               	rrcf	OpenEPWM2@timer_source,w,c
+   846  0002B8  0B18               	andlw	24
+   847  0002BA  010F               	movlb	15	; () banked
+   848  0002BC  010F               	movlb	15	; () banked
+   849  0002BE  1349               	iorwf	73,f,b	;volatile
+   850                           
+   851                           ; BSR set to: 15
+   852  0002C0  010F               	movlb	15	; () banked
+   853  0002C2  010F               	movlb	15	; () banked
+   854  0002C4  5149               	movf	73,w,b	;volatile
+   855  0002C6  0B18               	andlw	24
+   856  0002C8  A4D8               	btfss	status,2,c
+   857  0002CA  D005               	goto	l1473
+   858                           
+   859                           ; BSR set to: 15
+   860  0002CC  94BA               	bcf	4026,2,c	;volatile
+   861  0002CE  C013  FFBB         	movff	OpenEPWM2@period,4027	;volatile
+   862  0002D2  84BA               	bsf	4026,2,c	;volatile
+   863  0002D4  0012               	return	
+   864  0002D6                     l1473:
+   865                           
+   866                           ; BSR set to: 15
+   867  0002D6  010F               	movlb	15	; () banked
+   868  0002D8  010F               	movlb	15	; () banked
+   869  0002DA  5149               	movf	73,w,b	;volatile
+   870  0002DC  0B18               	andlw	24
+   871  0002DE  0A08               	xorlw	8
+   872  0002E0  A4D8               	btfss	status,2,c
+   873  0002E2  D009               	goto	l1477
+   874                           
+   875                           ; BSR set to: 15
+   876  0002E4  010F               	movlb	15	; () banked
+   877  0002E6  010F               	movlb	15	; () banked
+   878  0002E8  9551               	bcf	81,2,b	;volatile
+   879  0002EA  C013  FF52         	movff	OpenEPWM2@period,3922	;volatile
+   880  0002EE  010F               	movlb	15	; () banked
+   881  0002F0  010F               	movlb	15	; () banked
+   882  0002F2  8551               	bsf	81,2,b	;volatile
+   883  0002F4  0012               	return	
+   884  0002F6                     l1477:
+   885                           
+   886                           ; BSR set to: 15
+   887  0002F6  010F               	movlb	15	; () banked
+   888  0002F8  010F               	movlb	15	; () banked
+   889  0002FA  5149               	movf	73,w,b	;volatile
+   890  0002FC  0B18               	andlw	24
+   891  0002FE  0A10               	xorlw	16
+   892  000300  A4D8               	btfss	status,2,c
+   893  000302  0012               	return	
+   894                           
+   895                           ; BSR set to: 15
+   896  000304  010F               	movlb	15	; () banked
+   897  000306  010F               	movlb	15	; () banked
+   898  000308  954A               	bcf	74,2,b	;volatile
+   899  00030A  C013  FF4B         	movff	OpenEPWM2@period,3915	;volatile
+   900  00030E  010F               	movlb	15	; () banked
+   901  000310  010F               	movlb	15	; () banked
+   902  000312  854A               	bsf	74,2,b	;volatile
+   903  000314  0012               	return	
+   904  000316                     __end_of_OpenEPWM2:
+   905                           	opt stack 0
+   906                           tblptru	equ	0xFF8
+   907                           postinc0	equ	0xFEE
+   908                           wreg	equ	0xFE8
+   909                           status	equ	0xFD8
+   910                           
+   911 ;; *************** function _OpenEPWM1 *****************
+   912 ;; Defined at:
+   913 ;;		line 131 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\PWM\ew1open.c"
+   914 ;; Parameters:    Size  Location     Type
+   915 ;;  period          1   18[COMRAM] unsigned char 
+   916 ;;  timer_source    1   19[COMRAM] unsigned char 
+   917 ;; Auto vars:     Size  Location     Type
+   918 ;;		None
+   919 ;; Return value:  Size  Location     Type
+   920 ;;		None               void
+   921 ;; Registers used:
+   922 ;;		wreg, status,2, status,0
+   923 ;; Tracked objects:
+   924 ;;		On entry : 0/0
+   925 ;;		On exit  : 0/0
+   926 ;;		Unchanged: 0/0
+   927 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   928 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   929 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   930 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   931 ;;      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   932 ;;Total ram usage:        3 bytes
+   933 ;; Hardware stack levels used:    1
+   934 ;; Hardware stack levels required when called:    3
+   935 ;; This function calls:
+   936 ;;		Nothing
+   937 ;; This function is called by:
+   938 ;;		_Tomcat_Setup
+   939 ;; This function uses a non-reentrant model
+   940 ;;
+   941                           
+   942                           	psect	text5
+   943  000316                     __ptext5:
+   944                           	opt stack 0
+   945  000316                     _OpenEPWM1:
+   946                           	opt stack 26
+   947                           
+   948                           ; BSR set to: 15
+   949                           ;incstack = 0
+   950                           ;incstack = 0
+   951  000316  0E0C               	movlw	12
+   952  000318  6EBD               	movwf	4029,c	;volatile
+   953  00031A  0EFC               	movlw	252
+   954  00031C  010F               	movlb	15	; () banked
+   955  00031E  010F               	movlb	15	; () banked
+   956  000320  1749               	andwf	73,f,b	;volatile
+   957                           
+   958                           ; BSR set to: 15
+   959  000322  3814               	swapf	OpenEPWM1@timer_source,w,c
+   960  000324  0B0F               	andlw	15
+   961  000326  0B03               	andlw	3
+   962  000328  010F               	movlb	15	; () banked
+   963  00032A  010F               	movlb	15	; () banked
+   964  00032C  1349               	iorwf	73,f,b	;volatile
+   965                           
+   966                           ; BSR set to: 15
+   967  00032E  010F               	movlb	15	; () banked
+   968  000330  010F               	movlb	15	; () banked
+   969  000332  5149               	movf	73,w,b	;volatile
+   970  000334  0B03               	andlw	3
+   971  000336  A4D8               	btfss	status,2,c
+   972  000338  D005               	goto	l1455
+   973                           
+   974                           ; BSR set to: 15
+   975  00033A  94BA               	bcf	4026,2,c	;volatile
+   976  00033C  C013  FFBB         	movff	OpenEPWM1@period,4027	;volatile
+   977  000340  84BA               	bsf	4026,2,c	;volatile
+   978  000342  0012               	return	
+   979  000344                     l1455:
+   980                           
+   981                           ; BSR set to: 15
+   982  000344  CF49 F015          	movff	3913,??_OpenEPWM1	;volatile
+   983  000348  0E03               	movlw	3
+   984  00034A  1615               	andwf	??_OpenEPWM1,f,c
+   985  00034C  0415               	decf	??_OpenEPWM1,w,c
+   986  00034E  A4D8               	btfss	status,2,c
+   987  000350  D009               	goto	l1459
+   988                           
+   989                           ; BSR set to: 15
+   990  000352  010F               	movlb	15	; () banked
+   991  000354  010F               	movlb	15	; () banked
+   992  000356  9551               	bcf	81,2,b	;volatile
+   993  000358  C013  FF52         	movff	OpenEPWM1@period,3922	;volatile
+   994  00035C  010F               	movlb	15	; () banked
+   995  00035E  010F               	movlb	15	; () banked
+   996  000360  8551               	bsf	81,2,b	;volatile
+   997  000362  0012               	return	
+   998  000364                     l1459:
+   999                           
+  1000                           ; BSR set to: 15
+  1001  000364  010F               	movlb	15	; () banked
+  1002  000366  010F               	movlb	15	; () banked
+  1003  000368  5149               	movf	73,w,b	;volatile
+  1004  00036A  0B03               	andlw	3
+  1005  00036C  0A02               	xorlw	2
+  1006  00036E  A4D8               	btfss	status,2,c
+  1007  000370  0012               	return	
+  1008                           
+  1009                           ; BSR set to: 15
+  1010  000372  010F               	movlb	15	; () banked
+  1011  000374  010F               	movlb	15	; () banked
+  1012  000376  954A               	bcf	74,2,b	;volatile
+  1013  000378  C013  FF4B         	movff	OpenEPWM1@period,3915	;volatile
+  1014  00037C  010F               	movlb	15	; () banked
+  1015  00037E  010F               	movlb	15	; () banked
+  1016  000380  854A               	bsf	74,2,b	;volatile
+  1017  000382  0012               	return	
+  1018  000384                     __end_of_OpenEPWM1:
+  1019                           	opt stack 0
+  1020                           tblptru	equ	0xFF8
+  1021                           postinc0	equ	0xFEE
+  1022                           wreg	equ	0xFE8
+  1023                           status	equ	0xFD8
+  1024                           
+  1025 ;; *************** function _Open1USART *****************
+  1026 ;; Defined at:
+  1027 ;;		line 125 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\u1open.c"
+  1028 ;; Parameters:    Size  Location     Type
+  1029 ;;  config          1   18[COMRAM] unsigned char 
+  1030 ;;  spbrg           2   19[COMRAM] unsigned int 
+  1031 ;; Auto vars:     Size  Location     Type
+  1032 ;;		None
+  1033 ;; Return value:  Size  Location     Type
+  1034 ;;		None               void
+  1035 ;; Registers used:
+  1036 ;;		wreg, status,2
+  1037 ;; Tracked objects:
+  1038 ;;		On entry : 0/0
+  1039 ;;		On exit  : 0/0
+  1040 ;;		Unchanged: 0/0
+  1041 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1042 ;;      Params:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1043 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1044 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1045 ;;      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1046 ;;Total ram usage:        3 bytes
+  1047 ;; Hardware stack levels used:    1
+  1048 ;; Hardware stack levels required when called:    3
+  1049 ;; This function calls:
+  1050 ;;		Nothing
+  1051 ;; This function is called by:
+  1052 ;;		_Tomcat_Setup
+  1053 ;; This function uses a non-reentrant model
+  1054 ;;
+  1055                           
+  1056                           	psect	text6
+  1057  000568                     __ptext6:
+  1058                           	opt stack 0
+  1059  000568                     _Open1USART:
+  1060                           	opt stack 26
+  1061                           
+  1062                           ; BSR set to: 15
+  1063                           ;incstack = 0
+  1064                           ;incstack = 0
+  1065  000568  0E00               	movlw	0
+  1066  00056A  6EAC               	movwf	4012,c	;volatile
+  1067  00056C  0E00               	movlw	0
+  1068  00056E  6EAB               	movwf	4011,c	;volatile
+  1069  000570  B013               	btfsc	Open1USART@config,0,c
+  1070  000572  88AC               	bsf	4012,4,c	;volatile
+  1071  000574  A213               	btfss	Open1USART@config,1,c
+  1072  000576  D002               	goto	l486
+  1073  000578  8CAC               	bsf	4012,6,c	;volatile
+  1074  00057A  8CAB               	bsf	4011,6,c	;volatile
+  1075  00057C                     l486:
+  1076  00057C  B413               	btfsc	Open1USART@config,2,c
+  1077  00057E  8EAC               	bsf	4012,7,c	;volatile
+  1078  000580  A613               	btfss	Open1USART@config,3,c
+  1079  000582  D002               	goto	l488
+  1080  000584  88AB               	bsf	4011,4,c	;volatile
+  1081  000586  D001               	goto	l489
+  1082  000588                     l488:
+  1083  000588  8AAB               	bsf	4011,5,c	;volatile
+  1084  00058A                     l489:
+  1085  00058A  B813               	btfsc	Open1USART@config,4,c
+  1086  00058C  84AC               	bsf	4012,2,c	;volatile
+  1087  00058E  BA13               	btfsc	Open1USART@config,5,c
+  1088  000590  86AB               	bsf	4011,3,c	;volatile
+  1089  000592  AC13               	btfss	Open1USART@config,6,c
+  1090  000594  D002               	goto	l492
+  1091  000596  8A9D               	bsf	3997,5,c	;volatile
+  1092  000598  D001               	goto	l493
+  1093  00059A                     l492:
+  1094  00059A  9A9D               	bcf	3997,5,c	;volatile
+  1095  00059C                     l493:
+  1096  00059C  AE13               	btfss	Open1USART@config,7,c
+  1097  00059E  D002               	goto	l494
+  1098  0005A0  889D               	bsf	3997,4,c	;volatile
+  1099  0005A2  D001               	goto	l495
+  1100  0005A4                     l494:
+  1101  0005A4  989D               	bcf	3997,4,c	;volatile
+  1102  0005A6                     l495:
+  1103  0005A6  C014  FFAF         	movff	Open1USART@spbrg,4015	;volatile
+  1104  0005AA  5015               	movf	Open1USART@spbrg+1,w,c
+  1105  0005AC  6EB0               	movwf	4016,c	;volatile
+  1106  0005AE  8AAC               	bsf	4012,5,c	;volatile
+  1107  0005B0  8EAB               	bsf	4011,7,c	;volatile
+  1108  0005B2  0012               	return	
+  1109  0005B4                     __end_of_Open1USART:
+  1110                           	opt stack 0
+  1111                           tblptru	equ	0xFF8
+  1112                           postinc0	equ	0xFEE
+  1113                           wreg	equ	0xFE8
+  1114                           status	equ	0xFD8
+  1115                           
+  1116 ;; *************** function _OpenI2C1 *****************
+  1117 ;; Defined at:
+  1118 ;;		line 30 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\i2c\i2c1open.c"
+  1119 ;; Parameters:    Size  Location     Type
+  1120 ;;  sync_mode       1   18[COMRAM] unsigned char 
+  1121 ;;  slew            1   19[COMRAM] unsigned char 
+  1122 ;; Auto vars:     Size  Location     Type
+  1123 ;;		None
+  1124 ;; Return value:  Size  Location     Type
+  1125 ;;		None               void
+  1126 ;; Registers used:
+  1127 ;;		wreg, status,2, status,0
+  1128 ;; Tracked objects:
+  1129 ;;		On entry : 0/0
+  1130 ;;		On exit  : 0/0
+  1131 ;;		Unchanged: 0/0
+  1132 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1133 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1134 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1135 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1136 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1137 ;;Total ram usage:        2 bytes
+  1138 ;; Hardware stack levels used:    1
+  1139 ;; Hardware stack levels required when called:    3
+  1140 ;; This function calls:
+  1141 ;;		Nothing
+  1142 ;; This function is called by:
+  1143 ;;		_Tomcat_Setup
+  1144 ;; This function uses a non-reentrant model
+  1145 ;;
+  1146                           
+  1147                           	psect	text7
+  1148  0006BE                     __ptext7:
+  1149                           	opt stack 0
+  1150  0006BE                     _OpenI2C1:
+  1151                           	opt stack 26
+  1152                           
+  1153                           ;incstack = 0
+  1154                           ;incstack = 0
+  1155  0006BE  0E3F               	movlw	63
+  1156  0006C0  16C7               	andwf	4039,f,c	;volatile
+  1157  0006C2  0E00               	movlw	0
+  1158  0006C4  6EC6               	movwf	4038,c	;volatile
+  1159  0006C6  0E00               	movlw	0
+  1160  0006C8  6EC5               	movwf	4037,c	;volatile
+  1161  0006CA  5013               	movf	OpenI2C1@sync_mode,w,c
+  1162  0006CC  12C6               	iorwf	4038,f,c	;volatile
+  1163  0006CE  5014               	movf	OpenI2C1@slew,w,c
+  1164  0006D0  12C7               	iorwf	4039,f,c	;volatile
+  1165  0006D2  8AC6               	bsf	4038,5,c	;volatile
+  1166  0006D4  0012               	return	
+  1167  0006D6                     __end_of_OpenI2C1:
+  1168                           	opt stack 0
+  1169                           tblptru	equ	0xFF8
+  1170                           postinc0	equ	0xFEE
+  1171                           wreg	equ	0xFE8
+  1172                           status	equ	0xFD8
+  1173                           
+  1174 ;; *************** function _openLSM9 *****************
+  1175 ;; Defined at:
+  1176 ;;		line 5 in file "LSM9DS0.c"
+  1177 ;; Parameters:    Size  Location     Type
+  1178 ;;  _xmadd          1   25[COMRAM] unsigned char 
+  1179 ;;  _gadd           1   26[COMRAM] unsigned char 
+  1180 ;; Auto vars:     Size  Location     Type
+  1181 ;;  xmtest          1   29[COMRAM] unsigned char 
+  1182 ;;  gtest           1   28[COMRAM] unsigned char 
+  1183 ;; Return value:  Size  Location     Type
+  1184 ;;                  2   25[COMRAM] unsigned int 
+  1185 ;; Registers used:
+  1186 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, bt
+      +emp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+  1187 ;; Tracked objects:
+  1188 ;;		On entry : 0/0
+  1189 ;;		On exit  : 0/0
+  1190 ;;		Unchanged: 0/0
+  1191 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1192 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1193 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1194 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1195 ;;      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1196 ;;Total ram usage:        5 bytes
+  1197 ;; Hardware stack levels used:    1
+  1198 ;; Hardware stack levels required when called:    6
+  1199 ;; This function calls:
+  1200 ;;		_xmReadByte
+  1201 ;;		_gReadByte
+  1202 ;;		_openLSM9_accel
+  1203 ;;		_openLSM9_gyro
+  1204 ;;		_openLSM9_mag
+  1205 ;; This function is called by:
+  1206 ;;		_Tomcat_Setup
+  1207 ;; This function uses a non-reentrant model
+  1208 ;;
+  1209                           
+  1210                           	psect	text8
+  1211  0005B4                     __ptext8:
+  1212                           	opt stack 0
+  1213  0005B4                     _openLSM9:
+  1214                           	opt stack 23
+  1215                           
+  1216                           ;LSM9DS0.c: 6: char gtest=0,xmtest=0;
+  1217                           
+  1218                           ;incstack = 0
+  1219                           ;incstack = 0
+  1220  0005B4  6E1C               	movwf	??_openLSM9& (0+255),c
+  1221  0005B6  0E00               	movlw	0
+  1222  0005B8  6E1D               	movwf	openLSM9@gtest,c
+  1223  0005BA  501C               	movf	??_openLSM9& (0+255),w,c
+  1224  0005BC  6E1C               	movwf	??_openLSM9& (0+255),c
+  1225  0005BE  0E00               	movlw	0
+  1226  0005C0  6E1E               	movwf	openLSM9@xmtest,c
+  1227  0005C2  501C               	movf	??_openLSM9& (0+255),w,c
+  1228                           
+  1229                           ;LSM9DS0.c: 8: _xmaddress=_xmadd<<1;
+  1230  0005C4  501A               	movf	openLSM9@_xmadd,w,c
+  1231  0005C6  241A               	addwf	openLSM9@_xmadd,w,c
+  1232  0005C8  6E2D               	movwf	__xmaddress,c
+  1233                           
+  1234                           ;LSM9DS0.c: 9: _gaddress=_gadd<<1;
+  1235  0005CA  501B               	movf	openLSM9@_gadd,w,c
+  1236  0005CC  241B               	addwf	openLSM9@_gadd,w,c
+  1237  0005CE  6E2C               	movwf	__gaddress,c
+  1238                           
+  1239                           ;LSM9DS0.c: 11: xmtest = xmReadByte(0x0F);
+  1240  0005D0  6E1C               	movwf	??_openLSM9& (0+255),c
+  1241  0005D2  0E0F               	movlw	15
+  1242  0005D4  6E19               	movwf	?_xmReadByte,c
+  1243  0005D6  501C               	movf	??_openLSM9& (0+255),w,c
+  1244  0005D8  EC7E  F003         	call	_xmReadByte	;wreg free
+  1245  0005DC  6E1E               	movwf	openLSM9@xmtest,c
+  1246                           
+  1247                           ;LSM9DS0.c: 12: gtest = gReadByte(0x0F);
+  1248  0005DE  6E1C               	movwf	??_openLSM9& (0+255),c
+  1249  0005E0  0E0F               	movlw	15
+  1250  0005E2  6E19               	movwf	?_gReadByte,c
+  1251  0005E4  501C               	movf	??_openLSM9& (0+255),w,c
+  1252  0005E6  EC76  F003         	call	_gReadByte	;wreg free
+  1253  0005EA  6E1D               	movwf	openLSM9@gtest,c
+  1254                           
+  1255                           ;LSM9DS0.c: 14: openLSM9_accel();
+  1256  0005EC  EC8B  F002         	call	_openLSM9_accel	;wreg free
+  1257                           
+  1258                           ;LSM9DS0.c: 15: openLSM9_gyro();
+  1259  0005F0  EC2B  F002         	call	_openLSM9_gyro	;wreg free
+  1260                           
+  1261                           ;LSM9DS0.c: 16: openLSM9_mag();
+  1262  0005F4  ECF8  F001         	call	_openLSM9_mag	;wreg free
+  1263  0005F8  0012               	return	
+  1264  0005FA                     __end_of_openLSM9:
+  1265                           	opt stack 0
+  1266                           tblptru	equ	0xFF8
+  1267                           postinc0	equ	0xFEE
+  1268                           wreg	equ	0xFE8
+  1269                           status	equ	0xFD8
+  1270                           
+  1271 ;; *************** function _openLSM9_mag *****************
+  1272 ;; Defined at:
+  1273 ;;		line 121 in file "LSM9DS0.c"
+  1274 ;; Parameters:    Size  Location     Type
+  1275 ;;		None
+  1276 ;; Auto vars:     Size  Location     Type
+  1277 ;;		None
+  1278 ;; Return value:  Size  Location     Type
+  1279 ;;		None               void
+  1280 ;; Registers used:
+  1281 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, bt
+      +emp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+  1282 ;; Tracked objects:
+  1283 ;;		On entry : 0/0
+  1284 ;;		On exit  : 0/0
+  1285 ;;		Unchanged: 0/0
+  1286 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1287 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1288 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1289 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1290 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1291 ;;Total ram usage:        2 bytes
+  1292 ;; Hardware stack levels used:    1
+  1293 ;; Hardware stack levels required when called:    5
+  1294 ;; This function calls:
+  1295 ;;		_xmWriteByte
+  1296 ;; This function is called by:
+  1297 ;;		_openLSM9
+  1298 ;; This function uses a non-reentrant model
+  1299 ;;
+  1300                           
+  1301                           	psect	text9
+  1302  0003F0                     __ptext9:
+  1303                           	opt stack 0
+  1304  0003F0                     _openLSM9_mag:
+  1305                           	opt stack 23
+  1306                           
+  1307                           ;LSM9DS0.c: 132: xmWriteByte(0x24, 0b00010100);
+  1308                           
+  1309                           ;incstack = 0
+  1310                           ;incstack = 0
+  1311  0003F0  6E17               	movwf	??_openLSM9_mag& (0+255),c
+  1312  0003F2  0E24               	movlw	36
+  1313  0003F4  6E15               	movwf	?_xmWriteByte,c
+  1314  0003F6  5017               	movf	??_openLSM9_mag& (0+255),w,c
+  1315  0003F8  6E18               	movwf	(??_openLSM9_mag+1)& (0+255),c
+  1316  0003FA  0E14               	movlw	20
+  1317  0003FC  6E16               	movwf	?_xmWriteByte+1,c
+  1318  0003FE  5018               	movf	(??_openLSM9_mag+1)& (0+255),w,c
+  1319  000400  EC10  F003         	call	_xmWriteByte	;wreg free
+  1320                           
+  1321                           ;LSM9DS0.c: 138: xmWriteByte(0x25, 0x01);
+  1322  000404  6E17               	movwf	??_openLSM9_mag& (0+255),c
+  1323  000406  0E25               	movlw	37
+  1324  000408  6E15               	movwf	?_xmWriteByte,c
+  1325  00040A  5017               	movf	??_openLSM9_mag& (0+255),w,c
+  1326  00040C  6E18               	movwf	(??_openLSM9_mag+1)& (0+255),c
+  1327  00040E  0E01               	movlw	1
+  1328  000410  6E16               	movwf	?_xmWriteByte+1,c
+  1329  000412  5018               	movf	(??_openLSM9_mag+1)& (0+255),w,c
+  1330  000414  EC10  F003         	call	_xmWriteByte	;wreg free
+  1331                           
+  1332                           ;LSM9DS0.c: 152: xmWriteByte(0x26, 0b00000000);
+  1333  000418  6E17               	movwf	??_openLSM9_mag& (0+255),c
+  1334  00041A  0E26               	movlw	38
+  1335  00041C  6E15               	movwf	?_xmWriteByte,c
+  1336  00041E  5017               	movf	??_openLSM9_mag& (0+255),w,c
+  1337  000420  6E18               	movwf	(??_openLSM9_mag+1)& (0+255),c
+  1338  000422  0E00               	movlw	0
+  1339  000424  6E16               	movwf	?_xmWriteByte+1,c
+  1340  000426  5018               	movf	(??_openLSM9_mag+1)& (0+255),w,c
+  1341  000428  EC10  F003         	call	_xmWriteByte	;wreg free
+  1342                           
+  1343                           ;LSM9DS0.c: 157: xmWriteByte(0x23, 0x04);
+  1344  00042C  6E17               	movwf	??_openLSM9_mag& (0+255),c
+  1345  00042E  0E23               	movlw	35
+  1346  000430  6E15               	movwf	?_xmWriteByte,c
+  1347  000432  5017               	movf	??_openLSM9_mag& (0+255),w,c
+  1348  000434  6E18               	movwf	(??_openLSM9_mag+1)& (0+255),c
+  1349  000436  0E04               	movlw	4
+  1350  000438  6E16               	movwf	?_xmWriteByte+1,c
+  1351  00043A  5018               	movf	(??_openLSM9_mag+1)& (0+255),w,c
+  1352  00043C  EC10  F003         	call	_xmWriteByte	;wreg free
+  1353                           
+  1354                           ;LSM9DS0.c: 170: xmWriteByte(0x12, 0x09);
+  1355  000440  6E17               	movwf	??_openLSM9_mag& (0+255),c
+  1356  000442  0E12               	movlw	18
+  1357  000444  6E15               	movwf	?_xmWriteByte,c
+  1358  000446  5017               	movf	??_openLSM9_mag& (0+255),w,c
+  1359  000448  6E18               	movwf	(??_openLSM9_mag+1)& (0+255),c
+  1360  00044A  0E09               	movlw	9
+  1361  00044C  6E16               	movwf	?_xmWriteByte+1,c
+  1362  00044E  5018               	movf	(??_openLSM9_mag+1)& (0+255),w,c
+  1363  000450  EC10  F003         	call	_xmWriteByte	;wreg free
+  1364  000454  0012               	return	
+  1365  000456                     __end_of_openLSM9_mag:
+  1366                           	opt stack 0
+  1367                           tblptru	equ	0xFF8
+  1368                           postinc0	equ	0xFEE
+  1369                           wreg	equ	0xFE8
+  1370                           status	equ	0xFD8
+  1371                           
+  1372 ;; *************** function _openLSM9_gyro *****************
+  1373 ;; Defined at:
+  1374 ;;		line 64 in file "LSM9DS0.c"
+  1375 ;; Parameters:    Size  Location     Type
+  1376 ;;		None
+  1377 ;; Auto vars:     Size  Location     Type
+  1378 ;;		None
+  1379 ;; Return value:  Size  Location     Type
+  1380 ;;		None               void
+  1381 ;; Registers used:
+  1382 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, bt
+      +emp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+  1383 ;; Tracked objects:
+  1384 ;;		On entry : 0/0
+  1385 ;;		On exit  : 0/0
+  1386 ;;		Unchanged: 0/0
+  1387 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1388 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1389 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1390 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1391 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1392 ;;Total ram usage:        2 bytes
+  1393 ;; Hardware stack levels used:    1
+  1394 ;; Hardware stack levels required when called:    5
+  1395 ;; This function calls:
+  1396 ;;		_gWriteByte
+  1397 ;; This function is called by:
+  1398 ;;		_openLSM9
+  1399 ;; This function uses a non-reentrant model
+  1400 ;;
+  1401                           
+  1402                           	psect	text10
+  1403  000456                     __ptext10:
+  1404                           	opt stack 0
+  1405  000456                     _openLSM9_gyro:
+  1406                           	opt stack 23
+  1407                           
+  1408                           ;LSM9DS0.c: 73: gWriteByte(0x20, 0x0F);
+  1409                           
+  1410                           ;incstack = 0
+  1411                           ;incstack = 0
+  1412  000456  6E17               	movwf	??_openLSM9_gyro& (0+255),c
+  1413  000458  0E20               	movlw	32
+  1414  00045A  6E15               	movwf	?_gWriteByte,c
+  1415  00045C  5017               	movf	??_openLSM9_gyro& (0+255),w,c
+  1416  00045E  6E18               	movwf	(??_openLSM9_gyro+1)& (0+255),c
+  1417  000460  0E0F               	movlw	15
+  1418  000462  6E16               	movwf	?_gWriteByte+1,c
+  1419  000464  5018               	movf	(??_openLSM9_gyro+1)& (0+255),w,c
+  1420  000466  ECFD  F002         	call	_gWriteByte	;wreg free
+  1421                           
+  1422                           ;LSM9DS0.c: 83: gWriteByte(0x21, 0x00);
+  1423  00046A  6E17               	movwf	??_openLSM9_gyro& (0+255),c
+  1424  00046C  0E21               	movlw	33
+  1425  00046E  6E15               	movwf	?_gWriteByte,c
+  1426  000470  5017               	movf	??_openLSM9_gyro& (0+255),w,c
+  1427  000472  6E18               	movwf	(??_openLSM9_gyro+1)& (0+255),c
+  1428  000474  0E00               	movlw	0
+  1429  000476  6E16               	movwf	?_gWriteByte+1,c
+  1430  000478  5018               	movf	(??_openLSM9_gyro+1)& (0+255),w,c
+  1431  00047A  ECFD  F002         	call	_gWriteByte	;wreg free
+  1432                           
+  1433                           ;LSM9DS0.c: 96: gWriteByte(0x22, 0x88);
+  1434  00047E  6E17               	movwf	??_openLSM9_gyro& (0+255),c
+  1435  000480  0E22               	movlw	34
+  1436  000482  6E15               	movwf	?_gWriteByte,c
+  1437  000484  5017               	movf	??_openLSM9_gyro& (0+255),w,c
+  1438  000486  6E18               	movwf	(??_openLSM9_gyro+1)& (0+255),c
+  1439  000488  0E88               	movlw	136
+  1440  00048A  6E16               	movwf	?_gWriteByte+1,c
+  1441  00048C  5018               	movf	(??_openLSM9_gyro+1)& (0+255),w,c
+  1442  00048E  ECFD  F002         	call	_gWriteByte	;wreg free
+  1443                           
+  1444                           ;LSM9DS0.c: 108: gWriteByte(0x23, 0x00);
+  1445  000492  6E17               	movwf	??_openLSM9_gyro& (0+255),c
+  1446  000494  0E23               	movlw	35
+  1447  000496  6E15               	movwf	?_gWriteByte,c
+  1448  000498  5017               	movf	??_openLSM9_gyro& (0+255),w,c
+  1449  00049A  6E18               	movwf	(??_openLSM9_gyro+1)& (0+255),c
+  1450  00049C  0E00               	movlw	0
+  1451  00049E  6E16               	movwf	?_gWriteByte+1,c
+  1452  0004A0  5018               	movf	(??_openLSM9_gyro+1)& (0+255),w,c
+  1453  0004A2  ECFD  F002         	call	_gWriteByte	;wreg free
+  1454                           
+  1455                           ;LSM9DS0.c: 117: gWriteByte(0x24, 0x00);
+  1456  0004A6  6E17               	movwf	??_openLSM9_gyro& (0+255),c
+  1457  0004A8  0E24               	movlw	36
+  1458  0004AA  6E15               	movwf	?_gWriteByte,c
+  1459  0004AC  5017               	movf	??_openLSM9_gyro& (0+255),w,c
+  1460  0004AE  6E18               	movwf	(??_openLSM9_gyro+1)& (0+255),c
+  1461  0004B0  0E00               	movlw	0
+  1462  0004B2  6E16               	movwf	?_gWriteByte+1,c
+  1463  0004B4  5018               	movf	(??_openLSM9_gyro+1)& (0+255),w,c
+  1464  0004B6  ECFD  F002         	call	_gWriteByte	;wreg free
+  1465  0004BA  0012               	return	
+  1466  0004BC                     __end_of_openLSM9_gyro:
+  1467                           	opt stack 0
+  1468                           tblptru	equ	0xFF8
+  1469                           postinc0	equ	0xFEE
+  1470                           wreg	equ	0xFE8
+  1471                           status	equ	0xFD8
+  1472                           
+  1473 ;; *************** function _gWriteByte *****************
+  1474 ;; Defined at:
+  1475 ;;		line 242 in file "LSM9DS0.c"
+  1476 ;; Parameters:    Size  Location     Type
+  1477 ;;  subadd          1   20[COMRAM] unsigned char 
+  1478 ;;  data            1   21[COMRAM] unsigned char 
+  1479 ;; Auto vars:     Size  Location     Type
+  1480 ;;		None
+  1481 ;; Return value:  Size  Location     Type
+  1482 ;;		None               void
+  1483 ;; Registers used:
+  1484 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, bt
+      +emp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+  1485 ;; Tracked objects:
+  1486 ;;		On entry : 0/0
+  1487 ;;		On exit  : 0/0
+  1488 ;;		Unchanged: 0/0
+  1489 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1490 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1491 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1492 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1493 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1494 ;;Total ram usage:        2 bytes
+  1495 ;; Hardware stack levels used:    1
+  1496 ;; Hardware stack levels required when called:    4
+  1497 ;; This function calls:
+  1498 ;;		_WriteI2C1
+  1499 ;; This function is called by:
+  1500 ;;		_openLSM9_gyro
+  1501 ;; This function uses a non-reentrant model
+  1502 ;;
+  1503                           
+  1504                           	psect	text11
+  1505  0005FA                     __ptext11:
+  1506                           	opt stack 0
+  1507  0005FA                     _gWriteByte:
+  1508                           	opt stack 23
+  1509                           
+  1510                           ;LSM9DS0.c: 243: SSP1CON2bits.SEN=1;while(SSP1CON2bits.SEN);
+  1511                           
+  1512                           ;incstack = 0
+  1513                           ;incstack = 0
+  1514  0005FA  80C5               	bsf	4037,0,c	;volatile
+  1515  0005FC                     l115:
+  1516  0005FC  B0C5               	btfsc	4037,0,c	;volatile
+  1517  0005FE  D7FE               	goto	l115
+  1518                           
+  1519                           ;LSM9DS0.c: 244: WriteI2C1(_gaddress);
+  1520  000600  C02C  F013         	movff	__gaddress,?_WriteI2C1
+  1521  000604  ECC2  F001         	call	_WriteI2C1	;wreg free
+  1522                           
+  1523                           ;LSM9DS0.c: 246: WriteI2C1(subadd);
+  1524  000608  C015  F013         	movff	gWriteByte@subadd,?_WriteI2C1
+  1525  00060C  ECC2  F001         	call	_WriteI2C1	;wreg free
+  1526                           
+  1527                           ;LSM9DS0.c: 248: WriteI2C1(data);
+  1528  000610  C016  F013         	movff	gWriteByte@data,?_WriteI2C1
+  1529  000614  ECC2  F001         	call	_WriteI2C1	;wreg free
+  1530                           
+  1531                           ;LSM9DS0.c: 250: SSP1CON2bits.PEN=1;while(SSP1CON2bits.PEN);
+  1532  000618  84C5               	bsf	4037,2,c	;volatile
+  1533  00061A                     l118:
+  1534  00061A  A4C5               	btfss	4037,2,c	;volatile
+  1535  00061C  0012               	return	
+  1536  00061E  D7FD               	goto	l118
+  1537  000620                     __end_of_gWriteByte:
+  1538                           	opt stack 0
+  1539                           tblptru	equ	0xFF8
+  1540                           postinc0	equ	0xFEE
+  1541                           wreg	equ	0xFE8
+  1542                           status	equ	0xFD8
+  1543                           
+  1544 ;; *************** function _openLSM9_accel *****************
+  1545 ;; Defined at:
+  1546 ;;		line 22 in file "LSM9DS0.c"
+  1547 ;; Parameters:    Size  Location     Type
+  1548 ;;		None
+  1549 ;; Auto vars:     Size  Location     Type
+  1550 ;;		None
+  1551 ;; Return value:  Size  Location     Type
+  1552 ;;		None               void
+  1553 ;; Registers used:
+  1554 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, bt
+      +emp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+  1555 ;; Tracked objects:
+  1556 ;;		On entry : 0/0
+  1557 ;;		On exit  : 0/0
+  1558 ;;		Unchanged: 0/0
+  1559 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1560 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1561 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1562 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1563 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1564 ;;Total ram usage:        2 bytes
+  1565 ;; Hardware stack levels used:    1
+  1566 ;; Hardware stack levels required when called:    5
+  1567 ;; This function calls:
+  1568 ;;		_xmWriteByte
+  1569 ;; This function is called by:
+  1570 ;;		_openLSM9
+  1571 ;; This function uses a non-reentrant model
+  1572 ;;
+  1573                           
+  1574                           	psect	text12
+  1575  000516                     __ptext12:
+  1576                           	opt stack 0
+  1577  000516                     _openLSM9_accel:
+  1578                           	opt stack 23
+  1579                           
+  1580                           ;LSM9DS0.c: 31: xmWriteByte(0x1F, 0x00);
+  1581                           
+  1582                           ;incstack = 0
+  1583                           ;incstack = 0
+  1584  000516  6E17               	movwf	??_openLSM9_accel& (0+255),c
+  1585  000518  0E1F               	movlw	31
+  1586  00051A  6E15               	movwf	?_xmWriteByte,c
+  1587  00051C  5017               	movf	??_openLSM9_accel& (0+255),w,c
+  1588  00051E  6E18               	movwf	(??_openLSM9_accel+1)& (0+255),c
+  1589  000520  0E00               	movlw	0
+  1590  000522  6E16               	movwf	?_xmWriteByte+1,c
+  1591  000524  5018               	movf	(??_openLSM9_accel+1)& (0+255),w,c
+  1592  000526  EC10  F003         	call	_xmWriteByte	;wreg free
+  1593                           
+  1594                           ;LSM9DS0.c: 44: xmWriteByte(0x20,0b10010111 );
+  1595  00052A  6E17               	movwf	??_openLSM9_accel& (0+255),c
+  1596  00052C  0E20               	movlw	32
+  1597  00052E  6E15               	movwf	?_xmWriteByte,c
+  1598  000530  5017               	movf	??_openLSM9_accel& (0+255),w,c
+  1599  000532  6E18               	movwf	(??_openLSM9_accel+1)& (0+255),c
+  1600  000534  0E97               	movlw	151
+  1601  000536  6E16               	movwf	?_xmWriteByte+1,c
+  1602  000538  5018               	movf	(??_openLSM9_accel+1)& (0+255),w,c
+  1603  00053A  EC10  F003         	call	_xmWriteByte	;wreg free
+  1604                           
+  1605                           ;LSM9DS0.c: 57: xmWriteByte(0x21, 0b11010000);
+  1606  00053E  6E17               	movwf	??_openLSM9_accel& (0+255),c
+  1607  000540  0E21               	movlw	33
+  1608  000542  6E15               	movwf	?_xmWriteByte,c
+  1609  000544  5017               	movf	??_openLSM9_accel& (0+255),w,c
+  1610  000546  6E18               	movwf	(??_openLSM9_accel+1)& (0+255),c
+  1611  000548  0ED0               	movlw	208
+  1612  00054A  6E16               	movwf	?_xmWriteByte+1,c
+  1613  00054C  5018               	movf	(??_openLSM9_accel+1)& (0+255),w,c
+  1614  00054E  EC10  F003         	call	_xmWriteByte	;wreg free
+  1615                           
+  1616                           ;LSM9DS0.c: 60: xmWriteByte(0x22, 0x04);
+  1617  000552  6E17               	movwf	??_openLSM9_accel& (0+255),c
+  1618  000554  0E22               	movlw	34
+  1619  000556  6E15               	movwf	?_xmWriteByte,c
+  1620  000558  5017               	movf	??_openLSM9_accel& (0+255),w,c
+  1621  00055A  6E18               	movwf	(??_openLSM9_accel+1)& (0+255),c
+  1622  00055C  0E04               	movlw	4
+  1623  00055E  6E16               	movwf	?_xmWriteByte+1,c
+  1624  000560  5018               	movf	(??_openLSM9_accel+1)& (0+255),w,c
+  1625  000562  EC10  F003         	call	_xmWriteByte	;wreg free
+  1626  000566  0012               	return	
+  1627  000568                     __end_of_openLSM9_accel:
+  1628                           	opt stack 0
+  1629                           tblptru	equ	0xFF8
+  1630                           postinc0	equ	0xFEE
+  1631                           wreg	equ	0xFE8
+  1632                           status	equ	0xFD8
+  1633                           
+  1634 ;; *************** function _xmWriteByte *****************
+  1635 ;; Defined at:
+  1636 ;;		line 253 in file "LSM9DS0.c"
+  1637 ;; Parameters:    Size  Location     Type
+  1638 ;;  subadd          1   20[COMRAM] unsigned char 
+  1639 ;;  data            1   21[COMRAM] unsigned char 
+  1640 ;; Auto vars:     Size  Location     Type
+  1641 ;;		None
+  1642 ;; Return value:  Size  Location     Type
+  1643 ;;		None               void
+  1644 ;; Registers used:
+  1645 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, bt
+      +emp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+  1646 ;; Tracked objects:
+  1647 ;;		On entry : 0/0
+  1648 ;;		On exit  : 0/0
+  1649 ;;		Unchanged: 0/0
+  1650 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1651 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1652 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1653 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1654 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1655 ;;Total ram usage:        2 bytes
+  1656 ;; Hardware stack levels used:    1
+  1657 ;; Hardware stack levels required when called:    4
+  1658 ;; This function calls:
+  1659 ;;		_WriteI2C1
+  1660 ;; This function is called by:
+  1661 ;;		_openLSM9_accel
+  1662 ;;		_openLSM9_mag
+  1663 ;; This function uses a non-reentrant model
+  1664 ;;
+  1665                           
+  1666                           	psect	text13
+  1667  000620                     __ptext13:
+  1668                           	opt stack 0
+  1669  000620                     _xmWriteByte:
+  1670                           	opt stack 23
+  1671                           
+  1672                           ;LSM9DS0.c: 254: SSP1CON2bits.SEN=1;while(SSP1CON2bits.SEN);
+  1673                           
+  1674                           ;incstack = 0
+  1675                           ;incstack = 0
+  1676  000620  80C5               	bsf	4037,0,c	;volatile
+  1677  000622                     l124:
+  1678  000622  B0C5               	btfsc	4037,0,c	;volatile
+  1679  000624  D7FE               	goto	l124
+  1680                           
+  1681                           ;LSM9DS0.c: 255: WriteI2C1(_xmaddress);
+  1682  000626  C02D  F013         	movff	__xmaddress,?_WriteI2C1
+  1683  00062A  ECC2  F001         	call	_WriteI2C1	;wreg free
+  1684                           
+  1685                           ;LSM9DS0.c: 257: WriteI2C1(subadd);
+  1686  00062E  C015  F013         	movff	xmWriteByte@subadd,?_WriteI2C1
+  1687  000632  ECC2  F001         	call	_WriteI2C1	;wreg free
+  1688                           
+  1689                           ;LSM9DS0.c: 259: WriteI2C1(data);
+  1690  000636  C016  F013         	movff	xmWriteByte@data,?_WriteI2C1
+  1691  00063A  ECC2  F001         	call	_WriteI2C1	;wreg free
+  1692                           
+  1693                           ;LSM9DS0.c: 261: SSP1CON2bits.PEN=1;while(SSP1CON2bits.PEN);
+  1694  00063E  84C5               	bsf	4037,2,c	;volatile
+  1695  000640                     l127:
+  1696  000640  A4C5               	btfss	4037,2,c	;volatile
+  1697  000642  0012               	return	
+  1698  000644  D7FD               	goto	l127
+  1699  000646                     __end_of_xmWriteByte:
+  1700                           	opt stack 0
+  1701                           tblptru	equ	0xFF8
+  1702                           postinc0	equ	0xFEE
+  1703                           wreg	equ	0xFE8
+  1704                           status	equ	0xFD8
+  1705                           
+  1706 ;; *************** function _gReadByte *****************
+  1707 ;; Defined at:
+  1708 ;;		line 195 in file "LSM9DS0.c"
+  1709 ;; Parameters:    Size  Location     Type
+  1710 ;;  subadd          1   24[COMRAM] unsigned char 
+  1711 ;; Auto vars:     Size  Location     Type
+  1712 ;;		None
+  1713 ;; Return value:  Size  Location     Type
+  1714 ;;                  1    wreg      unsigned char 
+  1715 ;; Registers used:
+  1716 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, bt
+      +emp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+  1717 ;; Tracked objects:
+  1718 ;;		On entry : 0/0
+  1719 ;;		On exit  : 0/0
+  1720 ;;		Unchanged: 0/0
+  1721 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1722 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1723 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1724 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1725 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1726 ;;Total ram usage:        1 bytes
+  1727 ;; Hardware stack levels used:    1
+  1728 ;; Hardware stack levels required when called:    5
+  1729 ;; This function calls:
+  1730 ;;		_I2CReadByte
+  1731 ;; This function is called by:
+  1732 ;;		_openLSM9
+  1733 ;;		_readLSM9_gyro
+  1734 ;; This function uses a non-reentrant model
+  1735 ;;
+  1736                           
+  1737                           	psect	text14
+  1738  0006EC                     __ptext14:
+  1739                           	opt stack 0
+  1740  0006EC                     _gReadByte:
+  1741                           	opt stack 23
+  1742                           
+  1743                           ;LSM9DS0.c: 196: return (I2CReadByte(_gaddress>>1,subadd));
+  1744                           
+  1745                           ;incstack = 0
+  1746                           ;incstack = 0
+  1747  0006EC  90D8               	bcf	status,0,c
+  1748  0006EE  302C               	rrcf	__gaddress,w,c
+  1749  0006F0  6E15               	movwf	?_I2CReadByte,c
+  1750  0006F2  C019  F016         	movff	gReadByte@subadd,?_I2CReadByte+1
+  1751  0006F6  EC5E  F002         	call	_I2CReadByte	;wreg free
+  1752  0006FA  0012               	return	
+  1753  0006FC                     __end_of_gReadByte:
+  1754                           	opt stack 0
+  1755                           tblptru	equ	0xFF8
+  1756                           postinc0	equ	0xFEE
+  1757                           wreg	equ	0xFE8
+  1758                           status	equ	0xFD8
+  1759                           
+  1760 ;; *************** function _xmReadByte *****************
+  1761 ;; Defined at:
+  1762 ;;		line 217 in file "LSM9DS0.c"
+  1763 ;; Parameters:    Size  Location     Type
+  1764 ;;  subadd          1   24[COMRAM] unsigned char 
+  1765 ;; Auto vars:     Size  Location     Type
+  1766 ;;		None
+  1767 ;; Return value:  Size  Location     Type
+  1768 ;;                  1    wreg      unsigned char 
+  1769 ;; Registers used:
+  1770 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, bt
+      +emp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+  1771 ;; Tracked objects:
+  1772 ;;		On entry : 0/0
+  1773 ;;		On exit  : 0/0
+  1774 ;;		Unchanged: 0/0
+  1775 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1776 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1777 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1778 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1779 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1780 ;;Total ram usage:        1 bytes
+  1781 ;; Hardware stack levels used:    1
+  1782 ;; Hardware stack levels required when called:    5
+  1783 ;; This function calls:
+  1784 ;;		_I2CReadByte
+  1785 ;; This function is called by:
+  1786 ;;		_openLSM9
+  1787 ;;		_readLSM9_accel
+  1788 ;;		_readLSM9_mag
+  1789 ;; This function uses a non-reentrant model
+  1790 ;;
+  1791                           
+  1792                           	psect	text15
+  1793  0006FC                     __ptext15:
+  1794                           	opt stack 0
+  1795  0006FC                     _xmReadByte:
+  1796                           	opt stack 23
+  1797                           
+  1798                           ;LSM9DS0.c: 218: return (I2CReadByte(_xmaddress>>1,subadd));
+  1799                           
+  1800                           ;incstack = 0
+  1801                           ;incstack = 0
+  1802  0006FC  90D8               	bcf	status,0,c
+  1803  0006FE  302D               	rrcf	__xmaddress,w,c
+  1804  000700  6E15               	movwf	?_I2CReadByte,c
+  1805  000702  C019  F016         	movff	xmReadByte@subadd,?_I2CReadByte+1
+  1806  000706  EC5E  F002         	call	_I2CReadByte	;wreg free
+  1807  00070A  0012               	return	
+  1808  00070C                     __end_of_xmReadByte:
+  1809                           	opt stack 0
+  1810                           tblptru	equ	0xFF8
+  1811                           postinc0	equ	0xFEE
+  1812                           wreg	equ	0xFE8
+  1813                           status	equ	0xFD8
+  1814                           
+  1815 ;; *************** function _I2CReadByte *****************
+  1816 ;; Defined at:
+  1817 ;;		line 5 in file "I2C_mat.c"
+  1818 ;; Parameters:    Size  Location     Type
+  1819 ;;  add             1   20[COMRAM] unsigned char 
+  1820 ;;  subadd          1   21[COMRAM] unsigned char 
+  1821 ;; Auto vars:     Size  Location     Type
+  1822 ;;  _temp           1   23[COMRAM] unsigned char 
+  1823 ;; Return value:  Size  Location     Type
+  1824 ;;                  1    wreg      unsigned char 
+  1825 ;; Registers used:
+  1826 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, bt
+      +emp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack
+  1827 ;; Tracked objects:
+  1828 ;;		On entry : 0/0
+  1829 ;;		On exit  : 0/0
+  1830 ;;		Unchanged: 0/0
+  1831 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1832 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1833 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1834 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1835 ;;      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1836 ;;Total ram usage:        4 bytes
+  1837 ;; Hardware stack levels used:    1
+  1838 ;; Hardware stack levels required when called:    4
+  1839 ;; This function calls:
+  1840 ;;		_WriteI2C1
+  1841 ;;		_ReadI2C1
+  1842 ;; This function is called by:
+  1843 ;;		_gReadByte
+  1844 ;;		_xmReadByte
+  1845 ;; This function uses a non-reentrant model
+  1846 ;;
+  1847                           
+  1848                           	psect	text16
+  1849  0004BC                     __ptext16:
+  1850                           	opt stack 0
+  1851  0004BC                     _I2CReadByte:
+  1852                           	opt stack 23
+  1853                           
+  1854                           ;I2C_mat.c: 6: unsigned char _temp=0;
+  1855                           
+  1856                           ;incstack = 0
+  1857                           ;incstack = 0
+  1858  0004BC  6E17               	movwf	??_I2CReadByte& (0+255),c
+  1859  0004BE  0E00               	movlw	0
+  1860  0004C0  6E18               	movwf	I2CReadByte@_temp,c
+  1861  0004C2  5017               	movf	??_I2CReadByte& (0+255),w,c
+  1862                           
+  1863                           ;I2C_mat.c: 7: SSP1CON2bits.SEN=1;while(SSP1CON2bits.SEN);
+  1864  0004C4  80C5               	bsf	4037,0,c	;volatile
+  1865  0004C6                     l139:
+  1866  0004C6  B0C5               	btfsc	4037,0,c	;volatile
+  1867  0004C8  D7FE               	goto	l139
+  1868  0004CA                     l1279:
+  1869  0004CA  5015               	movf	I2CReadByte@add,w,c
+  1870  0004CC  2415               	addwf	I2CReadByte@add,w,c
+  1871  0004CE  6E13               	movwf	?_WriteI2C1,c
+  1872  0004D0  ECC2  F001         	call	_WriteI2C1	;wreg free
+  1873  0004D4  0900               	iorlw	0
+  1874  0004D6  A4D8               	btfss	status,2,c
+  1875  0004D8  D7F8               	goto	l1279
+  1876  0004DA                     l1281:
+  1877  0004DA  C016  F013         	movff	I2CReadByte@subadd,?_WriteI2C1
+  1878  0004DE  ECC2  F001         	call	_WriteI2C1	;wreg free
+  1879  0004E2  0900               	iorlw	0
+  1880  0004E4  A4D8               	btfss	status,2,c
+  1881  0004E6  D7F9               	goto	l1281
+  1882                           
+  1883                           ;I2C_mat.c: 10: SSP1CON2bits.RSEN=1;while(SSP1CON2bits.RSEN);
+  1884  0004E8  82C5               	bsf	4037,1,c	;volatile
+  1885  0004EA                     l148:
+  1886  0004EA  B2C5               	btfsc	4037,1,c	;volatile
+  1887  0004EC  D7FE               	goto	l148
+  1888  0004EE                     l1283:
+  1889  0004EE  80D8               	bsf	status,0,c
+  1890  0004F0  3415               	rlcf	I2CReadByte@add,w,c
+  1891  0004F2  6E13               	movwf	?_WriteI2C1,c
+  1892  0004F4  ECC2  F001         	call	_WriteI2C1	;wreg free
+  1893  0004F8  0900               	iorlw	0
+  1894  0004FA  A4D8               	btfss	status,2,c
+  1895  0004FC  D7F8               	goto	l1283
+  1896                           
+  1897                           ;I2C_mat.c: 12: _temp=ReadI2C1();
+  1898  0004FE  EC45  F003         	call	_ReadI2C1	;wreg free
+  1899  000502  6E18               	movwf	I2CReadByte@_temp,c
+  1900                           
+  1901                           ;I2C_mat.c: 13: SSP1CON2bits.ACKDT=1, SSP1CON2bits.ACKEN=1;while(SSP1CON2bits.ACKEN);
+  1902  000504  8AC5               	bsf	4037,5,c	;volatile
+  1903  000506  88C5               	bsf	4037,4,c	;volatile
+  1904  000508                     l154:
+  1905  000508  B8C5               	btfsc	4037,4,c	;volatile
+  1906  00050A  D7FE               	goto	l154
+  1907                           
+  1908                           ;I2C_mat.c: 14: SSP1CON2bits.PEN=1;while(SSP1CON2bits.PEN);
+  1909  00050C  84C5               	bsf	4037,2,c	;volatile
+  1910  00050E                     l157:
+  1911  00050E  B4C5               	btfsc	4037,2,c	;volatile
+  1912  000510  D7FE               	goto	l157
+  1913                           
+  1914                           ;I2C_mat.c: 15: return _temp;
+  1915  000512  5018               	movf	I2CReadByte@_temp,w,c
+  1916  000514  0012               	return	
+  1917  000516                     __end_of_I2CReadByte:
+  1918                           	opt stack 0
+  1919                           tblptru	equ	0xFF8
+  1920                           postinc0	equ	0xFEE
+  1921                           wreg	equ	0xFE8
+  1922                           status	equ	0xFD8
+  1923                           
+  1924 ;; *************** function _ReadI2C1 *****************
+  1925 ;; Defined at:
+  1926 ;;		line 12 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\i2c\i2c1read.c"
+  1927 ;; Parameters:    Size  Location     Type
+  1928 ;;		None
+  1929 ;; Auto vars:     Size  Location     Type
+  1930 ;;		None
+  1931 ;; Return value:  Size  Location     Type
+  1932 ;;                  1    wreg      unsigned char 
+  1933 ;; Registers used:
+  1934 ;;		wreg, status,2, status,0
+  1935 ;; Tracked objects:
+  1936 ;;		On entry : 0/0
+  1937 ;;		On exit  : 0/0
+  1938 ;;		Unchanged: 0/0
+  1939 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1940 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1941 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1942 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1943 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1944 ;;Total ram usage:        0 bytes
+  1945 ;; Hardware stack levels used:    1
+  1946 ;; Hardware stack levels required when called:    3
+  1947 ;; This function calls:
+  1948 ;;		Nothing
+  1949 ;; This function is called by:
+  1950 ;;		_I2CReadByte
+  1951 ;;		_gReadBytes
+  1952 ;; This function uses a non-reentrant model
+  1953 ;;
+  1954                           
+  1955                           	psect	text17
+  1956  00068A                     __ptext17:
+  1957                           	opt stack 0
+  1958  00068A                     _ReadI2C1:
+  1959                           	opt stack 23
+  1960                           
+  1961                           ;incstack = 0
+  1962                           ;incstack = 0
+  1963  00068A  50C6               	movf	4038,w,c	;volatile
+  1964  00068C  0B0F               	andlw	15
+  1965  00068E  0A08               	xorlw	8
+  1966  000690  B4D8               	btfsc	status,2,c
+  1967  000692  D004               	goto	l554
+  1968  000694  50C6               	movf	4038,w,c	;volatile
+  1969  000696  0B0F               	andlw	15
+  1970  000698  0A0B               	xorlw	11
+  1971  00069A  B4D8               	btfsc	status,2,c
+  1972  00069C                     l554:
+  1973  00069C  86C5               	bsf	4037,3,c	;volatile
+  1974  00069E                     l555:
+  1975  00069E  A0C7               	btfss	4039,0,c	;volatile
+  1976  0006A0  D7FE               	goto	l555
+  1977  0006A2  50C9               	movf	4041,w,c	;volatile
+  1978  0006A4  0012               	return	
+  1979  0006A6                     __end_of_ReadI2C1:
+  1980                           	opt stack 0
+  1981                           tblptru	equ	0xFF8
+  1982                           postinc0	equ	0xFEE
+  1983                           wreg	equ	0xFE8
+  1984                           status	equ	0xFD8
+  1985                           
+  1986 ;; *************** function _WriteI2C1 *****************
+  1987 ;; Defined at:
+  1988 ;;		line 13 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\i2c\i2c1writ.c"
+  1989 ;; Parameters:    Size  Location     Type
+  1990 ;;  data_out        1   18[COMRAM] unsigned char 
+  1991 ;; Auto vars:     Size  Location     Type
+  1992 ;;		None
+  1993 ;; Return value:  Size  Location     Type
+  1994 ;;                  1    wreg      char 
+  1995 ;; Registers used:
+  1996 ;;		wreg, status,2, status,0
+  1997 ;; Tracked objects:
+  1998 ;;		On entry : 0/0
+  1999 ;;		On exit  : 0/0
+  2000 ;;		Unchanged: 0/0
+  2001 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  2002 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2003 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2004 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2005 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2006 ;;Total ram usage:        2 bytes
+  2007 ;; Hardware stack levels used:    1
+  2008 ;; Hardware stack levels required when called:    3
+  2009 ;; This function calls:
+  2010 ;;		Nothing
+  2011 ;; This function is called by:
+  2012 ;;		_gWriteByte
+  2013 ;;		_xmWriteByte
+  2014 ;;		_I2CReadByte
+  2015 ;;		_gReadBytes
+  2016 ;;		_xmReadBytes
+  2017 ;;		_I2CWriteByte
+  2018 ;; This function uses a non-reentrant model
+  2019 ;;
+  2020                           
+  2021                           	psect	text18
+  2022  000384                     __ptext18:
+  2023                           	opt stack 0
+  2024  000384                     _WriteI2C1:
+  2025                           	opt stack 23
+  2026                           
+  2027                           ;incstack = 0
+  2028                           ;incstack = 0
+  2029  000384  C013  FFC9         	movff	WriteI2C1@data_out,4041	;volatile
+  2030  000388  AEC6               	btfss	4038,7,c	;volatile
+  2031  00038A  D002               	goto	l1331
+  2032  00038C  0EFF               	movlw	255
+  2033  00038E  0012               	return	
+  2034  000390                     l1331:
+  2035  000390  50C6               	movf	4038,w,c	;volatile
+  2036  000392  0B0F               	andlw	15
+  2037  000394  0A08               	xorlw	8
+  2038  000396  B4D8               	btfsc	status,2,c
+  2039  000398  D00F               	goto	l1349
+  2040  00039A  50C6               	movf	4038,w,c	;volatile
+  2041  00039C  0B0F               	andlw	15
+  2042  00039E  0A0B               	xorlw	11
+  2043  0003A0  B4D8               	btfsc	status,2,c
+  2044  0003A2  D00A               	goto	l1349
+  2045  0003A4  88C6               	bsf	4038,4,c	;volatile
+  2046  0003A6                     l579:
+  2047  0003A6  A69E               	btfss	3998,3,c	;volatile
+  2048  0003A8  D7FE               	goto	l579
+  2049  0003AA  A4C7               	btfss	4039,2,c	;volatile
+  2050  0003AC  B0C7               	btfsc	4039,0,c	;volatile
+  2051  0003AE  D002               	goto	l1345
+  2052  0003B0  0EFE               	movlw	254
+  2053  0003B2  0012               	return	
+  2054  0003B4                     l1345:
+  2055  0003B4  0E00               	movlw	0
+  2056  0003B6  0012               	return	
+  2057  0003B8                     l1349:
+  2058  0003B8  50C6               	movf	4038,w,c	;volatile
+  2059  0003BA  0B0F               	andlw	15
+  2060  0003BC  0A08               	xorlw	8
+  2061  0003BE  B4D8               	btfsc	status,2,c
+  2062  0003C0  D005               	goto	l588
+  2063  0003C2  50C6               	movf	4038,w,c	;volatile
+  2064  0003C4  0B0F               	andlw	15
+  2065  0003C6  0A0B               	xorlw	11
+  2066  0003C8  A4D8               	btfss	status,2,c
+  2067  0003CA  0012               	return	
+  2068  0003CC                     l588:
+  2069  0003CC  B0C7               	btfsc	4039,0,c	;volatile
+  2070  0003CE  D7FE               	goto	l588
+  2071  0003D0                     l1353:
+  2072  0003D0  30C7               	rrcf	4039,w,c	;volatile
+  2073  0003D2  32E8               	rrcf	wreg,f,c
+  2074  0003D4  0B01               	andlw	1
+  2075  0003D6  6E14               	movwf	??_WriteI2C1& (0+255),c
+  2076  0003D8  50C5               	movf	4037,w,c	;volatile
+  2077  0003DA  0B1F               	andlw	31
+  2078  0003DC  1014               	iorwf	??_WriteI2C1,w,c
+  2079  0003DE  0900               	iorlw	0
+  2080  0003E0  A4D8               	btfss	status,2,c
+  2081  0003E2  D7F6               	goto	l1353
+  2082  0003E4  ACC5               	btfss	4037,6,c	;volatile
+  2083  0003E6  D002               	goto	l1361
+  2084  0003E8  0EFE               	movlw	254
+  2085  0003EA  0012               	return	
+  2086  0003EC                     l1361:
+  2087  0003EC  0E00               	movlw	0
+  2088  0003EE  0012               	return	
+  2089  0003F0                     __end_of_WriteI2C1:
+  2090                           	opt stack 0
+  2091                           tblptru	equ	0xFF8
+  2092                           postinc0	equ	0xFEE
+  2093                           wreg	equ	0xFE8
+  2094                           status	equ	0xFD8
+  2095                           
+  2096 ;; *************** function _isr *****************
+  2097 ;; Defined at:
+  2098 ;;		line 6 in file "Tom_V_Main.c"
+  2099 ;; Parameters:    Size  Location     Type
+  2100 ;;		None
+  2101 ;; Auto vars:     Size  Location     Type
+  2102 ;;		None
+  2103 ;; Return value:  Size  Location     Type
+  2104 ;;		None               void
+  2105 ;; Registers used:
+  2106 ;;		wreg, status,2, status,0, cstack
+  2107 ;; Tracked objects:
+  2108 ;;		On entry : 0/0
+  2109 ;;		On exit  : 0/0
+  2110 ;;		Unchanged: 0/0
+  2111 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  2112 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2113 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2114 ;;      Temps:         15       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2115 ;;      Totals:        15       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2116 ;;Total ram usage:       15 bytes
+  2117 ;; Hardware stack levels used:    1
+  2118 ;; Hardware stack levels required when called:    2
+  2119 ;; This function calls:
+  2120 ;;		_Tomcat_TX_warn
+  2121 ;;		_Tomcat_TX_error
+  2122 ;; This function is called by:
+  2123 ;;		Interrupt level 2
+  2124 ;; This function uses a non-reentrant model
+  2125 ;;
+  2126                           
+  2127                           	psect	intcode
+  2128  000008                     __pintcode:
+  2129                           	opt stack 0
+  2130  000008                     _isr:
+  2131                           	opt stack 23
+  2132                           
+  2133                           ;incstack = 0
+  2134  000008  CFFA F005          	movff	pclath,??_isr+1
+  2135  00000C  CFFB F006          	movff	pclatu,??_isr+2
+  2136  000010  CFE9 F007          	movff	fsr0l,??_isr+3
+  2137  000014  CFEA F008          	movff	fsr0h,??_isr+4
+  2138  000018  CFE1 F009          	movff	fsr1l,??_isr+5
+  2139  00001C  CFE2 F00A          	movff	fsr1h,??_isr+6
+  2140  000020  CFD9 F00B          	movff	fsr2l,??_isr+7
+  2141  000024  CFDA F00C          	movff	fsr2h,??_isr+8
+  2142  000028  CFF3 F00D          	movff	prodl,??_isr+9
+  2143  00002C  CFF4 F00E          	movff	prodh,??_isr+10
+  2144  000030  CFF6 F00F          	movff	tblptrl,??_isr+11
+  2145  000034  CFF7 F010          	movff	tblptrh,??_isr+12
+  2146  000038  CFF8 F011          	movff	tblptru,??_isr+13
+  2147  00003C  CFF5 F012          	movff	tablat,??_isr+14
+  2148  000040                     
+  2149                           ;Tom_V_Main.c: 7: INTCONbits.GIE=0;
+  2150  000040  9EF2               	bcf	intcon,7,c	;volatile
+  2151                           
+  2152                           ;Tom_V_Main.c: 8: if(INTCONbits.TMR0IF)
+  2153  000042  A4F2               	btfss	intcon,2,c	;volatile
+  2154  000044  D001               	goto	i2u76_41
+  2155  000046  D001               	goto	i2u76_40
+  2156  000048                     i2u76_41:
+  2157  000048  D009               	goto	i2l1595
+  2158  00004A                     i2u76_40:
+  2159  00004A                     
+  2160                           ;Tom_V_Main.c: 9: {
+  2161                           ;Tom_V_Main.c: 10: INTCONbits.TMR0IF=0;
+  2162  00004A  94F2               	bcf	intcon,2,c	;volatile
+  2163  00004C                     
+  2164                           ;Tom_V_Main.c: 11: TMR0=0;
+  2165  00004C  0E00               	movlw	0
+  2166  00004E  6ED7               	movwf	4055,c	;volatile
+  2167  000050  0E00               	movlw	0
+  2168  000052  6ED6               	movwf	4054,c	;volatile
+  2169  000054                     
+  2170                           ;Tom_V_Main.c: 12: tmr0_flag=1;
+  2171  000054  0100               	movlb	(_tmr0_flag/(0+8)) shr (0+8)
+  2172  000056  883B               	bsf	_tmr0_flag/(0+8),_tmr0_flag& (0+7),c
+  2173  000058                     
+  2174                           ;Tom_V_Main.c: 13: time++;
+  2175  000058  2A2E               	incf	_time,f,c
+  2176  00005A  D000               	goto	i2l1595
+  2177  00005C                     i2l1595:
+  2178                           
+  2179                           ;Tom_V_Main.c: 14: }
+  2180                           ;Tom_V_Main.c: 15: if(PIR1bits.TMR1IF)
+  2181  00005C  A09E               	btfss	3998,0,c	;volatile
+  2182  00005E  D001               	goto	i2u77_41
+  2183  000060  D001               	goto	i2u77_40
+  2184  000062                     i2u77_41:
+  2185  000062  D008               	goto	i2l1603
+  2186  000064                     i2u77_40:
+  2187  000064                     
+  2188                           ;Tom_V_Main.c: 16: {
+  2189                           ;Tom_V_Main.c: 17: PIR1bits.TMR1IF=0;
+  2190  000064  909E               	bcf	3998,0,c	;volatile
+  2191  000066                     
+  2192                           ;Tom_V_Main.c: 18: TMR1=0;
+  2193  000066  0E00               	movlw	0
+  2194  000068  6ECF               	movwf	4047,c	;volatile
+  2195  00006A  0E00               	movlw	0
+  2196  00006C  6ECE               	movwf	4046,c	;volatile
+  2197  00006E                     
+  2198                           ;Tom_V_Main.c: 19: tmr1_flag=1;
+  2199  00006E  0100               	movlb	(_tmr1_flag/(0+8)) shr (0+8)
+  2200  000070  8A3B               	bsf	_tmr1_flag/(0+8),_tmr1_flag& (0+7),c
+  2201  000072  D000               	goto	i2l1603
+  2202  000074                     i2l1603:
+  2203                           
+  2204                           ;Tom_V_Main.c: 20: }
+  2205                           ;Tom_V_Main.c: 21: if(PIR1bits.TMR2IF)
+  2206  000074  A29E               	btfss	3998,1,c	;volatile
+  2207  000076  D001               	goto	i2u78_41
+  2208  000078  D001               	goto	i2u78_40
+  2209  00007A                     i2u78_41:
+  2210  00007A  D006               	goto	i2l1611
+  2211  00007C                     i2u78_40:
+  2212  00007C                     
+  2213                           ;Tom_V_Main.c: 22: {
+  2214                           ;Tom_V_Main.c: 23: PIR1bits.TMR2IF=0;
+  2215  00007C  929E               	bcf	3998,1,c	;volatile
+  2216  00007E                     
+  2217                           ;Tom_V_Main.c: 24: TMR2=0;
+  2218  00007E  0E00               	movlw	0
+  2219  000080  6EBC               	movwf	4028,c	;volatile
+  2220  000082                     
+  2221                           ;Tom_V_Main.c: 25: tmr2_flag=1;
+  2222  000082  0100               	movlb	(_tmr2_flag/(0+8)) shr (0+8)
+  2223  000084  8C3B               	bsf	_tmr2_flag/(0+8),_tmr2_flag& (0+7),c
+  2224  000086  D000               	goto	i2l1611
+  2225  000088                     i2l1611:
+  2226                           
+  2227                           ;Tom_V_Main.c: 26: }
+  2228                           ;Tom_V_Main.c: 27: if(PIR1bits.RC1IF)
+  2229  000088  AA9E               	btfss	3998,5,c	;volatile
+  2230  00008A  D001               	goto	i2u79_41
+  2231  00008C  D001               	goto	i2u79_40
+  2232  00008E                     i2u79_41:
+  2233  00008E  D003               	goto	i2l332
+  2234  000090                     i2u79_40:
+  2235  000090                     
+  2236                           ;Tom_V_Main.c: 28: {
+  2237                           ;Tom_V_Main.c: 29: PIR1bits.RC1IF=0;
+  2238  000090  9A9E               	bcf	3998,5,c	;volatile
+  2239                           
+  2240                           ;Tom_V_Main.c: 30: rx1_flag=1;
+  2241  000092  0100               	movlb	(_rx1_flag/(0+8)) shr (0+8)
+  2242  000094  843B               	bsf	_rx1_flag/(0+8),_rx1_flag& (0+7),c
+  2243  000096                     i2l332:
+  2244                           
+  2245                           ;Tom_V_Main.c: 31: }
+  2246                           ;Tom_V_Main.c: 32: if(PIR3bits.RC2IF)
+  2247  000096  AAA4               	btfss	4004,5,c	;volatile
+  2248  000098  D001               	goto	i2u80_41
+  2249  00009A  D001               	goto	i2u80_40
+  2250  00009C                     i2u80_41:
+  2251  00009C  D003               	goto	i2l333
+  2252  00009E                     i2u80_40:
+  2253  00009E                     
+  2254                           ;Tom_V_Main.c: 33: {
+  2255                           ;Tom_V_Main.c: 34: PIR3bits.RC2IF=0;
+  2256  00009E  9AA4               	bcf	4004,5,c	;volatile
+  2257                           
+  2258                           ;Tom_V_Main.c: 35: rx2_flag=1;
+  2259  0000A0  0100               	movlb	(_rx2_flag/(0+8)) shr (0+8)
+  2260  0000A2  863B               	bsf	_rx2_flag/(0+8),_rx2_flag& (0+7),c
+  2261  0000A4                     i2l333:
+  2262                           
+  2263                           ;Tom_V_Main.c: 36: }
+  2264                           ;Tom_V_Main.c: 37: if(INTCONbits.INT0IF)
+  2265  0000A4  A2F2               	btfss	intcon,1,c	;volatile
+  2266  0000A6  D001               	goto	i2u81_41
+  2267  0000A8  D001               	goto	i2u81_40
+  2268  0000AA                     i2u81_41:
+  2269  0000AA  D00A               	goto	i2l1621
+  2270  0000AC                     i2u81_40:
+  2271  0000AC                     
+  2272                           ;Tom_V_Main.c: 38: {
+  2273                           ;Tom_V_Main.c: 39: INTCONbits.INT0IF=0;
+  2274  0000AC  92F2               	bcf	intcon,1,c	;volatile
+  2275                           
+  2276                           ;Tom_V_Main.c: 40: Leak1_flag=1;
+  2277  0000AE  0100               	movlb	(_Leak1_flag/(0+8)) shr (0+8)
+  2278  0000B0  803B               	bsf	_Leak1_flag/(0+8),_Leak1_flag& (0+7),c
+  2279  0000B2                     
+  2280                           ;Tom_V_Main.c: 41: Tomcat_TX_warn('L');
+  2281  0000B2  6E04               	movwf	??_isr& (0+255),c
+  2282  0000B4  0E4C               	movlw	76
+  2283  0000B6  6E02               	movwf	?_Tomcat_TX_warn,c
+  2284  0000B8  5004               	movf	??_isr& (0+255),w,c
+  2285  0000BA  EC34  F003         	call	_Tomcat_TX_warn	;wreg free
+  2286  0000BE  D000               	goto	i2l1621
+  2287  0000C0                     i2l1621:
+  2288                           
+  2289                           ;Tom_V_Main.c: 42: }
+  2290                           ;Tom_V_Main.c: 43: if(INTCON3bits.INT1IF)
+  2291  0000C0  A0F0               	btfss	intcon3,0,c	;volatile
+  2292  0000C2  D001               	goto	i2u82_41
+  2293  0000C4  D001               	goto	i2u82_40
+  2294  0000C6                     i2u82_41:
+  2295  0000C6  D00A               	goto	i2l1627
+  2296  0000C8                     i2u82_40:
+  2297  0000C8                     
+  2298                           ;Tom_V_Main.c: 44: {
+  2299                           ;Tom_V_Main.c: 45: INTCON3bits.INT1IF=0;
+  2300  0000C8  90F0               	bcf	intcon3,0,c	;volatile
+  2301                           
+  2302                           ;Tom_V_Main.c: 46: Leak2_flag=1;
+  2303  0000CA  0100               	movlb	(_Leak2_flag/(0+8)) shr (0+8)
+  2304  0000CC  823B               	bsf	_Leak2_flag/(0+8),_Leak2_flag& (0+7),c
+  2305  0000CE                     
+  2306                           ;Tom_V_Main.c: 47: Tomcat_TX_error('L');
+  2307  0000CE  6E04               	movwf	??_isr& (0+255),c
+  2308  0000D0  0E4C               	movlw	76
+  2309  0000D2  6E02               	movwf	?_Tomcat_TX_error,c
+  2310  0000D4  5004               	movf	??_isr& (0+255),w,c
+  2311  0000D6  EC23  F003         	call	_Tomcat_TX_error	;wreg free
+  2312  0000DA  D000               	goto	i2l1627
+  2313  0000DC                     i2l1627:
+  2314                           
+  2315                           ;Tom_V_Main.c: 48: }
+  2316                           ;Tom_V_Main.c: 49: INTCONbits.GIE=1;
+  2317  0000DC  8EF2               	bsf	intcon,7,c	;volatile
+  2318  0000DE  C012  FFF5         	movff	??_isr+14,tablat
+  2319  0000E2  C011  FFF8         	movff	??_isr+13,tblptru
+  2320  0000E6  C010  FFF7         	movff	??_isr+12,tblptrh
+  2321  0000EA  C00F  FFF6         	movff	??_isr+11,tblptrl
+  2322  0000EE  C00E  FFF4         	movff	??_isr+10,prodh
+  2323  0000F2  C00D  FFF3         	movff	??_isr+9,prodl
+  2324  0000F6  C00C  FFDA         	movff	??_isr+8,fsr2h
+  2325  0000FA  C00B  FFD9         	movff	??_isr+7,fsr2l
+  2326  0000FE  C00A  FFE2         	movff	??_isr+6,fsr1h
+  2327  000102  C009  FFE1         	movff	??_isr+5,fsr1l
+  2328  000106  C008  FFEA         	movff	??_isr+4,fsr0h
+  2329  00010A  C007  FFE9         	movff	??_isr+3,fsr0l
+  2330  00010E  C006  FFFB         	movff	??_isr+2,pclatu
+  2331  000112  C005  FFFA         	movff	??_isr+1,pclath
+  2332  000116  0011               	retfie		f
+  2333  000118                     __end_of_isr:
+  2334                           	opt stack 0
+  2335                           pclatu	equ	0xFFB
+  2336                           pclath	equ	0xFFA
+  2337                           tblptru	equ	0xFF8
+  2338                           tblptrh	equ	0xFF7
+  2339                           tblptrl	equ	0xFF6
+  2340                           tablat	equ	0xFF5
+  2341                           prodh	equ	0xFF4
+  2342                           prodl	equ	0xFF3
+  2343                           intcon	equ	0xFF2
+  2344                           intcon3	equ	0xFF0
+  2345                           postinc0	equ	0xFEE
+  2346                           fsr0h	equ	0xFEA
+  2347                           fsr0l	equ	0xFE9
+  2348                           wreg	equ	0xFE8
+  2349                           fsr1h	equ	0xFE2
+  2350                           fsr1l	equ	0xFE1
+  2351                           fsr2h	equ	0xFDA
+  2352                           fsr2l	equ	0xFD9
+  2353                           status	equ	0xFD8
+  2354                           
+  2355 ;; *************** function _Tomcat_TX_error *****************
+  2356 ;; Defined at:
+  2357 ;;		line 95 in file "Tomcat_driver.c"
+  2358 ;; Parameters:    Size  Location     Type
+  2359 ;;  code            1    1[COMRAM] unsigned char 
+  2360 ;; Auto vars:     Size  Location     Type
+  2361 ;;		None
+  2362 ;; Return value:  Size  Location     Type
+  2363 ;;		None               void
+  2364 ;; Registers used:
+  2365 ;;		status,2, cstack
+  2366 ;; Tracked objects:
+  2367 ;;		On entry : 0/0
+  2368 ;;		On exit  : 0/0
+  2369 ;;		Unchanged: 0/0
+  2370 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  2371 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2372 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2373 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2374 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2375 ;;Total ram usage:        2 bytes
+  2376 ;; Hardware stack levels used:    1
+  2377 ;; Hardware stack levels required when called:    1
+  2378 ;; This function calls:
+  2379 ;;		_Write1USART
+  2380 ;; This function is called by:
+  2381 ;;		_isr
+  2382 ;; This function uses a non-reentrant model
+  2383 ;;
+  2384                           
+  2385                           	psect	text20
+  2386  000646                     __ptext20:
+  2387                           	opt stack 0
+  2388  000646                     _Tomcat_TX_error:
+  2389                           	opt stack 23
+  2390                           
+  2391                           ;Tomcat_driver.c: 96: Write1USART('$');
+  2392                           
+  2393                           ;incstack = 0
+  2394                           ;incstack = 0
+  2395  000646  6E03               	movwf	??_Tomcat_TX_error& (0+255),c
+  2396  000648  0E24               	movlw	36
+  2397  00064A  6E01               	movwf	?_Write1USART,c
+  2398  00064C  5003               	movf	??_Tomcat_TX_error& (0+255),w,c
+  2399  00064E  EC86  F003         	call	_Write1USART	;wreg free
+  2400                           
+  2401                           ;Tomcat_driver.c: 97: Write1USART('!');
+  2402  000652  6E03               	movwf	??_Tomcat_TX_error& (0+255),c
+  2403  000654  0E21               	movlw	33
+  2404  000656  6E01               	movwf	?_Write1USART,c
+  2405  000658  5003               	movf	??_Tomcat_TX_error& (0+255),w,c
+  2406  00065A  EC86  F003         	call	_Write1USART	;wreg free
+  2407                           
+  2408                           ;Tomcat_driver.c: 98: Write1USART(code);
+  2409  00065E  C002  F001         	movff	Tomcat_TX_error@code,?_Write1USART
+  2410  000662  EC86  F003         	call	_Write1USART	;wreg free
+  2411  000666  0012               	return	
+  2412  000668                     __end_of_Tomcat_TX_error:
+  2413                           	opt stack 0
+  2414                           pclatu	equ	0xFFB
+  2415                           pclath	equ	0xFFA
+  2416                           tblptru	equ	0xFF8
+  2417                           tblptrh	equ	0xFF7
+  2418                           tblptrl	equ	0xFF6
+  2419                           tablat	equ	0xFF5
+  2420                           prodh	equ	0xFF4
+  2421                           prodl	equ	0xFF3
+  2422                           intcon	equ	0xFF2
+  2423                           intcon3	equ	0xFF0
+  2424                           postinc0	equ	0xFEE
+  2425                           fsr0h	equ	0xFEA
+  2426                           fsr0l	equ	0xFE9
+  2427                           wreg	equ	0xFE8
+  2428                           fsr1h	equ	0xFE2
+  2429                           fsr1l	equ	0xFE1
+  2430                           fsr2h	equ	0xFDA
+  2431                           fsr2l	equ	0xFD9
+  2432                           status	equ	0xFD8
+  2433                           
+  2434 ;; *************** function _Tomcat_TX_warn *****************
+  2435 ;; Defined at:
+  2436 ;;		line 89 in file "Tomcat_driver.c"
+  2437 ;; Parameters:    Size  Location     Type
+  2438 ;;  code            1    1[COMRAM] unsigned char 
+  2439 ;; Auto vars:     Size  Location     Type
+  2440 ;;		None
+  2441 ;; Return value:  Size  Location     Type
+  2442 ;;		None               void
+  2443 ;; Registers used:
+  2444 ;;		status,2, cstack
+  2445 ;; Tracked objects:
+  2446 ;;		On entry : 0/0
+  2447 ;;		On exit  : 0/0
+  2448 ;;		Unchanged: 0/0
+  2449 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  2450 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2451 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2452 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2453 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2454 ;;Total ram usage:        2 bytes
+  2455 ;; Hardware stack levels used:    1
+  2456 ;; Hardware stack levels required when called:    1
+  2457 ;; This function calls:
+  2458 ;;		_Write1USART
+  2459 ;; This function is called by:
+  2460 ;;		_isr
+  2461 ;; This function uses a non-reentrant model
+  2462 ;;
+  2463                           
+  2464                           	psect	text21
+  2465  000668                     __ptext21:
+  2466                           	opt stack 0
+  2467  000668                     _Tomcat_TX_warn:
+  2468                           	opt stack 23
+  2469                           
+  2470                           ;Tomcat_driver.c: 90: Write1USART('$');
+  2471                           
+  2472                           ;incstack = 0
+  2473                           ;incstack = 0
+  2474  000668  6E03               	movwf	??_Tomcat_TX_warn& (0+255),c
+  2475  00066A  0E24               	movlw	36
+  2476  00066C  6E01               	movwf	?_Write1USART,c
+  2477  00066E  5003               	movf	??_Tomcat_TX_warn& (0+255),w,c
+  2478  000670  EC86  F003         	call	_Write1USART	;wreg free
+  2479                           
+  2480                           ;Tomcat_driver.c: 91: Write1USART('?');
+  2481  000674  6E03               	movwf	??_Tomcat_TX_warn& (0+255),c
+  2482  000676  0E3F               	movlw	63
+  2483  000678  6E01               	movwf	?_Write1USART,c
+  2484  00067A  5003               	movf	??_Tomcat_TX_warn& (0+255),w,c
+  2485  00067C  EC86  F003         	call	_Write1USART	;wreg free
+  2486                           
+  2487                           ;Tomcat_driver.c: 92: Write1USART(code);
+  2488  000680  C002  F001         	movff	Tomcat_TX_warn@code,?_Write1USART
+  2489  000684  EC86  F003         	call	_Write1USART	;wreg free
+  2490  000688  0012               	return	
+  2491  00068A                     __end_of_Tomcat_TX_warn:
+  2492                           	opt stack 0
+  2493                           pclatu	equ	0xFFB
+  2494                           pclath	equ	0xFFA
+  2495                           tblptru	equ	0xFF8
+  2496                           tblptrh	equ	0xFF7
+  2497                           tblptrl	equ	0xFF6
+  2498                           tablat	equ	0xFF5
+  2499                           prodh	equ	0xFF4
+  2500                           prodl	equ	0xFF3
+  2501                           intcon	equ	0xFF2
+  2502                           intcon3	equ	0xFF0
+  2503                           postinc0	equ	0xFEE
+  2504                           fsr0h	equ	0xFEA
+  2505                           fsr0l	equ	0xFE9
+  2506                           wreg	equ	0xFE8
+  2507                           fsr1h	equ	0xFE2
+  2508                           fsr1l	equ	0xFE1
+  2509                           fsr2h	equ	0xFDA
+  2510                           fsr2l	equ	0xFD9
+  2511                           status	equ	0xFD8
+  2512                           
+  2513 ;; *************** function _Write1USART *****************
+  2514 ;; Defined at:
+  2515 ;;		line 15 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\u1write.c"
+  2516 ;; Parameters:    Size  Location     Type
+  2517 ;;  data            1    0[COMRAM] unsigned char 
+  2518 ;; Auto vars:     Size  Location     Type
+  2519 ;;		None
+  2520 ;; Return value:  Size  Location     Type
+  2521 ;;		None               void
+  2522 ;; Registers used:
+  2523 ;;		None
+  2524 ;; Tracked objects:
+  2525 ;;		On entry : 0/0
+  2526 ;;		On exit  : 0/0
+  2527 ;;		Unchanged: 0/0
+  2528 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  2529 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2530 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2531 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2532 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2533 ;;Total ram usage:        1 bytes
+  2534 ;; Hardware stack levels used:    1
+  2535 ;; This function calls:
+  2536 ;;		Nothing
+  2537 ;; This function is called by:
+  2538 ;;		_Tomcat_TX_warn
+  2539 ;;		_Tomcat_TX_error
+  2540 ;; This function uses a non-reentrant model
+  2541 ;;
+  2542                           
+  2543                           	psect	text22
+  2544  00070C                     __ptext22:
+  2545                           	opt stack 0
+  2546  00070C                     _Write1USART:
+  2547                           	opt stack 23
+  2548                           
+  2549                           ;incstack = 0
+  2550                           ;incstack = 0
+  2551  00070C  ACAC               	btfss	4012,6,c	;volatile
+  2552  00070E  D003               	goto	i2l505
+  2553  000710  90AC               	bcf	4012,0,c	;volatile
+  2554  000712  B22B               	btfsc	_USART1_Status,1,c
+  2555  000714  80AC               	bsf	4012,0,c	;volatile
+  2556  000716                     i2l505:
+  2557  000716  C001  FFAD         	movff	Write1USART@data,4013	;volatile
+  2558  00071A  0012               	return	
+  2559  00071C                     __end_of_Write1USART:
+  2560                           	opt stack 0
+  2561  0000                     pclatu	equ	0xFFB
+  2562                           pclath	equ	0xFFA
+  2563                           tblptru	equ	0xFF8
+  2564                           tblptrh	equ	0xFF7
+  2565                           tblptrl	equ	0xFF6
+  2566                           tablat	equ	0xFF5
+  2567                           prodh	equ	0xFF4
+  2568                           prodl	equ	0xFF3
+  2569                           intcon	equ	0xFF2
+  2570                           intcon3	equ	0xFF0
+  2571                           postinc0	equ	0xFEE
+  2572                           fsr0h	equ	0xFEA
+  2573                           fsr0l	equ	0xFE9
+  2574                           wreg	equ	0xFE8
+  2575                           fsr1h	equ	0xFE2
+  2576                           fsr1l	equ	0xFE1
+  2577                           fsr2h	equ	0xFDA
+  2578                           fsr2l	equ	0xFD9
+  2579                           status	equ	0xFD8
+  2580                           pclatu	equ	0xFFB
+  2581                           pclath	equ	0xFFA
+  2582                           tblptru	equ	0xFF8
+  2583                           tblptrh	equ	0xFF7
+  2584                           tblptrl	equ	0xFF6
+  2585                           tablat	equ	0xFF5
+  2586                           prodh	equ	0xFF4
+  2587                           prodl	equ	0xFF3
+  2588                           intcon	equ	0xFF2
+  2589                           intcon3	equ	0xFF0
+  2590                           postinc0	equ	0xFEE
+  2591                           fsr0h	equ	0xFEA
+  2592                           fsr0l	equ	0xFE9
+  2593                           wreg	equ	0xFE8
+  2594                           fsr1h	equ	0xFE2
+  2595                           fsr1l	equ	0xFE1
+  2596                           fsr2h	equ	0xFDA
+  2597                           fsr2l	equ	0xFD9
+  2598                           status	equ	0xFD8
+  2599                           
+  2600                           	psect	rparam
+  2601  0000                     pclatu	equ	0xFFB
+  2602                           pclath	equ	0xFFA
+  2603                           tblptru	equ	0xFF8
+  2604                           tblptrh	equ	0xFF7
+  2605                           tblptrl	equ	0xFF6
+  2606                           tablat	equ	0xFF5
+  2607                           prodh	equ	0xFF4
+  2608                           prodl	equ	0xFF3
+  2609                           intcon	equ	0xFF2
+  2610                           intcon3	equ	0xFF0
+  2611                           postinc0	equ	0xFEE
+  2612                           fsr0h	equ	0xFEA
+  2613                           fsr0l	equ	0xFE9
+  2614                           wreg	equ	0xFE8
+  2615                           fsr1h	equ	0xFE2
+  2616                           fsr1l	equ	0xFE1
+  2617                           fsr2h	equ	0xFDA
+  2618                           fsr2l	equ	0xFD9
+  2619                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         22
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95     36      59
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+    BANK8           256      0       0
+    BANK9           256      0       0
+    BANK10          256      0       0
+    BANK11          256      0       0
+    BANK12          256      0       0
+    BANK13          256      0       0
+    BANK14          256      0       0
+    BANK15           56      0       0
+
+Pointer List with Targets:
+
+    ?_openLSM9	unsigned int  size(2) Largest target is 0
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_Tomcat_Setup
+    _Tomcat_Setup->_openLSM9
+    _openLSM9->_xmReadByte
+    _openLSM9->_gReadByte
+    _openLSM9_mag->_xmWriteByte
+    _openLSM9_gyro->_gWriteByte
+    _gWriteByte->_WriteI2C1
+    _openLSM9_accel->_xmWriteByte
+    _xmWriteByte->_WriteI2C1
+    _gReadByte->_I2CReadByte
+    _xmReadByte->_I2CReadByte
+    _I2CReadByte->_WriteI2C1
+
+Critical Paths under _isr in COMRAM
+
+    _isr->_Tomcat_TX_warn
+    _isr->_Tomcat_TX_error
+    _Tomcat_TX_error->_Write1USART
+    _Tomcat_TX_warn->_Write1USART
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _isr in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _isr in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _isr in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _isr in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _isr in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _isr in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _isr in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _isr in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _isr in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _isr in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _isr in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _isr in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Critical Paths under _isr in BANK12
+
+    None.
+
+Critical Paths under _main in BANK13
+
+    None.
+
+Critical Paths under _isr in BANK13
+
+    None.
+
+Critical Paths under _main in BANK14
+
+    None.
+
+Critical Paths under _isr in BANK14
+
+    None.
+
+Critical Paths under _main in BANK15
+
+    None.
+
+Critical Paths under _isr in BANK15
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                34    34      0     775
+                                             32 COMRAM     4     4      0
+                       _Tomcat_Setup
+ ---------------------------------------------------------------------------------
+ (1) _Tomcat_Setup                                         2     2      0     775
+                                             30 COMRAM     2     2      0
+                           _openLSM9
+                           _OpenI2C1
+                         _Open1USART
+                          _OpenEPWM1
+                          _OpenEPWM2
+                          _OpenEPWM3
+                           _OpenPWM4
+ ---------------------------------------------------------------------------------
+ (2) _OpenPWM4                                             3     1      2      60
+                                             18 COMRAM     3     1      2
+ ---------------------------------------------------------------------------------
+ (2) _OpenEPWM3                                            3     1      2      60
+                                             18 COMRAM     3     1      2
+ ---------------------------------------------------------------------------------
+ (2) _OpenEPWM2                                            2     0      2      60
+                                             18 COMRAM     2     0      2
+ ---------------------------------------------------------------------------------
+ (2) _OpenEPWM1                                            3     1      2      60
+                                             18 COMRAM     3     1      2
+ ---------------------------------------------------------------------------------
+ (2) _Open1USART                                           3     0      3     150
+                                             18 COMRAM     3     0      3
+ ---------------------------------------------------------------------------------
+ (2) _OpenI2C1                                             2     0      2      30
+                                             18 COMRAM     2     0      2
+ ---------------------------------------------------------------------------------
+ (2) _openLSM9                                             5     3      2     355
+                                             25 COMRAM     5     3      2
+                         _xmReadByte
+                          _gReadByte
+                     _openLSM9_accel
+                      _openLSM9_gyro
+                       _openLSM9_mag
+ ---------------------------------------------------------------------------------
+ (3) _openLSM9_mag                                         2     2      0      45
+                                             22 COMRAM     2     2      0
+                        _xmWriteByte
+ ---------------------------------------------------------------------------------
+ (3) _openLSM9_gyro                                        2     2      0      45
+                                             22 COMRAM     2     2      0
+                         _gWriteByte
+ ---------------------------------------------------------------------------------
+ (4) _gWriteByte                                           2     0      2      45
+                                             20 COMRAM     2     0      2
+                          _WriteI2C1
+ ---------------------------------------------------------------------------------
+ (3) _openLSM9_accel                                       2     2      0      45
+                                             22 COMRAM     2     2      0
+                        _xmWriteByte
+ ---------------------------------------------------------------------------------
+ (4) _xmWriteByte                                          2     0      2      45
+                                             20 COMRAM     2     0      2
+                          _WriteI2C1
+ ---------------------------------------------------------------------------------
+ (3) _gReadByte                                            1     0      1      90
+                                             24 COMRAM     1     0      1
+                        _I2CReadByte
+ ---------------------------------------------------------------------------------
+ (3) _xmReadByte                                           1     0      1      90
+                                             24 COMRAM     1     0      1
+                        _I2CReadByte
+ ---------------------------------------------------------------------------------
+ (4) _I2CReadByte                                          4     2      2      75
+                                             20 COMRAM     4     2      2
+                          _WriteI2C1
+                           _ReadI2C1
+ ---------------------------------------------------------------------------------
+ (5) _ReadI2C1                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ (5) _WriteI2C1                                            2     1      1      15
+                                             18 COMRAM     2     1      1
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 5
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (6) _isr                                                 15    15      0      60
+                                              3 COMRAM    15    15      0
+                     _Tomcat_TX_warn
+                    _Tomcat_TX_error
+ ---------------------------------------------------------------------------------
+ (7) _Tomcat_TX_error                                      2     1      1      30
+                                              1 COMRAM     2     1      1
+                        _Write1USART
+ ---------------------------------------------------------------------------------
+ (7) _Tomcat_TX_warn                                       2     1      1      30
+                                              1 COMRAM     2     1      1
+                        _Write1USART
+ ---------------------------------------------------------------------------------
+ (8) _Write1USART                                          1     0      1      15
+                                              0 COMRAM     1     0      1
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 8
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _Tomcat_Setup
+     _openLSM9
+       _xmReadByte
+         _I2CReadByte
+           _WriteI2C1
+           _ReadI2C1
+       _gReadByte
+         _I2CReadByte
+           _WriteI2C1
+           _ReadI2C1
+       _openLSM9_accel
+         _xmWriteByte
+           _WriteI2C1
+       _openLSM9_gyro
+         _gWriteByte
+           _WriteI2C1
+       _openLSM9_mag
+         _xmWriteByte
+           _WriteI2C1
+     _OpenI2C1
+     _Open1USART
+     _OpenEPWM1
+     _OpenEPWM2
+     _OpenEPWM3
+     _OpenPWM4
+
+ _isr (ROOT)
+   _Tomcat_TX_warn
+     _Write1USART
+   _Tomcat_TX_error
+     _Write1USART
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             F37      0       0      37        0.0%
+EEDATA             400      0       0       0        0.0%
+BITBANK14          100      0       0      33        0.0%
+BANK14             100      0       0      34        0.0%
+BITBANK13          100      0       0      31        0.0%
+BANK13             100      0       0      32        0.0%
+BITBANK12          100      0       0      29        0.0%
+BANK12             100      0       0      30        0.0%
+BITBANK11          100      0       0      27        0.0%
+BANK11             100      0       0      28        0.0%
+BITBANK10          100      0       0      25        0.0%
+BANK10             100      0       0      26        0.0%
+BITBANK9           100      0       0      23        0.0%
+BANK9              100      0       0      24        0.0%
+BITBANK8           100      0       0      21        0.0%
+BANK8              100      0       0      22        0.0%
+BITBANK7           100      0       0      19        0.0%
+BANK7              100      0       0      20        0.0%
+BITBANK6           100      0       0      17        0.0%
+BANK6              100      0       0      18        0.0%
+BITBANK5           100      0       0      15        0.0%
+BANK5              100      0       0      16        0.0%
+BITBANK4           100      0       0      13        0.0%
+BANK4              100      0       0      14        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITCOMRAM           5F      0       1       0        1.1%
+COMRAM              5F     24      3B       1       62.1%
+BITBANK15           38      0       0      35        0.0%
+BANK15              38      0       0      36        0.0%
+BITSFR_1             0      0       0      40        0.0%
+SFR_1                0      0       0      40        0.0%
+BITSFR               0      0       0      40        0.0%
+SFR                  0      0       0      40        0.0%
+STACK                0      0       B       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      3B      12        0.0%
+DATA                 0      0      46       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.21 build 54009 
+Symbol Table                                                                                   Mon Apr 14 17:14:21 2014
+
+             _xmWriteByte 0620    __end_of_openLSM9_accel 0568     __end_of_openLSM9_gyro 04BC  
+    __size_of_I2CReadByte 005A              __CFG_CP0$OFF 000000              __CFG_CP1$OFF 000000  
+            __CFG_CP2$OFF 000000              __CFG_CP3$OFF 000000                       l115 05FC  
+                     l124 0622                       l118 061A                       l127 0640  
+                     l154 0508                       l139 04C6                       l148 04EA  
+                     l157 050E                       l339 06EA                       l554 069C  
+                     l555 069E                       l492 059A                       l493 059C  
+                     l494 05A4                       l486 057C                       l495 05A6  
+                     l488 0588                       l489 058A                       l579 03A6  
+                     l588 03CC              __CFG_CPB$OFF 000000                       _PR2 000FBB  
+                     _PR4 000F52              __CFG_CPD$OFF 000000                       _PR6 000F4B  
+                     _mag 0035                       _isr 0008                       wreg 000FE8  
+              _TXSTA1bits 000FAC              __CFG_LVP$OFF 000000                      l1331 0390  
+                    l1511 0268                      l1361 03EC                      l1353 03D0  
+                    l1345 03B4                      l1281 04DA                      l1283 04EE  
+                    l1515 0288                      l1349 03B8                      l1279 04CA  
+                    l1455 0344                      l1473 02D6                      l1459 0364  
+                    l1491 01F4                      l1477 02F6                      l1495 0214  
+                    ?_isr 0001                      _TMR0 000FD6                      _TMR1 000FCE  
+                    _TMR2 000FBC                      _main 06D6                      _gyro 0025  
+                    _time 002E                      fsr0h 000FEA                      fsr1h 000FE2  
+                    fsr0l 000FE9                      fsr2h 000FDA                      fsr1l 000FE1  
+                    fsr2l 000FD9             __CFG_BORV$190 000000                      pclat 000FFA  
+                    prodh 000FF4                      prodl 000FF3                      start 0118  
+           __CFG_IESO$OFF 000000          ??_Tomcat_TX_warn 0003           ?_openLSM9_accel 0001  
+              _Leak1_flag 01D8                _Leak2_flag 01D9                     ??_isr 0004  
+                   ?_main 0001     OpenEPWM3@timer_source 0014                     i2l330 0074  
+                   i2l331 0088                     i2l332 0096                     i2l333 00A4  
+                   i2l334 00C0                     i2l335 00DC                     i2l336 00DE  
+                   i2l505 0716                     i2l329 005C             __CFG_WRT0$OFF 000000  
+           __CFG_WRT1$OFF 000000             __CFG_WRT2$OFF 000000             __CFG_WRT3$OFF 000000  
+          __CFG_EBTR0$OFF 000000            __CFG_FCMEN$OFF 000000            __CFG_EBTR1$OFF 000000  
+          __CFG_EBTR2$OFF 000000            __CFG_EBTR3$OFF 000000             __CFG_WRTB$OFF 000000  
+           __CFG_WRTC$OFF 000000             __CFG_WRTD$OFF 000000                     _accel 002F  
+          __CFG_EBTRB$OFF 000000        __CFG_MCLRE$EXTMCLR 000000                     main@a 0021  
+          __pbitbssCOMRAM 01D8            __CFG_BOREN$OFF 000000          gWriteByte@subadd 0015  
+                   tablat 000FF5                     status 000FD8            __CFG_HFOFST$ON 000000  
+          __CFG_FOSC$HSHP 000000            __CFG_PBADEN$ON 000000         ??_Tomcat_TX_error 0003  
+         __initialization 06A6              __end_of_main 06EC          __end_of_ReadI2C1 06A6  
+        __end_of_OpenI2C1 06D6                _Open1USART 0568          __end_of_OpenPWM4 02A8  
+         xmWriteByte@data 0016                    ??_main 0021             __activetblptr 000002  
+                  _CCPR1L 000FBE                    _CCPR2L 000F67                    _CCPR3L 000F5E  
+                  _CCPR4L 000F58                    _ANSELC 000F3A                    i2l1601 006E  
+                  i2l1611 0088                    i2l1603 0074                    i2l1621 00C0  
+                  i2l1613 0090                    i2l1605 007C                    i2l1623 00C8  
+                  i2l1615 009E                    i2l1607 007E                    i2l1625 00CE  
+                  i2l1617 00AC                    i2l1609 0082                    i2l1627 00DC  
+                  i2l1619 00B2            __CFG_WDTEN$OFF 000000                    i2l1591 0054  
+                  i2l1593 0058                    i2l1585 0040                    i2l1587 004A  
+                  i2l1595 005C                    i2l1597 0064                    i2l1589 004C  
+                  i2l1599 0066                    _RCSTA1 000FAB                    _SPBRG1 000FAF  
+          I2CReadByte@add 0015                    _TXREG1 000FAD                    _TXSTA1 000FAC  
+          __CFG_XINST$OFF 000000        __size_of_OpenEPWM1 006E        __size_of_OpenEPWM2 006E  
+      __size_of_OpenEPWM3 007C             openLSM9@_gadd 001B             openLSM9@gtest 001D  
+                  clear_0 06AE          __end_of_openLSM9 05FA                    tblptrh 000FF7  
+                  tblptrl 000FF6                    tblptru 000FF8        __size_of_gReadByte 0010  
+      __size_of_WriteI2C1 006C                __accesstop 0060   __end_of__initialization 06B4  
+            ?_xmWriteByte 0015            __pcstackCOMRAM 0001             ?_openLSM9_mag 0001  
+             ?_Open1USART 0013           OpenEPWM1@period 0013           OpenEPWM2@period 0013  
+         OpenEPWM3@period 0013         __end_of_OpenEPWM1 0384         __end_of_OpenEPWM2 0316  
+       __end_of_OpenEPWM3 0234                 ?_ReadI2C1 0001                _gWriteByte 05FA  
+         __CFG_PLLCFG$OFF 000000             ??_Write1USART 0002                 ?_OpenI2C1 0013  
+        ??_openLSM9_accel 0017                 ?_OpenPWM4 0013            ??_openLSM9_mag 0017  
+      __CFG_CCP2MX$PORTC1 000000             ??_I2CReadByte 0017              OpenI2C1@slew 0014  
+      __CFG_CCP3MX$PORTB5 000000         __end_of_gReadByte 06FC                   _CCP1CON 000FBD  
+                 _CCP2CON 000F66                   _CCP3CON 000F5D                   _CCP4CON 000F57  
+       __end_of_WriteI2C1 03F0          Open1USART@config 0013                __xmaddress 002D  
+     Tomcat_TX_error@code 0002                   i2u80_40 009E                   i2u80_41 009C  
+                 i2u81_40 00AC                   i2u81_41 00AA                   i2u82_40 00C8  
+                 i2u82_41 00C6                   _SPBRGH1 000FB0                   i2u76_40 004A  
+                 i2u76_41 0048                   i2u77_40 0064                   i2u77_41 0062  
+                 i2u78_40 007C                   i2u78_41 007A                   i2u79_40 0090  
+                 i2u79_41 008E                   _SSP1ADD 000FC8                   _SSP1BUF 000FC9  
+              ??_ReadI2C1 0013    __size_of_openLSM9_gyro 0066           _Tomcat_TX_error 0646  
+              ??_OpenI2C1 0015       __size_of_Open1USART 004C                ??_OpenPWM4 0015  
+               ?_openLSM9 001A           __CFG_PWRTEN$OFF 000000                   __Hparam 0000  
+                 __Lparam 0000       __end_of_Write1USART 071C            openLSM9@_xmadd 001A  
+         __CFG_STVREN$OFF 000000                   __pcinit 06A6                   __ramtop 1000  
+          openLSM9@xmtest 001E                   __ptext0 06D6                   __ptext1 011C  
+                 __ptext2 0234                   __ptext3 01B8                   __ptext4 02A8  
+                 __ptext5 0316                   __ptext6 0568                   __ptext7 06BE  
+                 __ptext8 05B4                   __ptext9 03F0       __end_of_I2CReadByte 0516  
+               _T2CONbits 000FBA              __size_of_isr 0110                 _T4CONbits 000F51  
+               _T6CONbits 000F4A                   main@hdg 0023      end_of_initialization 06B4  
+             ?_gWriteByte 0015             __Lmediumconst 0000             ?_Tomcat_Setup 0001  
+              ??_openLSM9 001C                _xmReadByte 06FC                   postinc0 000FEE  
+           _openLSM9_gyro 0456      __size_of_xmWriteByte 0026   __size_of_Tomcat_TX_warn 0022  
+ __end_of_Tomcat_TX_error 0668                 _TRISBbits 000F93      __end_of_openLSM9_mag 0456  
+       I2CReadByte@subadd 0016            ??_Tomcat_Setup 001F               _Write1USART 070C  
+          gWriteByte@data 0016            ?_openLSM9_gyro 0001               _I2CReadByte 04BC  
+            ??_Open1USART 0016       __size_of_gWriteByte 0026       start_initialization 06A6  
+             __end_of_isr 0118                 _OpenEPWM1 0316                 _OpenEPWM2 02A8  
+               _OpenEPWM3 01B8         __size_of_ReadI2C1 001C        __end_of_Open1USART 05B4  
+       __size_of_OpenI2C1 0018               ?_xmReadByte 0019         __size_of_OpenPWM4 0074  
+       xmWriteByte@subadd 0015                 _gReadByte 06EC               __pbssCOMRAM 0025  
+        ?_Tomcat_TX_error 0002      OpenPWM4@timer_source 0014                 _WriteI2C1 0384  
+               __gaddress 002C                ?_OpenEPWM1 0013                ?_OpenEPWM2 0013  
+              ?_OpenEPWM3 0013           gReadByte@subadd 0019           ??_openLSM9_gyro 0017  
+       __size_of_openLSM9 0046                 __pintcode 0008           Open1USART@spbrg 0014  
+        __CFG_PRICLKEN$ON 000000     __size_of_openLSM9_mag 0066                ?_gReadByte 0019  
+          _Tomcat_TX_warn 0668      __end_of_Tomcat_Setup 01B8                ?_WriteI2C1 0013  
+                _CCPTMRS0 000F49                  _CCPTMRS1 000F48       __size_of_xmReadByte 0010  
+         Write1USART@data 0001              ??_gWriteByte 0017        Tomcat_TX_warn@code 0002  
+                _LATCbits 000F8B                 _tmr0_flag 01DC                 _tmr1_flag 01DD  
+               _tmr2_flag 01DE                  _PIE1bits 000F9D                 _tmr3_flag 01DF  
+                _PIR1bits 000F9E                  _PIR2bits 000FA1                  _PIR3bits 000FA4  
+        __CFG_WDTPS$32768 000000              _openLSM9_mag 03F0                  _SSP1CON1 000FC6  
+                _SSP1CON2 000FC5                  _SSP1STAT 000FC7          I2CReadByte@_temp 0018  
+  __end_of_Tomcat_TX_warn 068A   __size_of_openLSM9_accel 0052        __end_of_gWriteByte 0620  
+             _INTCON3bits 000FF0                  _ReadI2C1 068A               ??_OpenEPWM1 0015  
+             ??_OpenEPWM2 0015               ??_OpenEPWM3 0015              ?_Write1USART 0001  
+                _OpenI2C1 06BE                  _OpenPWM4 0234                  __Hrparam 0000  
+           ??_xmWriteByte 0017                  __Lrparam 0000         __CFG_P2BMX$PORTD2 000000  
+            ?_I2CReadByte 0015           ?_Tomcat_TX_warn 0002     OpenEPWM1@timer_source 0014  
+             ??_gReadByte 001A               ??_WriteI2C1 0014            OpenPWM4@period 0013  
+                __ptext10 0456                  __ptext11 05FA                  __ptext20 0646  
+                __ptext12 0516                  __ptext21 0668                  __ptext13 0620  
+                __ptext22 070C                  __ptext14 06EC                  __ptext15 06FC  
+                __ptext16 04BC                  __ptext17 068A                  __ptext18 0384  
+            _SSP1CON1bits 000FC6              _SSP1CON2bits 000FC5                  _rx1_flag 01DA  
+                _rx2_flag 01DB             __size_of_main 0016                  _openLSM9 05B4  
+       WriteI2C1@data_out 0013              ??_xmReadByte 001A     __size_of_Tomcat_Setup 009C  
+            _SSP1STATbits 000FC7       __end_of_xmWriteByte 0646         OpenI2C1@sync_mode 0013  
+           _USART1_Status 002B                _INTCONbits 000FF2        __end_of_xmReadByte 070C  
+                intlevel2 0000          xmReadByte@subadd 0019                _RCSTA1bits 000FAB  
+            _Tomcat_Setup 011C            _openLSM9_accel 0516     OpenEPWM2@timer_source 0014  
+       __CFG_T3CMX$PORTC0 000000  __size_of_Tomcat_TX_error 0022      __size_of_Write1USART 0010  

@@ -1,0 +1,25 @@
+_openLSM9: CODE, 1460 0 70
+_gWriteByte: CODE, 1530 0 38
+_Tomcat_TX_error: CODE, 1606 0 34
+_openLSM9_mag: CODE, 1008 0 102
+_openLSM9_gyro: CODE, 1110 0 102
+_main: CODE, 1750 0 22
+_openLSM9_accel: CODE, 1302 0 82
+_OpenEPWM1: CODE, 790 0 110
+_OpenEPWM2: CODE, 680 0 110
+_OpenEPWM3: CODE, 440 0 124
+_xmReadByte: CODE, 1788 0 16
+_I2CReadByte: CODE, 1212 0 90
+__initialization: CODE, 1702 0 14
+_isr: CODE, 8 0 272
+_Tomcat_Setup: CODE, 284 0 156
+_Write1USART: CODE, 1804 0 16
+_xmWriteByte: CODE, 1568 0 38
+_ReadI2C1: CODE, 1674 0 28
+_gReadByte: CODE, 1772 0 16
+_OpenPWM4: CODE, 564 0 116
+_Tomcat_TX_warn: CODE, 1640 0 34
+_WriteI2C1: CODE, 900 0 108
+_Open1USART: CODE, 1384 0 76
+_OpenI2C1: CODE, 1726 0 24
+Total: 1798
