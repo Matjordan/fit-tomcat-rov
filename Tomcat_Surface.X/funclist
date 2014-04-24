@@ -1,0 +1,7 @@
+_OpenUSART: CODE, 318 0 92
+_tx_chars: CODE, 410 0 58
+_main: CODE, 24 0 148
+__initialization: CODE, 484 0 8
+_isr: CODE, 8 0 310
+_WriteUSART: CODE, 468 0 16
+Total: 632
