@@ -87,6 +87,12 @@ int Tomcat_Depth()
     depth = (int)(tempPress*14.5/.0);//convert pressure to depth
     return depth;//returns depth in feet
 }
+int Tomcat_Press_Int()
+{
+    int press=0;
+    press=(analogRead(PRESSURE_INT)-41)/922*101.5;
+    return press;
+}
 int Tomcat_Temp()
 {
     int adresult=0;
