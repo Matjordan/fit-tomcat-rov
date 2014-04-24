@@ -44,7 +44,27 @@
 #define CURRENT 'C'
 #define COMMS   'N'
 
+//pins out
+#define LED_COMMS   LATBbits.LATB0
 
+//pin in
+#define LIGHTS      PORTCbits.RC0
+#define GRIP_OPEN   PORTCbits.RC1
+#define GRIP_CLOSE  PORTCbits.RC2
+#define WRIST_CW    PORTCbits.RC3
+#define WRIST_CCW   PORTCbits.RC4
+#define HOVER       PORTCbits.RC5
+#define POWER       PORTCbits.RC6
+
+//analog channels
+#define THROTTLE    0
+#define RUDDER      1
+#define LATERAL     2
+#define VERTICAL    3
+#define CAM_PITCH   4
+#define CAM_YAM     5
+
+void Tomcat_S_Setup();
 
 
 #endif	/* TOMCAT_SURFACE_DRIVER_H */
