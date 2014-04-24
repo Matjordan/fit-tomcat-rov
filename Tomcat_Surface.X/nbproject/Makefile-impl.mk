@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Tomcat_Suface.X
+PROJECTNAME=Tomcat_Surface.X
 
 # Active Configuration
 DEFAULTCONF=default
