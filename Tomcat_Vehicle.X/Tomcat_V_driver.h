@@ -15,7 +15,7 @@
 #include <plib/usart.h>
 #include <plib/i2c.h>
 #include <xc.h>
-
+#include <math.h>
 
 //config macros
 #define _XTAL_FREQ  20000000 //20MHz
@@ -73,6 +73,16 @@ char time=0;
 int accel[3];
 int gyro[3];
 int mag[3];
+float temp = 0; //temporary
+
+//low pass filter variable
+#define k 2
+long int freg_mag_x = -135;
+long int freg_mag_y = 1055;
+long int freg_mag_z = 10725;
+long int freg_acc_x = -1295;
+long int freg_acc_y = -315;
+long int freg_acc_z = 5375;
 
 //pin defs
 #define THRUSTER1_DIR   LATCbits.LATC0
@@ -97,6 +107,7 @@ int mag[3];
 #define PRESSURE_INT    1
 #define TEMP_EXT        2
 #define TEMP_INT        3
+
 //functions
 
 void Thruster_Driver(int input, char thruster);
