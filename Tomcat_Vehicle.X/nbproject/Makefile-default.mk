@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=LSM9DS0.c I2C_mat.c Tomcat_driver.c Tom_V_Main.c Tom_V_configs.c
+SOURCEFILES_QUOTED_IF_SPACED=LSM9DS0.c I2C_mat.c Tom_V_Main.c Tom_V_configs.c Tomcat_V_driver.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/LSM9DS0.p1 ${OBJECTDIR}/I2C_mat.p1 ${OBJECTDIR}/Tomcat_driver.p1 ${OBJECTDIR}/Tom_V_Main.p1 ${OBJECTDIR}/Tom_V_configs.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/LSM9DS0.p1.d ${OBJECTDIR}/I2C_mat.p1.d ${OBJECTDIR}/Tomcat_driver.p1.d ${OBJECTDIR}/Tom_V_Main.p1.d ${OBJECTDIR}/Tom_V_configs.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/LSM9DS0.p1 ${OBJECTDIR}/I2C_mat.p1 ${OBJECTDIR}/Tom_V_Main.p1 ${OBJECTDIR}/Tom_V_configs.p1 ${OBJECTDIR}/Tomcat_V_driver.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/LSM9DS0.p1.d ${OBJECTDIR}/I2C_mat.p1.d ${OBJECTDIR}/Tom_V_Main.p1.d ${OBJECTDIR}/Tom_V_configs.p1.d ${OBJECTDIR}/Tomcat_V_driver.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/LSM9DS0.p1 ${OBJECTDIR}/I2C_mat.p1 ${OBJECTDIR}/Tomcat_driver.p1 ${OBJECTDIR}/Tom_V_Main.p1 ${OBJECTDIR}/Tom_V_configs.p1
+OBJECTFILES=${OBJECTDIR}/LSM9DS0.p1 ${OBJECTDIR}/I2C_mat.p1 ${OBJECTDIR}/Tom_V_Main.p1 ${OBJECTDIR}/Tom_V_configs.p1 ${OBJECTDIR}/Tomcat_V_driver.p1
 
 # Source Files
-SOURCEFILES=LSM9DS0.c I2C_mat.c Tomcat_driver.c Tom_V_Main.c Tom_V_configs.c
+SOURCEFILES=LSM9DS0.c I2C_mat.c Tom_V_Main.c Tom_V_configs.c Tomcat_V_driver.c
 
 
 CFLAGS=
@@ -94,14 +94,6 @@ ${OBJECTDIR}/I2C_mat.p1: I2C_mat.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/I2C_mat.d ${OBJECTDIR}/I2C_mat.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/I2C_mat.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/Tomcat_driver.p1: Tomcat_driver.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/Tomcat_driver.p1.d 
-	@${RM} ${OBJECTDIR}/Tomcat_driver.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: (%%n) %%s" "--warnformat=%%f:%%l: warning: (%%n) %%s" "--msgformat=%%f:%%l: advisory: (%%n) %%s"    -o${OBJECTDIR}/Tomcat_driver.p1  Tomcat_driver.c 
-	@-${MV} ${OBJECTDIR}/Tomcat_driver.d ${OBJECTDIR}/Tomcat_driver.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/Tomcat_driver.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/Tom_V_Main.p1: Tom_V_Main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/Tom_V_Main.p1.d 
@@ -117,6 +109,14 @@ ${OBJECTDIR}/Tom_V_configs.p1: Tom_V_configs.c  nbproject/Makefile-${CND_CONF}.m
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: (%%n) %%s" "--warnformat=%%f:%%l: warning: (%%n) %%s" "--msgformat=%%f:%%l: advisory: (%%n) %%s"    -o${OBJECTDIR}/Tom_V_configs.p1  Tom_V_configs.c 
 	@-${MV} ${OBJECTDIR}/Tom_V_configs.d ${OBJECTDIR}/Tom_V_configs.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Tom_V_configs.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Tomcat_V_driver.p1: Tomcat_V_driver.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/Tomcat_V_driver.p1.d 
+	@${RM} ${OBJECTDIR}/Tomcat_V_driver.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: (%%n) %%s" "--warnformat=%%f:%%l: warning: (%%n) %%s" "--msgformat=%%f:%%l: advisory: (%%n) %%s"    -o${OBJECTDIR}/Tomcat_V_driver.p1  Tomcat_V_driver.c 
+	@-${MV} ${OBJECTDIR}/Tomcat_V_driver.d ${OBJECTDIR}/Tomcat_V_driver.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Tomcat_V_driver.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/LSM9DS0.p1: LSM9DS0.c  nbproject/Makefile-${CND_CONF}.mk
@@ -135,14 +135,6 @@ ${OBJECTDIR}/I2C_mat.p1: I2C_mat.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/I2C_mat.d ${OBJECTDIR}/I2C_mat.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/I2C_mat.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/Tomcat_driver.p1: Tomcat_driver.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/Tomcat_driver.p1.d 
-	@${RM} ${OBJECTDIR}/Tomcat_driver.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: (%%n) %%s" "--warnformat=%%f:%%l: warning: (%%n) %%s" "--msgformat=%%f:%%l: advisory: (%%n) %%s"    -o${OBJECTDIR}/Tomcat_driver.p1  Tomcat_driver.c 
-	@-${MV} ${OBJECTDIR}/Tomcat_driver.d ${OBJECTDIR}/Tomcat_driver.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/Tomcat_driver.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/Tom_V_Main.p1: Tom_V_Main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/Tom_V_Main.p1.d 
@@ -158,6 +150,14 @@ ${OBJECTDIR}/Tom_V_configs.p1: Tom_V_configs.c  nbproject/Makefile-${CND_CONF}.m
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: (%%n) %%s" "--warnformat=%%f:%%l: warning: (%%n) %%s" "--msgformat=%%f:%%l: advisory: (%%n) %%s"    -o${OBJECTDIR}/Tom_V_configs.p1  Tom_V_configs.c 
 	@-${MV} ${OBJECTDIR}/Tom_V_configs.d ${OBJECTDIR}/Tom_V_configs.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Tom_V_configs.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Tomcat_V_driver.p1: Tomcat_V_driver.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/Tomcat_V_driver.p1.d 
+	@${RM} ${OBJECTDIR}/Tomcat_V_driver.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: (%%n) %%s" "--warnformat=%%f:%%l: warning: (%%n) %%s" "--msgformat=%%f:%%l: advisory: (%%n) %%s"    -o${OBJECTDIR}/Tomcat_V_driver.p1  Tomcat_V_driver.c 
+	@-${MV} ${OBJECTDIR}/Tomcat_V_driver.d ${OBJECTDIR}/Tomcat_V_driver.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Tomcat_V_driver.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
