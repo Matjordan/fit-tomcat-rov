@@ -5,7 +5,7 @@
 void Tomcat_S_Setup()
 {
 
-    ADCON0=0b00000001;
+    ADCON0 = 0b00000001;
     ADCON1 = 0b00000110;
     ADCON2 = 0b00100011;
 
