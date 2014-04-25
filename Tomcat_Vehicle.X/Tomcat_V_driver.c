@@ -91,6 +91,7 @@ int Tomcat_Heading() {
         //            hdg = 180.0 - 180.0 * atan(temp) / M_PI;
         hdg = 270 - 180.0 * atan(temp) / M_PI;
     }
+    return hdg;
 }
 
 int Tomcat_Pitch() {
@@ -109,6 +110,8 @@ int Tomcat_Pitch() {
     //setup for x axis controlling pitch
     temp = (float) accel[0] / (float) accel[2];
     pitch = 3 + 180.0 * atan(temp) / M_PI;
+    
+    return pitch;
 }
 
 int Tomcat_Roll() {
@@ -127,6 +130,8 @@ int Tomcat_Roll() {
     //setup for y axis controlling roll
     temp = (float) accel[1] / (float) accel[2];
     roll = 13 + 180.0 * atan(temp) / M_PI;
+
+    return roll;
 }
 
 int Tomcat_Depth()
