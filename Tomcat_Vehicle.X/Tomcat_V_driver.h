@@ -61,8 +61,8 @@
 
 
 //global vars
-bit Leak1_flag=0;
-bit Leak2_flag=0;
+bit leak1_flag=0;
+bit leak2_flag=0;
 bit tmr0_flag=0;
 bit tmr1_flag=0;
 bit tmr2_flag=0;
