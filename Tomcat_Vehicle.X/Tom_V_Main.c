@@ -57,8 +57,28 @@ void main(void)
     Tomcat_Setup();
     while(1)
     {
-      //do stuff here
-        
+      //regularly scheduled stuff
+        if(!(time%10))
+        {
+            //every 10 time ticks
+            time=0;//reset time
+        }
+        if((!time%5))
+        {
+            //every 5 time ticks
+
+        }
+        if((!time%2))
+        {
+            //every 2 time ticks
+        }
+        if(tmr0_flag)
+        {
+            //every 1 time tick
+            tmr0_flag=0;
+        }
+
+
     }
 }
 
