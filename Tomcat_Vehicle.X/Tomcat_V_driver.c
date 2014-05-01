@@ -24,6 +24,13 @@ void Tomcat_Setup() {
             USART_EIGHT_BIT &
             USART_CONT_RX &
             USART_BRGH_HIGH, U1_SPRG);
+    Open2USART(USART_TX_INT_OFF &
+            USART_RX_INT_ON &
+            USART_ASYNCH_MODE &
+            USART_EIGHT_BIT &
+            USART_CONT_RX &
+            USART_BRGH_HIGH, U2_SPRG);
+
     openLSM9(0x1D, 0x6B);
     OpenEPWM1(255, ECCP_1_SEL_TMR34);
     OpenEPWM2(255, ECCP_2_SEL_TMR34);

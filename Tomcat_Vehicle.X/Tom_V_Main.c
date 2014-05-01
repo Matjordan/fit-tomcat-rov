@@ -53,9 +53,9 @@ void interrupt isr(void)
 void main(void)
 {
 
-    int a=0;
-    char buff[30];
-    int hdg = 0;
+    int heading,pitch,roll;
+    int depth,int_press,ex_temp,int_temp;
+    char surf_buff[60];
     Tomcat_Setup();
     while(1)
     {
@@ -65,12 +65,19 @@ void main(void)
             //every 10 time ticks
             time=0;//reset time
             //read environment
+            depth=Tomcat_Depth();
+            int_press=Tomcat_Press_Int();
+            int_temp=Tomcat_Temp();
+            ex_temp=Tomcat_Temp_Ex();
+
         }
         if((!time%5))
         {
             //every 5 time ticks
             //send to surface
-
+            sprintf(surf_buff,"%d,%d,%d,%d,%d,%d,%d",
+                    depth,heading,pitch,roll,ex_temp,int_temp,int_press);
+            Tomcat_TX_data(surf_buff,strlen(surf_buff)-1);
         }
         if((!time%2))
         {
@@ -82,7 +89,12 @@ void main(void)
             //every 1 time tick
             tmr0_flag=0;
             //read IMU
+            heading=Tomcat_Heading();
+            pitch=Tomcat_Pitch();
+            roll=Tomcat_Roll();
         }
+
+
         if (rx1_flag)
         {
             //rx from surface
