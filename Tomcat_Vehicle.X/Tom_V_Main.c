@@ -26,7 +26,9 @@ void interrupt isr(void)
     if(RX1_INT)
     {
         RX1_INT=0;
-        rx1_flag=1;
+        rx1_buff[rx1_count] = RCREG;
+        if (rx1_count == SUR_PACK_LEN)rx1_flag = 1;
+        if (rx1_buff[rx1_count++] == 0xff)rx1_count = 0;
     }
     if(RX2_INT)
     {
@@ -84,7 +86,20 @@ void main(void)
         if (rx1_flag)
         {
             //rx from surface
+            //packet
+            //0xff,port duty,stbd duty,vert duty,lat duty,grip duty,
+            //wrist duty, pan duty,tilt duty,lights, check sum
             rx1_flag=0;
+            rx1_count=0;
+            Thruster_Driver(rx1_buff[1],1); //port
+            Thruster_Driver(rx1_buff[2],2); //stbd
+            Thruster_Driver(rx1_buff[3],3); //vert
+            Thruster_Driver(rx1_buff[4],4); //lat
+            Tomcat_Claw(rx1_buff[5],rx1_buff[6]);
+            Tomcat_Camera(rx1_buff[7],rx1_buff[8]);
+
+            LIGHTS=rx1_buff[9];
+
 
         }
         if (rx2_flag)
