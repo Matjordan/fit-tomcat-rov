@@ -18,11 +18,12 @@
 #include <math.h>
 
 //config macros
-#define _XTAL_FREQ  20000000 //20MHz
-#define UART1_BAUD  9600
-#define UART2_BAUD  9600
-#define I2C1_BAUD   100000     //100KHz
-#define SENSOR_RATE 10       //TMR0 Rate Hz
+#define _XTAL_FREQ      20000000//20MHz
+#define UART1_BAUD      9600
+#define UART2_BAUD      9600
+#define I2C1_BAUD       100000  //100KHz
+#define SENSOR_RATE     10      //TMR0 Rate Hz
+#define SUR_PACK_LEN    20      //
 
 //macros
 #define U1_SPRG     (_XTAL_FREQ/(16*UART1_BAUD))+1
@@ -74,9 +75,11 @@ int accel[3];
 int gyro[3];
 int mag[3];
 float temp = 0; //temporary
+char rx1_buff[25];
+char rx1_count=0;
 
 //low pass filter variable
-#define k 2
+#define FILT_K 2
 long int freg_mag_x = -135;
 long int freg_mag_y = 1055;
 long int freg_mag_z = 10725;
@@ -96,10 +99,13 @@ long int freg_acc_z = 5375;
 
 #define LEAK_1          PORTBbits.RB0
 #define LEAK_2          PORTBbits.RB1
-#define LED_COMS        PORTBbits.RB2
-#define LED_2           PORTBbits.RB3
-#define LED_3           PORTBbits.RB4
-#define LED_4           PORTBbits.RB5
+
+#define LIGHTS          LATBbits.LATB6
+#define LED_COMS        LATBbits.LB2
+#define LED_2           LATBbits.LB3
+#define LED_3           LATBbits.LB4
+#define LED_4           LATBbits.LB5
+
 
 //analog channels
 
@@ -107,6 +113,7 @@ long int freg_acc_z = 5375;
 #define PRESSURE_INT    1
 #define TEMP_EXT        2
 #define TEMP_INT        3
+
 
 //functions
 
@@ -119,6 +126,7 @@ int Tomcat_Depth();
 int Tomcat_Press_Int();
 int Tomcat_Temp();
 int Tomcat_Temp_Ex();
+void Tomcat_Claw(int grip,int wrist);
 void Tomcat_TX_data(char tx_buff[], char num_bytes);
 void Tomcat_TX_warn(char code);
 void Tomcat_TX_error(char code);

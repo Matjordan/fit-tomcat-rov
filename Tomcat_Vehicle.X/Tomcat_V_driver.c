@@ -65,13 +65,13 @@ int Tomcat_Heading() {
     readLSM9_mag(mag);
 
     //Software Low Pass Filter
-    freg_mag_x = freg_mag_x - (freg_mag_x >> k) + mag[0];
-    freg_mag_y = freg_mag_y - (freg_mag_y >> k) + mag[1];
-    freg_mag_z = freg_mag_z - (freg_mag_z >> k) + mag[2];
+    freg_mag_x = freg_mag_x - (freg_mag_x >> FILT_K) + mag[0];
+    freg_mag_y = freg_mag_y - (freg_mag_y >> FILT_K) + mag[1];
+    freg_mag_z = freg_mag_z - (freg_mag_z >> FILT_K) + mag[2];
 
-    mag[0] = freg_mag_x >> k;
-    mag[1] = freg_mag_y >> k;
-    mag[2] = freg_mag_z >> k;
+    mag[0] = freg_mag_x >> FILT_K;
+    mag[1] = freg_mag_y >> FILT_K;
+    mag[2] = freg_mag_z >> FILT_K;
 
     //setup for pos x axis pointing north
     //        y north commented out
@@ -99,13 +99,13 @@ int Tomcat_Pitch() {
     readLSM9_accel(accel);
 
     //low pass filter
-    freg_acc_x = freg_acc_x - (freg_acc_x >> k) + accel[0];
-    freg_acc_y = freg_acc_y - (freg_acc_y >> k) + accel[1];
-    freg_acc_z = freg_acc_z - (freg_acc_z >> k) + accel[2];
+    freg_acc_x = freg_acc_x - (freg_acc_x >> FILT_K) + accel[0];
+    freg_acc_y = freg_acc_y - (freg_acc_y >> FILT_K) + accel[1];
+    freg_acc_z = freg_acc_z - (freg_acc_z >> FILT_K) + accel[2];
 
-    accel[0] = freg_acc_x >> k;
-    accel[1] = freg_acc_y >> k;
-    accel[2] = freg_acc_z >> k;
+    accel[0] = freg_acc_x >> FILT_K;
+    accel[1] = freg_acc_y >> FILT_K;
+    accel[2] = freg_acc_z >> FILT_K;
 
     //setup for x axis controlling pitch
     temp = (float) accel[0] / (float) accel[2];
@@ -119,13 +119,13 @@ int Tomcat_Roll() {
     readLSM9_accel(accel);
 
     //low pass filter
-    freg_acc_x = freg_acc_x - (freg_acc_x >> k) + accel[0];
-    freg_acc_y = freg_acc_y - (freg_acc_y >> k) + accel[1];
-    freg_acc_z = freg_acc_z - (freg_acc_z >> k) + accel[2];
+    freg_acc_x = freg_acc_x - (freg_acc_x >> FILT_K) + accel[0];
+    freg_acc_y = freg_acc_y - (freg_acc_y >> FILT_K) + accel[1];
+    freg_acc_z = freg_acc_z - (freg_acc_z >> FILT_K) + accel[2];
 
-    accel[0] = freg_acc_x >> k;
-    accel[1] = freg_acc_y >> k;
-    accel[2] = freg_acc_z >> k;
+    accel[0] = freg_acc_x >> FILT_K;
+    accel[1] = freg_acc_y >> FILT_K;
+    accel[2] = freg_acc_z >> FILT_K;
 
     //setup for y axis controlling roll
     temp = (float) accel[1] / (float) accel[2];
@@ -159,6 +159,35 @@ int Tomcat_Temp()
 
 int Tomcat_Temp_Ex() {
     int adresult = 0;
+}
+
+
+void Tomcat_Claw(int grip,int wrist)
+{
+    int g_dc=0,w_dc=0;
+    char g_dir=0,w_dir=0;
+      
+    if (grip > 127)
+        GRIPPER_DIR = 1;
+    else
+        GRIPPER_DIR = 0;
+
+    if (grip == 127)
+        GRIPPER_EN = 0;
+    else
+        GRIPPER_EN = 1;
+
+    if (wrist > 127)
+        WRIST_DIR = 1;
+    else
+        WRIST_DIR = 0;
+
+    if (wrist == 127)
+        WRIST_EN = 0;
+    else
+        WRIST_EN = 1;
+    
+    
 }
 
 void Tomcat_TX_data(char tx_buff[], char num_bytes) {
