@@ -11,6 +11,7 @@
 #include "I2C_mat.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <plib/pwm.h>
 #include <plib/usart.h>
 #include <plib/i2c.h>
