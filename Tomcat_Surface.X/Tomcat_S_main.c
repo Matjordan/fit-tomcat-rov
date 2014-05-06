@@ -8,6 +8,11 @@
 //#define WRIST 6
 #define TILT 5
 #define PAN 6
+#define CLAW_OPEN 7
+#define CLAW_CLOSE 8
+#define WRIST_OPEN 9
+#define WRIST_CLOSE 10
+
 
 //variables
 char n = 0;
@@ -91,16 +96,27 @@ unsigned int read_an(char channel)
 
 unsigned int get_claw(void)
 {
-    if ("claw_open_pin" = 1)
-       claw_open = 187;
-    if ("claw_close_pin" =1)
-        claw_close = 67;
+    int claw;
+    if (CLAW_OPEN == 1)
+       claw = 187;
+    else
+        claw =127;
+    if (CLAW_CLOSE ==1)
+        claw = 67;
+    else
+        claw =127;
+
 }
 
 unsigned int get_wrist(void)
 {
-    if ("wrist_open_pin" = 1)
-       wrist_open = 187;
-    if ("wrist_close_pin" =1)
-        wrist_close = 67;
+    int wrist;
+    if (WRIST_OPEN == 1)
+       wrist = 187;
+    else
+        wrist = 127;
+    if (WRIST_CLOSE ==1)
+        wrist = 67;
+    else
+        wrist = 127;
 }
