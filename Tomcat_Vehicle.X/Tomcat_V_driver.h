@@ -25,6 +25,9 @@
 #define I2C1_BAUD       100000  //100KHz
 #define SENSOR_RATE     10      //TMR0 Rate Hz
 #define SUR_PACK_LEN    20      //
+#define MAIN_FACTOR     5       //current conversion factor
+#define V_FACTOR        10       //current conversion factor
+
 
 //macros
 #define U1_SPRG     (_XTAL_FREQ/(16*UART1_BAUD))+1
@@ -75,7 +78,6 @@ char time=0;
 int accel[3];
 int gyro[3];
 int mag[3];
-float temp = 0; //temporary
 char rx1_buff[25];
 char rx1_count=0;
 
@@ -114,6 +116,10 @@ long int freg_acc_z = 5375;
 #define PRESSURE_INT    1
 #define TEMP_EXT        2
 #define TEMP_INT        3
+#define CAM_PAN         4
+#define CAM_TILT        5
+#define V_CURRENT       6
+#define MAIN_CURRENT    7
 
 
 //functions

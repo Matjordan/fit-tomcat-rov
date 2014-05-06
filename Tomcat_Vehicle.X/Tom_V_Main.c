@@ -55,6 +55,7 @@ void main(void)
 
     int heading,pitch,roll;
     int depth,int_press,ex_temp,int_temp;
+    int main_current=0,v_current=0;
     char surf_buff[60];
     Tomcat_Setup();
     while(1)
@@ -75,14 +76,16 @@ void main(void)
         {
             //every 5 time ticks
             //send to surface
-            sprintf(surf_buff,"%d,%d,%d,%d,%d,%d,%d",
-                    depth,heading,pitch,roll,ex_temp,int_temp,int_press);
+            sprintf(surf_buff,"%d,%d,%d,%d,%d,%d,%d,%d,%d",
+                    depth,heading,pitch,roll,ex_temp,int_temp,int_press,main_current,v_current);
             Tomcat_TX_data(surf_buff,strlen(surf_buff)-1);
         }
         if((!time%2))
         {
             //every 2 time ticks
             //read currents
+            main_current=analogRead(MAIN_CURRENT)*MAIN_FACTOR;
+            v_current=analogRead(V_CURRENT)*V_FACTOR;
         }
         if(tmr0_flag)
         {
@@ -101,7 +104,7 @@ void main(void)
             //packet
             //0xff,port duty,stbd duty,vert duty,lat duty,grip duty,
             //wrist duty, pan duty,tilt duty,lights, check sum
-            rx1_flag=0;
+            LED_COMS=1;
             rx1_count=0;
             Thruster_Driver(rx1_buff[1],1); //port
             Thruster_Driver(rx1_buff[2],2); //stbd
@@ -111,7 +114,8 @@ void main(void)
             Tomcat_Camera(rx1_buff[7],rx1_buff[8]);
 
             LIGHTS=rx1_buff[9];
-
+            rx1_flag=0;
+            LED_COMS=0;
 
         }
         if (rx2_flag)

@@ -69,6 +69,7 @@ void Thruster_Driver(int input, char thruster) {
 
 int Tomcat_Heading() {
     float hdg = 0.0;
+    float temp = 0; //temporary
     readLSM9_mag(mag);
 
     //Software Low Pass Filter
@@ -103,6 +104,7 @@ int Tomcat_Heading() {
 
 int Tomcat_Pitch() {
     float pitch = 0.0;
+    float temp = 0; //temporary
     readLSM9_accel(accel);
 
     //low pass filter
@@ -117,12 +119,13 @@ int Tomcat_Pitch() {
     //setup for x axis controlling pitch
     temp = (float) accel[0] / (float) accel[2];
     pitch = 3 + 180.0 * atan(temp) / M_PI;
-    
+
     return pitch;
 }
 
 int Tomcat_Roll() {
     float roll = 0.0;
+    float temp = 0; //temporary
     readLSM9_accel(accel);
 
     //low pass filter
@@ -141,39 +144,38 @@ int Tomcat_Roll() {
     return roll;
 }
 
-int Tomcat_Depth()
-{
+int Tomcat_Depth() {
     float tempPress;
     int depth;
     tempPress = analogRead(PRESSURE_EXT);
-    tempPress = tempPress-(1024.0/5.0);//subtract reference 1 volt
-    tempPress = tempPress*500.0/820.0;//convert volts to psi
-    depth = (int)(tempPress*14.5/.0);//convert pressure to depth
-    return depth;//returns depth in feet
+    tempPress = tempPress - (1024.0 / 5.0); //subtract reference 1 volt
+    tempPress = tempPress * 500.0 / 820.0; //convert volts to psi
+    depth = (int) (tempPress * 14.5 / .0); //convert pressure to depth
+    return depth; //returns depth in feet
 
 }
 
-int Tomcat_Press_Int()
-{
-    int press=0;
-    press=(analogRead(PRESSURE_INT)-41)/922*101.5;
+int Tomcat_Press_Int() {
+    int press = 0;
+    press = (analogRead(PRESSURE_INT) - 41) / 922 * 101.5;
     return press;
 }
-int Tomcat_Temp()
-{
-    int adresult=0;
+
+int Tomcat_Temp() {
+    int temp = 0;
+    temp = analogRead(TEMP_INT);
+    return temp;
 }
 
 int Tomcat_Temp_Ex() {
-    int adresult = 0;
+
+
 }
 
+void Tomcat_Claw(int grip, int wrist) {
+    int g_dc = 0, w_dc = 0;
+    char g_dir = 0, w_dir = 0;
 
-void Tomcat_Claw(int grip,int wrist)
-{
-    int g_dc=0,w_dc=0;
-    char g_dir=0,w_dir=0;
-      
     if (grip > 127)
         GRIPPER_DIR = 1;
     else
@@ -193,8 +195,8 @@ void Tomcat_Claw(int grip,int wrist)
         WRIST_EN = 0;
     else
         WRIST_EN = 1;
-    
-    
+
+
 }
 
 void Tomcat_TX_data(char tx_buff[], char num_bytes) {
@@ -223,15 +225,19 @@ void Tomcat_TX_error(char code) {
 }
 
 void Tomcat_Camera(int pan, int tilt) {
+    int pan_pos = analogRead(CAM_PAN);
+    int tilt_pos = analogRead(CAM_TILT);
+
+
 
 }
 //analog read function for vehicle
-unsigned int analogRead(char channel)
-{
+
+unsigned int analogRead(char channel) {
     unsigned int num = 0;
     ADCON0bits.CHS = channel; //calling channel
-    ADCON0bits.GO=1;
-    while(ADCON0bits.GO==1); //wait til done processing
+    ADCON0bits.GO = 1;
+    while (ADCON0bits.GO == 1); //wait til done processing
     num = ADRES; //10bit value
-    return(num);
+    return (num);
 }
