@@ -1,8 +1,18 @@
-_OpenUSART: CODE, 1928 0 92
-_tx_chars: CODE, 2020 0 58
-_main: CODE, 1812 0 116
-__initialization: CODE, 2078 0 8
-_isr: CODE, 8 0 1804
-_WriteUSART: CODE, 2096 0 16
+_OpenUSART: CODE, 2838 0 92
+_tx_chars: CODE, 3160 0 58
+_strcspn: CODE, 2930 0 86
+_main: CODE, 1666 0 536
+_strchr: CODE, 2742 0 96
+_atoi: CODE, 2202 0 210
+_get_claw: CODE, 3310 0 42
+_get_wrist: CODE, 3268 0 42
+__initialization: CODE, 3388 0 12
+_isr: CODE, 8 0 2734
+_strtok: CODE, 2412 0 184
+_read_an: CODE, 3218 0 50
+_isdigit: CODE, 3352 0 36
+_WriteUSART: CODE, 3410 0 16
+_strspn: CODE, 3016 0 86
+___wmul: CODE, 3102 0 58
 _char_map: SMALLCONST, 1536 0 128
-Total: 2222
+Total: 4466

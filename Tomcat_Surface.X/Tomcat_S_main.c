@@ -1,4 +1,6 @@
 #include "Tomcat_S_driver.h"
+#include <string.h>
+#include<stdio.h>
 
 //MACROS
 #define PORT 1
@@ -24,7 +26,7 @@ char recv_flag = 0;
 void tx_chars(char tx_buff[],char num_byte);
 unsigned int read_an(char); //love, suzyrhouser
 unsigned int get_claw(void);
-unsigned int get_claw(void);
+unsigned int get_wrist(void);
 
 //interupts
 
@@ -56,7 +58,7 @@ void main(void) {
 
 
     while (1) {
-        //                if (recv_flag) {
+        
         buff[0] = 0xff;
         buff[1] = read_an(PORT); //Port Thruster Speed
         buff[2] = read_an(STBD); //Stbd Thruster Speed
@@ -70,7 +72,27 @@ void main(void) {
 
 
         tx_chars(buff,10);
-
+        if (recv_flag == 1)
+        {
+            char *token;
+            int depth,heading,pitch,roll,ex_temp,int_temp,int_press;
+            token = strtok(recv_buff, ',');
+            depth = atoi(token);
+            token = strtok(recv_buff, ',');
+            heading= atoi(token);
+            token = strtok(recv_buff, ',');
+            pitch= atoi(token);
+            token = strtok(recv_buff, ',');
+            roll= atoi(token);
+            token = strtok(recv_buff, ',');
+            ex_temp= atoi(token);
+            token = strtok(recv_buff, ',');
+            int_temp= atoi(token);
+            token = strtok(recv_buff, ',');
+            int_press= atoi(token);
+            
+            recv_flag = 0;
+        }
         //      }//end if
     }//end while
 }//end main
@@ -114,10 +136,9 @@ unsigned int get_wrist(void)
     int wrist;
     if (WRIST_OPEN == 1)
        wrist = 187;
-    else
-        wrist = 127;
-    if (WRIST_CLOSE ==1)
+    else if (WRIST_CLOSE ==1)
         wrist = 67;
     else
         wrist = 127;
+    return(wrist);
 }
