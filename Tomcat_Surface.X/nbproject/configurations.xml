@@ -17,6 +17,7 @@
       <itemPath>Tomcat_S_config.c</itemPath>
       <itemPath>Tomcat_S_main.c</itemPath>
       <itemPath>OSD.c</itemPath>
+      <itemPath>Tomcat_S_driver.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

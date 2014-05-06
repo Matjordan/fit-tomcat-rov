@@ -1,17 +1,18 @@
 #include "Tomcat_S_driver.h"
 
+//MACROS
 #define PORT 1
 #define STBD 2
 #define VERT 3
 #define LAT 4
-//#define CLAW 5
-//#define WRIST 6
 #define TILT 5
 #define PAN 6
-#define CLAW_OPEN 7
-#define CLAW_CLOSE 8
-#define WRIST_OPEN 9
-#define WRIST_CLOSE 10
+#define LIGHT PORTBbits.RB0
+#define CLAW_OPEN PORTBbits.RB1
+#define CLAW_CLOSE PORTBbits.RB2
+#define WRIST_OPEN PORTBbits.RB3
+#define WRIST_CLOSE PORTBbits.RB4
+
 
 
 //variables
@@ -61,13 +62,14 @@ void main(void) {
         buff[2] = read_an(STBD); //Stbd Thruster Speed
         buff[3] = read_an(VERT); //Vert Thruster Speed
         buff[4] = read_an(LAT); //Lat Thruster Speed
- //       buff[5] = read_an(CLAW); //Claw
- //       buff[6] = read_an(WRIST); //Wrist
-        buff[5] = read_an(TILT); //Tilt
-        buff[6] = read_an(PAN); //Pan
+        buff[5] = get_claw(); //Claw
+        buff[6] = get_wrist(); //Wrist
+        buff[7] = read_an(TILT); //Tilt
+        buff[8] = read_an(PAN); //Pan
+        buff[9] = LIGHT;
 
 
-        tx_chars(buff,9);
+        tx_chars(buff,10);
 
         //      }//end if
     }//end while
@@ -99,12 +101,11 @@ unsigned int get_claw(void)
     int claw;
     if (CLAW_OPEN == 1)
        claw = 187;
-    else
-        claw =127;
-    if (CLAW_CLOSE ==1)
+    else if (CLAW_CLOSE ==1)
         claw = 67;
     else
         claw =127;
+    return(claw);
 
 }
 
