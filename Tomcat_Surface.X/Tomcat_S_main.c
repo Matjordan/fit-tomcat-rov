@@ -24,7 +24,7 @@ char recv_flag = 0;
 
 //functions
 void tx_chars(char tx_buff[],char num_byte);
-unsigned int read_an(char); //love, suzyrhouser
+unsigned int read_an(char);
 unsigned int get_claw(void);
 unsigned int get_wrist(void);
 
@@ -43,11 +43,13 @@ void interrupt isr(void) {
 
 void main(void) {
     char buff[9];
-    
+    int depth,heading,pitch,roll,ex_temp,int_temp,int_press;
+
+           char osd_buff[30];
     //setup
     PIE1 = 0b00110000;
     ADCON1 = 0b00001111;
-
+OSD_init();
     OpenUSART(USART_TX_INT_OFF &
             USART_RX_INT_ON &
             USART_ASYNCH_MODE &
@@ -74,7 +76,7 @@ void main(void) {
         tx_chars(buff,10);
 
 //RECIEVE FROM VEHICLE
-int depth,heading,pitch,roll,ex_temp,int_temp,int_press;   
+   
         if (recv_flag == 1) //if recieve data from vehicle..
         {
             char *token; //pulling information
@@ -97,16 +99,8 @@ int depth,heading,pitch,roll,ex_temp,int_temp,int_press;
         }
 
 //UPDATE OSD
-        
-  //  int leak,overheat;
-        OSD_init();
-
-        while(1)
-        {
-        //OSD_disp(1);
 
         //Temp
-           char osd_buff[30];       
            sprintf(osd_buff, "Temp:%dC;%dC" , int_temp, ex_temp);
            Str_output(1,1,osd_buff,strlen(osd_buff));
 
@@ -172,29 +166,6 @@ int depth,heading,pitch,roll,ex_temp,int_temp,int_press;
                 Str_output(6,15,osd_buff,strlen(osd_buff));
                 sprintf(osd_buff, "l");
                 Str_output(8,15,osd_buff,strlen(osd_buff));
-
-
-
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //      }//end if
     }//end while
 }//end main
 
