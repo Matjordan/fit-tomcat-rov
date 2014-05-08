@@ -61,10 +61,10 @@ void main(void)
     while(1)
     {
       //regularly scheduled stuff
-        if(!(time%10))
+        if(time>10)
         {
             //every 10 time ticks
-            time=0;//reset time
+            time=1;//reset time
             //read environment
             depth=Tomcat_Depth();
             int_press=Tomcat_Press_Int();
@@ -72,15 +72,16 @@ void main(void)
             ex_temp=Tomcat_Temp_Ex();
 
         }
-        if((!time%5))
+        if(((time%5)==0)&&tmr0_flag)
         {
             //every 5 time ticks
             //send to surface
+            Nop();
             sprintf(surf_buff,"%d,%d,%d,%d,%d,%d,%d,%d,%d",
                     depth,heading,pitch,roll,ex_temp,int_temp,int_press,main_current,v_current);
             Tomcat_TX_data(surf_buff,strlen(surf_buff)-1);
         }
-        if((!time%2))
+        if(((time%2)==0)&&tmr0_flag)
         {
             //every 2 time ticks
             //read currents

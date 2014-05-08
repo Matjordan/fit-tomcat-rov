@@ -30,8 +30,8 @@
 
 
 //macros
-#define U1_SPRG     (_XTAL_FREQ/(16*UART1_BAUD))+1
-#define U2_SPRG     (_XTAL_FREQ/(16*UART1_BAUD))+1
+#define U1_SPRG     (unsigned char)(((float)_XTAL_FREQ/(16.0*(float)UART1_BAUD))+1)
+#define U2_SPRG     (unsigned char)(((float)_XTAL_FREQ/(16.0*(float)UART2_BAUD))+1)
 #define I2C1_ADD    (_XTAL_FREQ/(4*I2C1_BAUD))-1
 
 #define TMR0_RESET()  TMR0=0
@@ -74,7 +74,7 @@ bit tmr2_flag=0;
 bit tmr3_flag=0;
 bit rx1_flag=0;
 bit rx2_flag=0;
-char time=0;
+char time=1;
 int accel[3];
 int gyro[3];
 int mag[3];
