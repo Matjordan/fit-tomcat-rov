@@ -125,9 +125,9 @@ void main(void)
             rx2_flag=0;
 
         }
-        if(leak1_flag)
+        if(leak1_flag || )
         {
-
+            while(1);
         }
         if(leak2_flag)
         {
