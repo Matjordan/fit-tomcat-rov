@@ -9,12 +9,12 @@ void Tomcat_Setup() {
     //adcon values for pic18f46k22
     ADCON0 = 0b00000001;
     ADCON1 = 0b00000000;
-    ADCON2 = 0b00100011;
+    ADCON2 = 0b10100011;
 
     //interrupts
-    PIE1 = 0b00100000;
-    INTCON = 0b11110000; //GIE PIEE TMR0 INT0
     
+    INTCON = 0b11110000; //GIE PIEE TMR0 INT0
+    PIE1   = 0b00100001; //rx1 tmr1
     //port setup
     TRISA  = 0b11111111;
     ANSELA = 0b00101111;
@@ -37,7 +37,8 @@ void Tomcat_Setup() {
     PORTE  = 0b00000000;
 
     //timers
-    T0CON  = 0b10000010;
+    T0CON  = 0b10000010; //for periodic functions
+    T1CON  = 0b00010011; //for comms timeout 1:2 prescale
 
     CloseI2C1();
     OpenI2C1(MASTER, SLEW_OFF);
@@ -186,19 +187,18 @@ int Tomcat_Press_Int() {
 }
 
 int Tomcat_Temp() {
+    //TODO set conversion rate
     int temp = 0;
     temp = analogRead(TEMP_INT);
     return temp;
 }
 
 int Tomcat_Temp_Ex() {
-
-
+    //TODO figure out 1 wire
+    return 10;
 }
 
 void Tomcat_Claw(int grip, int wrist) {
-    int g_dc = 0, w_dc = 0;
-    char g_dir = 0, w_dir = 0;
 
     if (grip > 127)
         GRIPPER_DIR = 1;
@@ -261,7 +261,7 @@ void Tomcat_TX_error(char code) {
 void Tomcat_Camera(int pan, int tilt) {
     int pan_pos = analogRead(CAM_PAN);
     int tilt_pos = analogRead(CAM_TILT);
-
+    //TODO add code to set cam pos
 
 
 }
