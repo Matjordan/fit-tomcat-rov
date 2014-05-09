@@ -39,12 +39,6 @@ void interrupt isr(void)
     {
         LEAK1_INT=0;
         leak1_flag=1;
-        Tomcat_TX_warn(LEAK);
-    }
-    if(LEAK2_INT)
-    {
-        LEAK2_INT=0;
-        leak2_flag=1;
         Tomcat_TX_error(LEAK);
     }
     GLOBAL_INT=1;
@@ -60,6 +54,8 @@ void main(void)
     Tomcat_Setup();
     while(1)
     {
+        sprintf(surf_buff,"%d,%d,%d,%d,%d,%d,%d,%d,%d",
+                    depth,heading,pitch,roll,ex_temp,int_temp,int_press,main_current,v_current);
       //regularly scheduled stuff
         if(time>10)
         {
@@ -77,8 +73,7 @@ void main(void)
             //every 5 time ticks
             //send to surface
             Nop();
-            sprintf(surf_buff,"%d,%d,%d,%d,%d,%d,%d,%d,%d",
-                    depth,heading,pitch,roll,ex_temp,int_temp,int_press,main_current,v_current);
+            
             Tomcat_TX_data(surf_buff,strlen(surf_buff)-1);
         }
         if(((time%2)==0)&&tmr0_flag)
@@ -125,13 +120,10 @@ void main(void)
             rx2_flag=0;
 
         }
-        if(leak1_flag || )
+        if(leak1_flag || LEAK_1)
         {
-            while(1);
-        }
-        if(leak2_flag)
-        {
-
+            leak1_flag=0;
+                Tomcat_TX_error(LEAK);
         }
     }
 }
