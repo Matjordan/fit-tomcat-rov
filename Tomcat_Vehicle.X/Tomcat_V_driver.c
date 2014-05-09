@@ -6,15 +6,39 @@
 
 void Tomcat_Setup() {
     //analog config
-    ANSELC = 0;
-    PIE1 = 0b00100000;
     //adcon values for pic18f46k22
     ADCON0 = 0b00000001;
     ADCON1 = 0b00000000;
     ADCON2 = 0b00100011;
-    INTCON = 0b11100000;
-    //Setup RC0 as output and set to low
-    T0CON = 0b10000010;
+
+    //interrupts
+    PIE1 = 0b00100000;
+    INTCON = 0b11110000; //GIE PIEE TMR0 INT0
+    
+    //port setup
+    TRISA  = 0b11111111;
+    ANSELA = 0b00101111;
+    PORTA  = 0b00000000;
+
+    TRISB  = 0b00000110;
+    ANSELB = 0b00000100;
+    PORTB  = 0b00000000;
+
+    TRISC  = 0b10010000;
+    ANSELC = 0b00000000;
+    PORTC  = 0b00000000;
+
+    TRISD  = 0b10110100;
+    ANSELD = 0b00000000;
+    PORTD  = 0b00000000;
+
+    TRISE  = 0b11111000;
+    ANSELE = 0b00000001;
+    PORTE  = 0b00000000;
+
+    //timers
+    T0CON  = 0b10000010;
+
     CloseI2C1();
     OpenI2C1(MASTER, SLEW_OFF);
     SSP1ADD = 49;

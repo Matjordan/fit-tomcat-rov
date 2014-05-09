@@ -91,35 +91,31 @@ long int freg_acc_y = -315;
 long int freg_acc_z = 5375;
 
 //pin defs
-#define THRUSTER1_DIR   LATCbits.LATC0
-#define THRUSTER2_DIR   LATCbits.LATC1
-#define THRUSTER3_DIR   LATCbits.LATC2
-#define THRUSTER4_DIR   LATCbits.LATC3
-#define GRIPPER_DIR     LATCbits.LATC4
-#define GRIPPER_EN      LATCbits.LATC5
-#define WRIST_DIR       LATCbits.LATC6
-#define WRIST_EN        LATCbits.LATC7
+#define THRUSTER1_DIR   LATCbits.LATC1
+#define THRUSTER2_DIR   LATBbits.LATB4
+#define THRUSTER3_DIR   LATBbits.LATB6
+#define THRUSTER4_DIR   LATDbits.LATD0
+#define GRIPPER_DIR     LATEbits.LATE1
+#define GRIPPER_EN      LATEbits.LATE2
+#define WRIST_DIR       LATBbits.LATB7
+#define WRIST_EN        LATCbits.LATC0
 
-#define LEAK_1          PORTBbits.RB0
-#define LEAK_2          PORTBbits.RB1
+#define LEAK_1          PORTBbits.RB1
 
-#define LIGHTS          LATBbits.LATB6
-#define LED_COMS        LATBbits.LB2
-#define LED_2           LATBbits.LB3
-#define LED_3           LATBbits.LB4
-#define LED_4           LATBbits.LB5
+#define LIGHTS          LATDbits.LATD3
+#define LED_COMS        LATBbits.LATB0
+#define EX_TEMP_PIN     PORTABITS.RA4
 
 
 //analog channels
 
-#define PRESSURE_EXT    0
-#define PRESSURE_INT    1
-#define TEMP_EXT        2
-#define TEMP_INT        3
-#define CAM_PAN         4
-#define CAM_TILT        5
-#define V_CURRENT       6
-#define MAIN_CURRENT    7
+#define PRESSURE_EXT    3
+#define PRESSURE_INT    2
+#define TEMP_INT        8
+#define CAM_PAN         5
+#define CAM_TILT        6
+#define V_CURRENT       0
+#define MAIN_CURRENT    1
 
 
 //functions
