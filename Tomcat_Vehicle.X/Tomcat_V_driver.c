@@ -24,7 +24,7 @@ void Tomcat_Setup() {
     ANSELB = 0b00000100;
     PORTB  = 0b00000000;
 
-    TRISC  = 0b10010000;
+    //TRISC  = 0b10010000;
     ANSELC = 0b00000000;
     PORTC  = 0b00000000;
 
@@ -236,15 +236,25 @@ void Tomcat_TX_data(char tx_buff[], char num_bytes) {
 }
 
 void Tomcat_TX_warn(char code) {
+
+    while (Busy1USART());
     Write1USART('$');
+    while (Busy1USART());
     Write1USART('?');
+    while (Busy1USART());
     Write1USART(code);
 }
 
 void Tomcat_TX_error(char code) {
+
+    while (Busy1USART());
     Write1USART('$');
+    while (Busy1USART());
     Write1USART('!');
+    while (Busy1USART());
     Write1USART(code);
+    while (Busy1USART());
+    Write1USART('\n');
 
 }
 
