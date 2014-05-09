@@ -24,9 +24,17 @@
 #define UART2_BAUD      9600
 #define I2C1_BAUD       100000  //100KHz
 #define SENSOR_RATE     10      //TMR0 Rate Hz
-#define SUR_PACK_LEN    20      //
+#define SUR_PACK_LEN    9      //
+
 #define MAIN_FACTOR     5       //current conversion factor
-#define V_FACTOR        10       //current conversion factor
+#define V_FACTOR        1       //current conversion factor
+#define WARN_INT_TEMP   65      //internal temp warning
+#define ALARM_INT_TEMP  75      //internal temp alarm
+#define WARN_INT_PRESS  20      //internal press warn
+#define ALARM_INT_PRESS 20      //internal press alarm
+#define WARN_V_CURRENT  23      //24v current warn
+#define ALARM_V_CURRENT 27      //24v current alarm
+#define COMMS_TIMEOUT   200    //comms timeout in timer1 cycles 200=5 sec
 
 
 //macros
@@ -62,6 +70,7 @@
 #define PRESS   'P'
 #define CURRENT 'C'
 #define COMMS   'N'
+#define TEMP    'T'
 
 
 
@@ -80,6 +89,7 @@ int gyro[3];
 int mag[3];
 char rx1_buff[25];
 char rx1_count=0;
+unsigned int comms_time=0; //time for comms timeout
 
 //low pass filter variable
 #define FILT_K 2
