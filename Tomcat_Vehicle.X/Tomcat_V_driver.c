@@ -175,7 +175,7 @@ int Tomcat_Depth() {
     tempPress = analogRead(PRESSURE_EXT);
     tempPress = tempPress - (1024.0 / 5.0); //subtract reference 1 volt
     tempPress = tempPress * 500.0 / 820.0; //convert volts to psi
-    depth = (int) (tempPress * 14.5 / .0); //convert pressure to depth
+    depth = (int) (tempPress * 2.31); //convert pressure to depth
     return depth; //returns depth in feet
 
 }
@@ -187,10 +187,10 @@ int Tomcat_Press_Int() {
 }
 
 int Tomcat_Temp() {
-    //TODO set conversion rate
-    int temp = 0;
+    float temp = 0;
     temp = analogRead(TEMP_INT);
-    return temp;
+    temp = (temp/1024.0)*500.0;//convert from V to degrees C, assumed linear, 10mV per degree
+    return (int)temp;
 }
 
 int Tomcat_Temp_Ex() {
