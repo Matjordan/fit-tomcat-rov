@@ -114,7 +114,7 @@ long int freg_acc_z = 5375;
 
 #define LIGHTS          LATDbits.LATD3
 #define LED_COMS        LATBbits.LATB0
-#define EX_TEMP_PIN     PORTABITS.RA4
+//#define EX_TEMP_PIN     PORTABITS.RA4
 
 
 //analog channels
@@ -122,6 +122,7 @@ long int freg_acc_z = 5375;
 #define PRESSURE_EXT    3
 #define PRESSURE_INT    2
 #define TEMP_INT        8
+#define TEMP_EXT        12
 #define CAM_PAN         5
 #define CAM_TILT        6
 #define V_CURRENT       0

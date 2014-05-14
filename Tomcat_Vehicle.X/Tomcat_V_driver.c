@@ -187,15 +187,21 @@ int Tomcat_Press_Int() {
 }
 
 int Tomcat_Temp() {
-    float temp = 0;
+    float temp = 0.0;
     temp = analogRead(TEMP_INT);
-    temp = (temp/1024.0)*500.0;//convert from V to degrees C, assumed linear, 10mV per degree
+    temp = (temp / 1024.0) * 500.0;//convert from V to degrees C, assumed linear, 10mV per degree
     return (int)temp;
 }
 
 int Tomcat_Temp_Ex() {
-    //TODO figure out 1 wire
-    return 10;
+    //TODO bench test for calibration
+    //(10% tolerance on sensor)
+    float temp = 0.0;
+    temp = analogRead(TEMP_EXT);
+    temp = (temp / 1024.0) * 5.0; //find voltage at divider
+    temp = (10000 * 5.0 / temp) - 10000;//calculate resistance
+    temp = 229.23 - 22.009493 * log(temp);//convert resistance to temperature using non-linear transfer function
+    return temp;
 }
 
 void Tomcat_Claw(int grip, int wrist) {
