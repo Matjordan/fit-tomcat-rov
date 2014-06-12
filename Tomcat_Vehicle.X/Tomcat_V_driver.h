@@ -113,7 +113,7 @@ long int freg_acc_z = 5375;
 #define LEAK_1          PORTBbits.RB1
 
 #define LIGHTS          LATDbits.LATD3
-#define LED_COMS        LATBbits.LATB0
+#define LED_COMS        LATAbits.LATA4
 //#define EX_TEMP_PIN     PORTABITS.RA4
 
 

@@ -101,7 +101,7 @@ void main(void) {
         if (comms_time>COMMS_TIMEOUT || comms_timed_out)
         {
             comms_timed_out=1;
-            LED_COMS=0;
+            LED_COMS=1; //change to 0
             Tomcat_TX_error(COMMS);
         }
         if (rx1_flag) {
