@@ -16,7 +16,7 @@ void Tomcat_Setup() {
     INTCON = 0b11110000; //GIE PIEE TMR0 INT0
     PIE1   = 0b00100001; //rx1 tmr1
     //port setup
-    TRISA  = 0b11111111;
+    TRISA  = 0b11101111;
     ANSELA = 0b00101111;
     PORTA  = 0b00000000;
 
