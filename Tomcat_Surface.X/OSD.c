@@ -17,6 +17,7 @@ void OSD_write(char _row, char _col, unsigned char _font)
     WriteSPI(_font);
     INTON;
 }
+
 void OSD_write_blink(char _row, char _col, unsigned char _font)
 {
     unsigned int pos=30*(_row-1)+(_col-1);

@@ -14,6 +14,7 @@
 #include <plib/usart.h>
 #include <plib/i2c.h>
 #include <xc.h>
+#include "OSD.h"
 
 //config macros
 #define _XTAL_FREQ  20000000 //20MHz
