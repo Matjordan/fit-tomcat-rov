@@ -29,8 +29,8 @@ const char char_map[128] ={0, 0, 0, 0, 0, 0, 0, 0,
     0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x3A, 0x3B,
     0x3C, 0x3D, 0x3E, 0, 0, 0, 0, 0};
 
-void OSD_write (char _row,char _col,char _font);
-void OSD_write_blink (char _row,char _col,char _font);
+void OSD_write (char _row,char _col,unsigned char _font);
+void OSD_write_blink (char _row,char _col,unsigned char _font);
 void OSD_init();
 void OSD_disp(char _on);
 void OSD_clear(void);
