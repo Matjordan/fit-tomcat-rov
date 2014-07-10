@@ -27,5 +27,5 @@ ___wmul: CODE, 5212 0 58
 _WriteSPI: CODE, 5522 0 22
 _ReadSPI: CODE, 5544 0 18
 _char_map: SMALLCONST, 1536 0 128
-_OSD_init: CODE, 2992 0 398
-Total: 8144
+_OSD_init: CODE, 3444 0 398
+Total: 9028

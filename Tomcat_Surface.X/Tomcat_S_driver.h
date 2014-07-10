@@ -47,21 +47,26 @@
 
 //pins out
 #define LED_COMMS   LATBbits.LATB0
+#define ERROR       LATDbits.LATD5
+#define SHUTOFF     LATEbits.LATE2
 
 //pin in
-#define LIGHTS      PORTCbits.RC0
-#define GRIP_OPEN   PORTCbits.RC1
-#define GRIP_CLOSE  PORTCbits.RC2
-#define WRIST_CW    PORTCbits.RC3
-#define WRIST_CCW   PORTCbits.RC4
+#define LIGHTS      PORTCbits.RC6
+#define GRIP_OPEN   PORTCbits.RC3
+#define GRIP_CLOSE  PORTDbits.RD0
+#define WRIST_CW    PORTCbits.RC2
+#define WRIST_CCW   PORTAbits.RA4
 #define HOVER       PORTCbits.RC5
 #define POWER       PORTCbits.RC6
-
+#define PAN_RIGHT   PORTCbits.RC0
+#define PAN_LEFT    PORTCbits.RC1
+#define TILT_UP     PORTDbits.RD2
+#define TILT_DOWN   PORTDbits.RD1
 //analog channels
-#define THROTTLE    0
-#define RUDDER      1
+#define THROTTLE    1
+#define RUDDER      3
 #define LATERAL     2
-#define VERTICAL    3
+#define VERTICAL    0
 #define CAM_PITCH   4
 #define CAM_YAM     5
 
