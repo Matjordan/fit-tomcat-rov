@@ -16,18 +16,18 @@
 
 // CONFIG2L
 #pragma config PWRTEN = OFF     // Power-up Timer Enable bit (Power up timer disabled)
-#pragma config BOREN = OFF      // Brown-out Reset Enable bits (Brown-out Reset disabled in hardware and software)
-#pragma config BORV = 190       // Brown Out Reset Voltage bits (VBOR set to 1.90 V nominal)
+#pragma config BOREN = SBORDIS      // Brown-out Reset Enable bits (Brown-out Reset disabled in hardware and software)
+#pragma config BORV = 285       // Brown Out Reset Voltage bits (VBOR set to 1.90 V nominal)
 
 // CONFIG2H
-#pragma config WDTEN = OFF      // Watchdog Timer Enable bits (Watch dog timer is always disabled. SWDTEN has no effect.)
+#pragma config WDTEN = ON      // Watchdog Timer Enable bits (Watch dog timer is always disabled. SWDTEN has no effect.)
 #pragma config WDTPS = 32768    // Watchdog Timer Postscale Select bits (1:32768)
 
 // CONFIG3H
 #pragma config CCP2MX = PORTC1  // CCP2 MUX bit (CCP2 input/output is multiplexed with RC1)
 #pragma config PBADEN = ON      // PORTB A/D Enable bit (PORTB<5:0> pins are configured as analog input channels on Reset)
 #pragma config CCP3MX = PORTB5  // P3A/CCP3 Mux bit (P3A/CCP3 input/output is multiplexed with RB5)
-#pragma config HFOFST = ON      // HFINTOSC Fast Start-up (HFINTOSC output and ready status are not delayed by the oscillator stable status)
+#pragma config HFOFST = OFF      // HFINTOSC Fast Start-up (HFINTOSC output and ready status are not delayed by the oscillator stable status)
 #pragma config T3CMX = PORTC0   // Timer3 Clock input mux bit (T3CKI is on RC0)
 #pragma config P2BMX = PORTD2   // ECCP2 B output mux bit (P2B is on RD2)
 #pragma config MCLRE = EXTMCLR  // MCLR Pin Enable bit (MCLR pin enabled, RE3 input pin disabled)

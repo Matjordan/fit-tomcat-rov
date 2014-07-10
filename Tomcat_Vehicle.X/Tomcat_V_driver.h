@@ -32,9 +32,9 @@
 #define ALARM_INT_TEMP  75      //internal temp alarm
 #define WARN_INT_PRESS  20      //internal press warn
 #define ALARM_INT_PRESS 20      //internal press alarm
-#define WARN_V_CURRENT  23      //24v current warn
-#define ALARM_V_CURRENT 27      //24v current alarm
-#define COMMS_TIMEOUT   200    //comms timeout in timer1 cycles 200=5 sec
+#define WARN_V_CURRENT  2003      //24v current warn
+#define ALARM_V_CURRENT 2000      //24v current alarm
+#define COMMS_TIMEOUT   20    //comms timeout in timer1 cycles 200=5 sec
 
 
 //macros
@@ -83,11 +83,12 @@ bit tmr2_flag=0;
 bit tmr3_flag=0;
 bit rx1_flag=0;
 bit rx2_flag=0;
+char rx1_255_flag=0;
 char time=1;
 int accel[3];
 int gyro[3];
 int mag[3];
-char rx1_buff[25];
+unsigned char rx1_buff[40];
 char rx1_count=0;
 unsigned int comms_time=0; //time for comms timeout
 
@@ -101,7 +102,7 @@ long int freg_acc_y = -315;
 long int freg_acc_z = 5375;
 
 //pin defs
-#define THRUSTER1_DIR   LATCbits.LATC1
+#define THRUSTER1_DIR   LATBbits.LATB3
 #define THRUSTER2_DIR   LATBbits.LATB4
 #define THRUSTER3_DIR   LATBbits.LATB6
 #define THRUSTER4_DIR   LATDbits.LATD0
