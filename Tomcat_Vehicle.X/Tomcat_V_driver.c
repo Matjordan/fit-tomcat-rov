@@ -10,7 +10,7 @@ void Tomcat_Setup() {
     ADCON0 = 0b00000001;
     ADCON1 = 0b00000000;
     ADCON2 = 0b10100011;
-
+    
     //interrupts
     
     INTCON = 0b11110000; //GIE PIEE TMR0 INT0
@@ -20,11 +20,12 @@ void Tomcat_Setup() {
     ANSELA = 0b00101111;
     PORTA  = 0b00000000;
 
+        CLRWDT();
     TRISB  = 0b00000110;
     ANSELB = 0b00000100;
     PORTB  = 0b00000000;
 
-    //TRISC  = 0b10010000;
+    TRISC  = 0b10010000;
     ANSELC = 0b00000000;
     PORTC  = 0b00000000;
 
@@ -33,12 +34,34 @@ void Tomcat_Setup() {
     PORTD  = 0b00000000;
 
     TRISE  = 0b11111000;
-    ANSELE = 0b00000001;
+    ANSELE = 0b00000000;
     PORTE  = 0b00000000;
 
     //timers
     T0CON  = 0b10000010; //for periodic functions
     T1CON  = 0b00010011; //for comms timeout 1:2 prescale
+
+    T2CON  = 0b00000110;
+    T4CON  = 0b00000110;
+
+    //open PWM
+    CCP1CON = 0b00001100;
+    CCP2CON = 0b00001100;
+    CCP3CON = 0b00001100;
+    CCP4CON = 0b00001111;
+    
+    ECCP1AS = 0;
+    ECCP2AS = 0;
+    ECCP3AS = 0;
+    //4 is not enanched
+    
+    PSTR1CON = 0b00000001;
+    PSTR2CON = 0b00000001;
+    PSTR3CON = 0b00000001;
+        CLRWDT();
+
+    CCPTMRS0 = 0b00000001;
+    CCPTMRS1 = 0b00001001;
 
     CloseI2C1();
     OpenI2C1(MASTER, SLEW_OFF);
@@ -49,46 +72,58 @@ void Tomcat_Setup() {
             USART_EIGHT_BIT &
             USART_CONT_RX &
             USART_BRGH_HIGH, U1_SPRG);
-    Open2USART(USART_TX_INT_OFF &
-            USART_RX_INT_ON &
-            USART_ASYNCH_MODE &
-            USART_EIGHT_BIT &
-            USART_CONT_RX &
-            USART_BRGH_HIGH, U2_SPRG);
+        CLRWDT();
+//    Open2USART(USART_TX_INT_OFF &
+//            USART_RX_INT_ON &
+//            USART_ASYNCH_MODE &
+//            USART_EIGHT_BIT &
+//            USART_CONT_RX &
+//            USART_BRGH_HIGH, U2_SPRG);
 
-    openLSM9(0x1D, 0x6B);
-    OpenEPWM1(255, ECCP_1_SEL_TMR34);
-    OpenEPWM2(255, ECCP_2_SEL_TMR34);
-    OpenEPWM3(255, ECCP_3_SEL_TMR34);
-    OpenPWM4(255, CCP_4_SEL_TMR34);
+    //openLSM9(0x1D, 0x6B);
+    //OpenEPWM1(255, ECCP_1_SEL_TMR34);
+    //OpenEPWM2(255, ECCP_2_SEL_TMR34);
+    //OpenEPWM3(255, ECCP_3_SEL_TMR34);
+    //OpenPWM4(255, CCP_4_SEL_TMR34);
 
 }
 
 void Thruster_Driver(int input, char thruster) {
     char dir = 0;
     int dc = 0;
-    if (input == 127)
-        dc = 0;
-    if (input > 127)
+    if (input > 134)
+    {
         dir = 1;
-    dc = 1024 * ((input - 127) / 126);
-    if (input < 127)
+        dc = 256 * ((input - 127) / 126.0);
+    }
+    else if (input < 120)
+    {
         dir = 0;
-    dc = 1024 * ((126 - input) / 126);
+        dc = 256 * ((126 - input) / 126.0);
+    }
+    else
+    {
+        dc=0;
+    }
 
     switch (thruster) {
         case 1:
             THRUSTER1_DIR = dir;
             SetDCEPWM1(dc);
+            //LATCbits.LATC2=1;
+            break;
         case 2:
             THRUSTER2_DIR = dir;
             SetDCEPWM2(dc);
+            break;
         case 3:
             THRUSTER3_DIR = dir;
             SetDCEPWM3(dc);
+            break;
         case 4:
             THRUSTER4_DIR = dir;
             SetDCPWM4(dc);
+            break;
     }
 }
 
