@@ -71,12 +71,12 @@ void main(void) {
     while (1) {
         //READ ANALOG CHANNELS
 
-        temp1 = read_an(THROTTLE); //Port Thruster Speed
-        temp2 = read_an(RUDDER); //Stbd Thruster Speed
-        output[1] = temp1+temp2;
-        output[2] = temp1-temp2;
-        output[3] = read_an(VERTICAL); //Vert Thruster Speed
-        output[4] = read_an(LATERAL); //Lat Thruster Speed
+        temp1 = read_an(THROTTLE)-133; //Port Thruster Speed
+        temp2 = read_an(RUDDER)-89; //Stbd Thruster Speed
+        output[1] = temp1+temp2+127;
+        output[2] = temp1-temp2+127;
+        output[3] = read_an(VERTICAL)-20; //Vert Thruster Speed
+        output[4] = read_an(LATERAL)+10; //Lat Thruster Speed
         output[5] = get_claw(); //Claw
         output[6] = get_wrist(); //Wrist
         output[7] = read_an(TILT); //Tilt
