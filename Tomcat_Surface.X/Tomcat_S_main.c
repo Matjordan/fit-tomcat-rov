@@ -8,7 +8,6 @@
 
 #define TILT 5
 #define PAN 6
-#define LIGHT PORTBbits.RB0
 #define PACK_LEN 9
 
 //TODO change tx to human readable
@@ -51,9 +50,10 @@ void main(void) {
     TRISB = 0b00111000;
     TRISC = 0b10100111;
     TRISD = 0b00011111;
-    TRISE = 0b11111011;
+    TRISE = 0b00000011;
     SHUTOFF = 1;
     //setup
+    INTCON2bits.RBPU=1;
     PIE1 = 0b00110000;
     ADCON1 = 0b00001010;
     ADCON2 = 0b00010111;
@@ -81,7 +81,7 @@ void main(void) {
         output[6] = get_wrist(); //Wrist
         output[7] = read_an(TILT); //Tilt
         output[8] = read_an(PAN); //Pan
-        output[9] = LIGHT;
+         output[9] = LIGHTS;
 
 
 
@@ -145,7 +145,7 @@ void main(void) {
 
 
         //Lights
-        if (LIGHT == 1) {
+        if (LIGHTS == 1) {
             OSD_write(12, 1, 0xF5);
             OSD_write(12, 2, 0xF6);
         }
