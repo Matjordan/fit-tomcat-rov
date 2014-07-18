@@ -51,8 +51,8 @@
 #define SHUTOFF     LATEbits.LATE2
 
 //pin in
-#define LIGHTS      PORTCbits.RC6
-#define GRIP_OPEN   PORTCbits.RC3
+#define LIGHTS      PORTBbits.RB3
+#define GRIP_OPEN   PORTBbits.RB4
 #define GRIP_CLOSE  PORTDbits.RD0
 #define WRIST_CW    PORTCbits.RC2
 #define WRIST_CCW   PORTAbits.RA4
