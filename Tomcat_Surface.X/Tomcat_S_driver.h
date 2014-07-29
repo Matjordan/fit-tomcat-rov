@@ -53,9 +53,9 @@
 //pin in
 #define LIGHTS      PORTBbits.RB3
 #define GRIP_OPEN   PORTBbits.RB4
-#define GRIP_CLOSE  PORTDbits.RD0
+#define GRIP_CLOSE  PORTAbits.RA4
 #define WRIST_CW    PORTCbits.RC2
-#define WRIST_CCW   PORTAbits.RA4
+#define WRIST_CCW   PORTDbits.RD0
 #define HOVER       PORTCbits.RC5
 #define POWER       PORTCbits.RC6
 #define PAN_RIGHT   PORTCbits.RC0
