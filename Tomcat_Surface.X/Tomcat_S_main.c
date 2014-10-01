@@ -196,7 +196,7 @@ void tx_chars(char tx_buff[], char num_bytes) {
     }
 
 }
-
+//TODO change to int with ADRES not ADRESH need to find center values
 unsigned char read_an(char channel) {
     unsigned char num = 0;
     _delay(1000);
